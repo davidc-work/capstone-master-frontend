@@ -1,0 +1,44 @@
+<div class="scroll">
+    <p class="page-title">{{fund.name}}</p>
+    <div class="container">
+        <p>ID: {{fund.id}}</p>
+        <div class="line">
+            <p>Name:</p><p>{{fund.name}}</p>
+        </div>
+        <div class="line">
+            <p>Ticker:</p><p>{{fund.ticker}}</p>
+        </div>
+        <div class="line">
+            <p>Asset Class:</p><p>{{fund.assetClass}}</p>
+        </div>
+        <div class="line">
+            <p>Expense Ratio:</p><p>{{fund.expenseRatio}}</p>
+        </div>
+        <div class="line">
+            <p>Price:</p><p>{{fund.price}}</p>
+        </div>
+        <div class="line">
+            <p>Price Change:</p><p>{{fund.priceChange}}</p>
+        </div>
+        <div class="line">
+            <p>YTD:</p><p>{{fund.ytd}}</p>
+        </div>
+        <div class="line">
+            <p>One Year:</p><p>{{fund.oneyr}}</p>
+        </div>
+        <div class="line">
+            <p>Five Year:</p><p>{{fund.fiveyr}}</p>
+        </div>
+        <div class="line">
+            <p>Ten Year:</p><p>{{fund.tenyr}}</p>
+        </div>
+        <div class="line">
+            <p>Since Inception:</p><p>{{fund.sinceInception}}</p>
+        </div>
+        <div class="buttons">
+            <button class="button-boxy-1 blue" (click)="edit()">Edit</button>
+            <button class="button-boxy-1 grey" (click)="back()">Back</button>
+            <button class="button-boxy-1 red" (click)="delete()">Delete</button>
+        </div>
+    </div>
+</div>

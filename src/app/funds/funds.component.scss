@@ -1,0 +1,65 @@
+.page-title {
+    text-align: center;
+    font-size: 42px;
+    font-family: 'roadrunners';
+    color: #bf0000;
+}
+
+table {
+    border-collapse: collapse;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    padding-right: 50px;
+}
+
+th {
+    padding: 10px;
+    padding-right: 50px;
+    cursor: text;
+}
+
+tr {
+    border-bottom: 1px solid #d1d1d1;
+    position: relative;
+    cursor: pointer;
+}
+
+td:nth-child(2) {
+    text-align: left;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#add-fund {
+    position: absolute;
+    right: 118px;
+    top: 12px;
+}
+
+.x {
+    position: relative;
+    top: 3px;
+    left: 20px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+tr:hover .x {
+    opacity: 1;
+}
+
+.scroll {
+    opacity: 0;
+    animation: 0.25s in-from-left;
+    animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+}

@@ -1,0 +1,22 @@
+<div class="scroll">
+    <p class="page-title">Mutual Funds</p>
+    <button (click)="addFund()" id="add-fund" class="button-round-1 blue">+ Add Fund</button>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Ticker</th>
+            <th>Asset Class</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let fund of funds" (click)="viewFund(fund.id)">
+            <td>{{fund.id}}</td>
+            <td><a>{{fund.name}}</a></td>
+            <td>{{fund.ticker}}</td>
+            <td>{{fund.assetClass}}</td>
+            <td>{{fund.price}}</td>
+            <td class="x-cell"><img (click)="deleteFund(fund.id); $event.stopPropagation();" class="x" src="../../assets/img/x.png"/></td>
+        </tr>
+    </table>
+</div>
