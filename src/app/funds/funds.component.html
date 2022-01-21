@@ -10,17 +10,18 @@
             <p class="mutual-funds-cell">Price</p>
             <p class="mutual-funds-cell"></p>
         </div>
-        <div *ngFor="let fund of funds" class="mutual-funds-row" (click)="viewFund(fund.id);">
+        <div *ngFor="let fund of funds" class="mutual-funds-row" (click)="toggleAccordion(fund.id);">
             <p class="mutual-funds-cell">{{fund.id}}</p>
             <p class="mutual-funds-cell">{{fund.name}}</p>
             <p class="mutual-funds-cell">{{fund.ticker}}</p>
             <p class="mutual-funds-cell">{{fund.assetClass}}</p>
             <p class="mutual-funds-cell">{{fund.price}}</p>
             <!--<td class="x-cell"><img (click)="deleteFund(fund.id); $event.stopPropagation();" class="x" src="../../assets/img/x.png"/></td>-->
-            <img class="mutual-funds-cell" src = "../../assets/img/down-arrow.png" (click)="toggleAccordion(fund.id); $event.stopPropagation();">
+            <img class="mutual-funds-cell" src = "../../assets/img/down-arrow.png">
             <div class="mutual-funds-details">
                 <p>Testing</p>
                 <p>Details</p>
+                <button (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>
             </div>
         </div>
     </div>

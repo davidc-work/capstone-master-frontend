@@ -99,3 +99,15 @@
 .mutual-funds-details {
     display: none;
 }
+
+.mutual-funds-row button {
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    padding: 8px;
+
+    &:hover {
+        background-color: rgb(240, 240, 240);
+    }
+}

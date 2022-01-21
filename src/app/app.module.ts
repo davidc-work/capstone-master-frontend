@@ -10,6 +10,7 @@ import { EditFundComponent } from './edit-fund/edit-fund.component';
 import { AddFundComponent } from './add-fund/add-fund.component';
 import { FundStocksComponent } from './fund-stocks/fund-stocks.component';
 import { StocksComponent } from './stocks/stocks.component';
+import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StocksComponent } from './stocks/stocks.component';
     EditFundComponent,
     AddFundComponent,
     FundStocksComponent,
-    StocksComponent
+    StocksComponent,
+    UserPortfolioComponent
   ],
   imports: [
     BrowserModule,
