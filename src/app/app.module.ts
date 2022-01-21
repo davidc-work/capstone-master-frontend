@@ -12,6 +12,7 @@ import { FundStocksComponent } from './fund-stocks/fund-stocks.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
 import { StockComponent } from './stock/stock.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StockComponent } from './stock/stock.component';
     FundStocksComponent,
     StocksComponent,
     UserPortfolioComponent,
-    StockComponent
+    StockComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
