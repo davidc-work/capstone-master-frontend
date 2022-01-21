@@ -7,9 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FundService {
 
-  constructor(private http:HttpClient) { }
-
- 
+  constructor(private http:HttpClient) { } 
 
   getFunds(): Observable<any> {
     return this.http.get("https://immense-brushlands-56087.herokuapp.com/funds");

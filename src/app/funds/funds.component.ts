@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './funds.component.html',
   styleUrls: ['./funds.component.scss']
 })
+
 export class FundsComponent implements OnInit {
 
   constructor(private fundService: FundService, private router: Router) { }

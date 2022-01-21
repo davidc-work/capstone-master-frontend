@@ -1,1 +1,40 @@
-<p>stocks works!</p>
+<div class="scroll">
+    <p class="page-title">Stocks</p>
+    <div id="table-stocks">
+        <div class="stocks-row header">
+            <div class="row">
+                <p class="stocks-cell">ID</p>
+                <p class="stocks-cell">Name</p>
+                <p class="stocks-cell">Ticker</p>
+                <p class="stocks-cell">Change %</p>
+                <p class="stocks-cell">Market Cap</p>
+                <p class="stocks-cell"></p>
+            </div>
+        </div>
+        <div *ngFor="let stock of stocks" class="stocks-row">
+            <div class="row" (click)="toggleAccordion(stock.id);">
+                <p class="stocks-cell">{{stock.id}}</p>
+                <p class="stocks-cell">{{stock.name}}</p>
+                <p class="stocks-cell">{{stock.symbol}}</p>
+                <p class="stocks-cell">{{stock.changePercent}}</p>
+                <p class="stocks-cell">{{stock.marketCap}}</p>
+                <img class="stocks-cell" src = "../../assets/img/down-arrow.png">
+            </div>
+            <div class="stocks-details">
+                <div class="details-scroll">
+                    <p>Testing</p>
+                    <p>Details</p>
+                    <p>Testing</p>
+                    <p>Details</p>
+                    <p>Testing</p>
+                    <p>Details</p>
+                    <p>Testing</p>
+                    <p>Details</p>
+                    <p>Testing</p>
+                    <p>Details</p>
+                </div>
+                <button class="button-boxy-1 blue" (click)="viewstock(stock.id); $event.stopPropagation();">Details</button>
+            </div>
+        </div>
+    </div>
+</div>
