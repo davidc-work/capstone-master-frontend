@@ -5,56 +5,75 @@
     color: #bf0000;
 }
 
-table {
-    border-collapse: collapse;
+#table-mutual-funds {
+    width: fit-content;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    white-space: nowrap;
 }
 
-td {
-    padding: 10px;
-    text-align: center;
-    padding-right: 50px;
-}
-
-th {
-    padding: 10px;
-    padding-right: 50px;
-    cursor: text;
-}
-
-tr {
+.mutual-funds-row {
+    padding: 5px;
     border-bottom: 1px solid #d1d1d1;
     position: relative;
     cursor: pointer;
+    
+    &:hover {
+        background-color: rgb(248, 248, 248);
+    }
 }
 
-td:nth-child(2) {
+.mutual-funds-row.header {
+    cursor: text;
+    background-color: transparent;
+}
+
+.mutual-funds-cell {
+    padding: 10px;
+    text-align: center;
+    padding-right: 50px;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+// explicity define table cell widths
+.mutual-funds-cell:first-child {
+    width: 25px;
+    max-width: 25px;
+}
+
+.mutual-funds-row.header > .mutual-funds-cell {
+    text-align: center !important;
+}
+
+.mutual-funds-cell:nth-child(2) {
+    width: 400px;
+    max-width: 400px;
     text-align: left;
 }
 
-a {
-    color: black;
-    text-decoration: none;
+.mutual-funds-cell:nth-child(3) {
+    width: 30px;
+    max-width: 30px;
 }
 
-#add-fund {
-    position: absolute;
-    right: 118px;
-    top: 12px;
+.mutual-funds-cell:nth-child(4) {
+    width: 250px;
+    max-width: 250px;
 }
 
-.x {
-    position: relative;
-    top: 3px;
-    left: 20px;
-    opacity: 0;
-    cursor: pointer;
+.mutual-funds-cell:nth-last-child(2) {
+    width: 100px;
+    max-width: 100px;
+    padding-right: 10px;
 }
 
-tr:hover .x {
-    opacity: 1;
+.mutual-funds-cell:last-child {
+    width: 50px;
+    max-width: 50px;
+    padding-right: 30px;
 }
 
 .scroll {
@@ -62,4 +81,21 @@ tr:hover .x {
     animation: 0.25s in-from-left;
     animation-delay: 0.25s;
     animation-fill-mode: forwards;
+}
+
+.mutual-funds-row img {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    vertical-align: middle;
+    transition: 0.25s;
+}
+
+.fund-details {
+    padding-left: 50px;
+}
+
+.mutual-funds-details {
+    display: none;
 }

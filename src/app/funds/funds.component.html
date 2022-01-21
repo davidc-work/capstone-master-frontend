@@ -1,22 +1,27 @@
 <div class="scroll">
     <p class="page-title">Mutual Funds</p>
-    <button (click)="addFund()" id="add-fund" class="button-round-1 blue">+ Add Fund</button>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Ticker</th>
-            <th>Asset Class</th>
-            <th>Price</th>
-            <th></th>
-        </tr>
-        <tr *ngFor="let fund of funds" (click)="viewFund(fund.id)">
-            <td>{{fund.id}}</td>
-            <td><a>{{fund.name}}</a></td>
-            <td>{{fund.ticker}}</td>
-            <td>{{fund.assetClass}}</td>
-            <td>{{fund.price}}</td>
-            <td class="x-cell"><img (click)="deleteFund(fund.id); $event.stopPropagation();" class="x" src="../../assets/img/x.png"/></td>
-        </tr>
-    </table>
+    <!--<button (click)="addFund()" id="add-fund" class="button-round-1 blue">+ Add Fund</button>-->
+    <div id="table-mutual-funds">
+        <div class="mutual-funds-row header">
+            <p class="mutual-funds-cell">ID</p>
+            <p class="mutual-funds-cell">Name</p>
+            <p class="mutual-funds-cell">Ticker</p>
+            <p class="mutual-funds-cell">Asset Class</p>
+            <p class="mutual-funds-cell">Price</p>
+            <p class="mutual-funds-cell"></p>
+        </div>
+        <div *ngFor="let fund of funds" class="mutual-funds-row" (click)="viewFund(fund.id);">
+            <p class="mutual-funds-cell">{{fund.id}}</p>
+            <p class="mutual-funds-cell">{{fund.name}}</p>
+            <p class="mutual-funds-cell">{{fund.ticker}}</p>
+            <p class="mutual-funds-cell">{{fund.assetClass}}</p>
+            <p class="mutual-funds-cell">{{fund.price}}</p>
+            <!--<td class="x-cell"><img (click)="deleteFund(fund.id); $event.stopPropagation();" class="x" src="../../assets/img/x.png"/></td>-->
+            <img class="mutual-funds-cell" src = "../../assets/img/down-arrow.png" (click)="toggleAccordion(fund.id); $event.stopPropagation();">
+            <div class="mutual-funds-details">
+                <p>Testing</p>
+                <p>Details</p>
+            </div>
+        </div>
+    </div>
 </div>

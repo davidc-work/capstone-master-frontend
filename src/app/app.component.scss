@@ -62,6 +62,10 @@ header a {
   }
 }
 
+header a:last-child {
+  background-color: transparent;
+}
+
 .titlebar-overlay > * {
   display: inline-block;
 }
@@ -76,4 +80,21 @@ header a {
 
 .main {
   min-height: 100vw;
+}
+
+#profile-button {
+  width: 50px;
+  cursor: pointer;
+}
+
+#profile-button > img {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.mutual-funds-details {
+  
 }

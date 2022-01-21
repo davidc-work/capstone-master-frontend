@@ -53,4 +53,8 @@ export class FundComponent implements OnInit {
       this.back();
     });
   }
+
+  viewStocks() {
+    this.router.navigateByUrl(this.router.url + '/stocks');
+  }
 }
