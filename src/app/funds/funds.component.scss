@@ -18,7 +18,7 @@
 }
 
 .mutual-funds-row .row {
-    padding: 5px;
+    padding: 10px;
     border-bottom: 1px solid #d1d1d1;
     position: relative;
     cursor: pointer;
@@ -82,14 +82,17 @@
 }
 
 .mutual-funds-row img {
-    cursor: pointer;
     width: 25px;
     height: 25px;
-    padding: 10px;
-    padding-left: 50px;
+    padding: 0;
+    margin-left: 50px;
     transform: rotate(0);
     vertical-align: middle;
-    transition: 0.25s;
+    transition: 0.5s;
+}
+
+.mutual-funds-row img.flipped {
+    transform: rotate(180deg);
 }
 
 .mutual-funds-details {

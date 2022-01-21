@@ -51,11 +51,19 @@ export class FundsComponent implements OnInit {
   }
 
   toggleAccordion(n: any) {
-    const elements = <HTMLCollection>(document.getElementsByClassName('mutual-funds-row'));
-    const rowElement: HTMLElement = <HTMLElement>(Array.from(elements)[n]);
-    const detailsElement: HTMLElement = <HTMLElement>Array.from(rowElement.children).slice(-1)[0];
-    //const style = getComputedStyle(detailsElement);
-    //detailsElement.style.display = style.display == 'none' ? 'block' : 'none';
-    detailsElement.className = detailsElement.className == 'mutual-funds-details' ? 'mutual-funds-details showing' : 'mutual-funds-details';
+    const rowElements = document.getElementsByClassName('mutual-funds-row');
+    const rowElement = Array.from(rowElements)[n];
+    const innerRowElement = rowElement.children[0];
+
+    const arrowElement = Array.from(innerRowElement.children).slice(-1)[0];
+    const detailsElement = Array.from(rowElement.children).slice(-1)[0];
+
+    if (detailsElement.className.split(' ').includes('showing')) {
+      detailsElement.className = 'mutual-funds-details';
+      arrowElement.className = 'mutual-funds-cell';
+    } else {
+      detailsElement.className += ' showing';
+      arrowElement.className += ' flipped';
+    }
   }
 }

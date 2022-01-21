@@ -32,9 +32,19 @@ export class StocksComponent implements OnInit {
   }
 
   toggleAccordion(n: any) {
-    const elements = <HTMLCollection>(document.getElementsByClassName('stocks-row'));
-    const rowElement: HTMLElement = <HTMLElement>(Array.from(elements)[n]);
-    const detailsElement: HTMLElement = <HTMLElement>Array.from(rowElement.children).slice(-1)[0];
-    detailsElement.className = detailsElement.className == 'stocks-details' ? 'stocks-details showing' : 'stocks-details';
+    const rowElements = document.getElementsByClassName('stocks-row');
+    const rowElement = Array.from(rowElements)[n];
+    const innerRowElement = rowElement.children[0];
+
+    const arrowElement = Array.from(innerRowElement.children).slice(-1)[0];
+    const detailsElement = Array.from(rowElement.children).slice(-1)[0];
+
+    if (detailsElement.className.split(' ').includes('showing')) {
+      detailsElement.className = 'stocks-details';
+      arrowElement.className = 'stocks-cell';
+    } else {
+      detailsElement.className += ' showing';
+      arrowElement.className += ' flipped';
+    }
   }
 }
