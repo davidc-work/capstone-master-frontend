@@ -14,7 +14,12 @@ export class AppComponent implements OnInit {
   title = 'mutual';
   currentUrl: any;
   previousUrl: any;
-  keysPressed:string[] = [];
+  keysPressed: string[] = [];
+  dropdown: boolean = false;              //<===== Added variable for dropdown 1/21/2022 Sam
+
+  switch() {                              //<===== Added method for switching 1/21/2022 Sam
+    this.dropdown = !this.dropdown
+  }
 
   constructor(private router: Router) {
     router.events.subscribe(v => window.scrollTo(0, 0));
