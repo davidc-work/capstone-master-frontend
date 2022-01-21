@@ -3,25 +3,38 @@
     <!--<button (click)="addFund()" id="add-fund" class="button-round-1 blue">+ Add Fund</button>-->
     <div id="table-mutual-funds">
         <div class="mutual-funds-row header">
-            <p class="mutual-funds-cell">ID</p>
-            <p class="mutual-funds-cell">Name</p>
-            <p class="mutual-funds-cell">Ticker</p>
-            <p class="mutual-funds-cell">Asset Class</p>
-            <p class="mutual-funds-cell">Price</p>
-            <p class="mutual-funds-cell"></p>
+            <div class="row">
+                <p class="mutual-funds-cell">ID</p>
+                <p class="mutual-funds-cell">Name</p>
+                <p class="mutual-funds-cell">Ticker</p>
+                <p class="mutual-funds-cell">Asset Class</p>
+                <p class="mutual-funds-cell">Price</p>
+                <p class="mutual-funds-cell"></p>
+            </div>
         </div>
-        <div *ngFor="let fund of funds" class="mutual-funds-row" (click)="toggleAccordion(fund.id);">
-            <p class="mutual-funds-cell">{{fund.id}}</p>
-            <p class="mutual-funds-cell">{{fund.name}}</p>
-            <p class="mutual-funds-cell">{{fund.ticker}}</p>
-            <p class="mutual-funds-cell">{{fund.assetClass}}</p>
-            <p class="mutual-funds-cell">{{fund.price}}</p>
-            <!--<td class="x-cell"><img (click)="deleteFund(fund.id); $event.stopPropagation();" class="x" src="../../assets/img/x.png"/></td>-->
-            <img class="mutual-funds-cell" src = "../../assets/img/down-arrow.png">
+        <div *ngFor="let fund of funds" class="mutual-funds-row">
+            <div class="row" (click)="toggleAccordion(fund.id);">
+                <p class="mutual-funds-cell">{{fund.id}}</p>
+                <p class="mutual-funds-cell">{{fund.name}}</p>
+                <p class="mutual-funds-cell">{{fund.ticker}}</p>
+                <p class="mutual-funds-cell">{{fund.assetClass}}</p>
+                <p class="mutual-funds-cell">{{fund.price}}</p>
+                <img class="mutual-funds-cell" src = "../../assets/img/down-arrow.png">
+            </div>
             <div class="mutual-funds-details">
-                <p>Testing</p>
-                <p>Details</p>
-                <button (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>
+                <div class="details-scroll">
+                    <p>Testing</p>
+                    <p>Details</p>
+                    <p>Testing</p>
+                    <p>Details</p>
+                    <p>Testing</p>
+                    <p>Details</p>
+                    <p>Testing</p>
+                    <p>Details</p>
+                    <p>Testing</p>
+                    <p>Details</p>
+                </div>
+                <button class="button-boxy-1 blue" (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>
             </div>
         </div>
     </div>

@@ -14,6 +14,10 @@
 }
 
 .mutual-funds-row {
+
+}
+
+.mutual-funds-row .row {
     padding: 5px;
     border-bottom: 1px solid #d1d1d1;
     position: relative;
@@ -24,7 +28,7 @@
     }
 }
 
-.mutual-funds-row.header {
+.mutual-funds-row.header .row {
     cursor: text;
     background-color: transparent;
 }
@@ -41,7 +45,6 @@
 // explicity define table cell widths
 .mutual-funds-cell:first-child {
     width: 25px;
-    max-width: 25px;
 }
 
 .mutual-funds-row.header > .mutual-funds-cell {
@@ -50,29 +53,24 @@
 
 .mutual-funds-cell:nth-child(2) {
     width: 400px;
-    max-width: 400px;
     text-align: left;
 }
 
 .mutual-funds-cell:nth-child(3) {
     width: 30px;
-    max-width: 30px;
 }
 
 .mutual-funds-cell:nth-child(4) {
     width: 250px;
-    max-width: 250px;
 }
 
-.mutual-funds-cell:nth-last-child(2) {
+.mutual-funds-cell:nth-child(5) {
     width: 100px;
-    max-width: 100px;
     padding-right: 10px;
 }
 
-.mutual-funds-cell:last-child {
+.mutual-funds-cell:nth-child(6) {
     width: 50px;
-    max-width: 50px;
     padding-right: 30px;
 }
 
@@ -88,19 +86,35 @@
     width: 25px;
     height: 25px;
     padding: 10px;
+    padding-left: 50px;
+    transform: rotate(0);
     vertical-align: middle;
     transition: 0.25s;
 }
 
-.fund-details {
+.mutual-funds-details {
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
     padding-left: 50px;
 }
 
-.mutual-funds-details {
-    display: none;
+.mutual-funds-details.showing {
+    max-height: 300px;
 }
 
-.mutual-funds-row button {
+.mutual-funds-details .details-scroll {
+    max-height: 235px;
+    overflow-y: scroll;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(236, 236, 236);
+    box-sizing: border-box;
+    padding-left: 25px;
+}
+
+/*.mutual-funds-row button {
     cursor: pointer;
     background-color: white;
     border: 1px solid lightgrey;
@@ -110,4 +124,4 @@
     &:hover {
         background-color: rgb(240, 240, 240);
     }
-}
+}*/

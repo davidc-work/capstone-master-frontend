@@ -51,9 +51,10 @@ export class FundsComponent implements OnInit {
 
   toggleAccordion(n: any) {
     const elements = <HTMLCollection>(document.getElementsByClassName('mutual-funds-row'));
-    const  rowElement: HTMLElement = <HTMLElement>(Array.from(elements)[n]);
+    const rowElement: HTMLElement = <HTMLElement>(Array.from(elements)[n]);
     const detailsElement: HTMLElement = <HTMLElement>Array.from(rowElement.children).slice(-1)[0];
-    const style = getComputedStyle(detailsElement);
-    detailsElement.style.display = style.display == 'none' ? 'block' : 'none';
+    //const style = getComputedStyle(detailsElement);
+    //detailsElement.style.display = style.display == 'none' ? 'block' : 'none';
+    detailsElement.className = detailsElement.className == 'mutual-funds-details' ? 'mutual-funds-details showing' : 'mutual-funds-details';
   }
 }
