@@ -16,7 +16,11 @@ export class HomeComponent implements OnInit {
       items: 1,
       slideBy: 'page',
       autoplay: true,
-      mouseDrag: true
+      mouseDrag: true,
+      controlsContainer: '.controls',
+      nav: false,
+      speed: 1000,
+      autoplayButtonOutput: false
     });
   }
 
