@@ -26,6 +26,6 @@ export class TransactionService {
   }
 
   createTransaction(request: object):Observable<any>{
-    return this.httpClient.post(`${this.transactionUrl}/transactions/create`, request)
+    return this.httpClient.post(`https://protected-dusk-89362.herokuapp.com/transactions/create`, request)
   }
 }

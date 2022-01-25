@@ -5,12 +5,12 @@
             <button class="modalBtn" (click)="toggleModal()">Close</button>
         </div>
         <hr>
-        <p>Fund Name: </p>
-        <p>Price Per Share: </p>
+        <p>Fund Name: {{ fund.name }}</p>
+        <p>Price Per Share: {{ fund.price }}</p>
         <p>Select Quantity to Purchase
-            <input name="quantity" type="number" />
+            <input name="quantity" type="number" min="0" step="1" [(ngModel)]="quantityToBuy" (change)="checkInt(); addCommas()" />
         </p>
-        <p>Total: <span>AMT</span></p>
+        <p>Total: <span>$ {{ priceString || "0.00" }}</span></p>
         <button (click)="toggleModal()">Cancel</button>
         <button>Purchase</button>
     </div>

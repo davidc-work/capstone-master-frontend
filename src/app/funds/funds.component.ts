@@ -11,7 +11,8 @@ import { TransactionComponent } from '../transaction/transaction.component';
 })
 
 export class FundsComponent implements OnInit {
-  modalOn = false;
+  modalOn:boolean = false;
+  fund:Fund = {};
   @Input() newChange!: boolean;
   constructor(private fundService: FundService, private router: Router) { }
 
@@ -66,5 +67,10 @@ export class FundsComponent implements OnInit {
   resetState(event:any){
     console.log(event);
     this.modalOn = event;
+  }
+
+  setFund(incoming:Fund){
+    this.fund = incoming;
+    console.log(this.fund);
   }
 }
