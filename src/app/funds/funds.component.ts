@@ -1,21 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FundService } from '../fund.service';
 import { Fund } from '../fund/fund.model';
 import { Router } from '@angular/router';
 import { TransactionComponent } from '../transaction/transaction.component';
 
 @Component({
+  providers: [TransactionComponent],
   selector: 'app-funds',
   templateUrl: './funds.component.html',
   styleUrls: ['./funds.component.scss']
 })
 
 export class FundsComponent implements OnInit {
-  modalOn = false;
-  @Input() newChange!: boolean;
+
   constructor(private fundService: FundService, private router: Router) { }
 
   funds:Fund[] = [];
+  @ViewChild(TransactionComponent) transactionComponent!: TransactionComponent;
 
   ngOnInit(): void {
     this.getFunds();
@@ -58,13 +59,8 @@ export class FundsComponent implements OnInit {
     rowElement.className = rowElement.className == 'mutual-funds-row' ? 'mutual-funds-row active' : 'mutual-funds-row';
   }
 
-  toggleModal(){
-    this.modalOn = !this.modalOn;
-    console.log(this.modalOn)
-  }
-
-  resetState(event:any){
-    console.log(event);
-    this.modalOn = event;
+  toggleModal(e: any){
+    //this.modalOn = !this.modalOn;
+    this.transactionComponent.toggleModal(e);
   }
 }

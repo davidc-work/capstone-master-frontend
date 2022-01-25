@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FundService } from '../fund.service';
 import { Fund } from './fund.model';
@@ -7,16 +7,17 @@ import { AppComponent } from '../app.component';
 import { TransactionComponent } from '../transaction/transaction.component';
 
 @Component({
+  providers: [TransactionComponent],
   selector: 'app-fund',
   templateUrl: './fund.component.html',
   styleUrls: ['./fund.component.scss']
 })
 export class FundComponent implements OnInit {
-  modalOn = false;
   fund:Fund = {};
   keys:any;
   id:number = 0;
-  @Input() newChange!: boolean;
+  
+  @ViewChild(TransactionComponent) transactionComponent!: TransactionComponent;
   
   constructor(private route:ActivatedRoute, private fundService: FundService, private router: Router, private appComponent: AppComponent) {
     this.router = router;
@@ -60,13 +61,7 @@ export class FundComponent implements OnInit {
     this.router.navigateByUrl(this.router.url + '/stocks');
   }
   
-  toggleModal(){
-    this.modalOn = !this.modalOn;
-    console.log(this.modalOn)
-  }
-  
-  resetState(event:any){
-    console.log(event);
-    this.modalOn = event;
+  toggleModal(e: any){
+    this.transactionComponent.toggleModal(e);
   }
 }

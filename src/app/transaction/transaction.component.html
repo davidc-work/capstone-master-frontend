@@ -1,8 +1,8 @@
-<div class="overlay container" *ngIf="modalOn">
+<div [ngClass]="'overlay container' + (modalOn ? ' visible' : '')">
     <div class="modalBody">
         <div class="modalHeader">
             <h3>Purchase</h3>
-            <button class="modalBtn" (click)="toggleModal()">Close</button>
+            <button class="modalBtn" (click)="toggleModal($event)">X</button>
         </div>
         <hr>
         <p>Fund Name: </p>
@@ -11,7 +11,7 @@
             <input name="quantity" type="number" />
         </p>
         <p>Total: <span>AMT</span></p>
-        <button (click)="toggleModal()">Cancel</button>
-        <button>Purchase</button>
+        <button class="button-boxy-1 grey" (click)="toggleModal($event)">Cancel</button>
+        <button class="button-boxy-1 blue">Purchase</button>
     </div>
 </div>

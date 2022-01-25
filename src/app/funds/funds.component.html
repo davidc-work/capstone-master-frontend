@@ -35,9 +35,9 @@
                     <p>Details</p>
                 </div>
                 <button class="button-boxy-1 blue" (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>
-                <button class="button-boxy-1 red" (click)="toggleModal()">Purchase</button>
+                <button class="button-boxy-1 red" (click)="toggleModal($event)">Purchase</button>
             </div>
         </div>
     </div>
 </div>
-<app-transaction [modalOn]="modalOn" (newChange)="resetState($event)"></app-transaction>
+<app-transaction></app-transaction>

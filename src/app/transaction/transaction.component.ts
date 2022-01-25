@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-transaction',
@@ -6,17 +6,19 @@ import { Component, Input, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
+  modalOn: boolean = false;
 
-  constructor() { }
+  constructor() {
+
+  }
   
-  @Input() modalOn!: boolean;
-  @Output() newChange = new EventEmitter<boolean>();
   ngOnInit(): void {
   }
 
-  toggleModal(){
+  toggleModal(e: any){
     this.modalOn = !this.modalOn;
-    this.newChange.emit(this.modalOn);
-    console.log(this.modalOn)
+    if (this.modalOn) {
+      
+    }
   }
 }
