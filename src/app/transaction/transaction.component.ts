@@ -1,17 +1,12 @@
 import { Component, Input, EventEmitter, OnInit, Output } from '@angular/core';
-import { delay } from 'rxjs';
-import { FundComponent } from '../fund/fund.component';
 import { Fund } from '../fund/fund.model';
-import { FundsComponent } from '../funds/funds.component';
 
 @Component({
-  providers: [FundsComponent],
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-  @Input() modalOn!: boolean;
   @Input() fund:Fund = {
     name: "",
     ticker: "",
@@ -25,15 +20,13 @@ export class TransactionComponent implements OnInit {
     tenyr: "",
     sinceInception: ""
   }
-  @Output() newChange = new EventEmitter<boolean>();
+  modalOn: boolean = false;
 
   total:number = 0;
   quantityToBuy:number = 0;
   price:number = 0;
   priceString:string = "";
-  constructor(private fundsComponent: FundsComponent) { }
-
-  test:any = this.fundsComponent.fund;
+  constructor() { }
   
   ngOnInit(): void {
     setTimeout(()=>{
@@ -47,10 +40,11 @@ export class TransactionComponent implements OnInit {
 
   }
   
-  toggleModal(){
+  toggleModal(e: any){
     this.modalOn = !this.modalOn;
-    this.newChange.emit(this.modalOn);
-    console.log(this.modalOn)
+    if (this.modalOn) {
+      
+    }
   }
 
   checkInt(){
