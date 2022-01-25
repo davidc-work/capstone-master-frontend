@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FundService } from '../fund.service';
 import { Fund } from '../fund/fund.model';
 import { Router } from '@angular/router';
+import { TransactionComponent } from '../transaction/transaction.component';
 
 @Component({
   selector: 'app-funds',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 
 export class FundsComponent implements OnInit {
-
+  modalOn = false;
+  @Input() newChange!: boolean;
   constructor(private fundService: FundService, private router: Router) { }
 
   funds:Fund[] = [];
@@ -54,5 +56,15 @@ export class FundsComponent implements OnInit {
     const rowElements = document.getElementsByClassName('mutual-funds-row');
     const rowElement = Array.from(rowElements)[n];
     rowElement.className = rowElement.className == 'mutual-funds-row' ? 'mutual-funds-row active' : 'mutual-funds-row';
+  }
+
+  toggleModal(){
+    this.modalOn = !this.modalOn;
+    console.log(this.modalOn)
+  }
+
+  resetState(event:any){
+    console.log(event);
+    this.modalOn = event;
   }
 }

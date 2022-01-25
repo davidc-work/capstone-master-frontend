@@ -37,7 +37,9 @@
         </div>
         <div class="buttons">
             <button class="button-boxy-1 blue" (click)="viewStocks()">View Stocks</button>
+            <button class="button-boxy-1 red" (click)="toggleModal()">Purchase</button>
             <button class="button-boxy-1 grey" (click)="back()">Back</button>
         </div>
     </div>
 </div>
+<app-transaction [modalOn]="modalOn" (newChange)="resetState($event)"></app-transaction>

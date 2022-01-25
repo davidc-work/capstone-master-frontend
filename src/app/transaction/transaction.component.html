@@ -1,1 +1,17 @@
-<p>transaction works!</p>
+<div class="overlay container" *ngIf="modalOn">
+    <div class="modalBody">
+        <div class="modalHeader">
+            <h3>Purchase</h3>
+            <button class="modalBtn" (click)="toggleModal()">Close</button>
+        </div>
+        <hr>
+        <p>Fund Name: </p>
+        <p>Price Per Share: </p>
+        <p>Select Quantity to Purchase
+            <input name="quantity" type="number" />
+        </p>
+        <p>Total: <span>AMT</span></p>
+        <button (click)="toggleModal()">Cancel</button>
+        <button>Purchase</button>
+    </div>
+</div>
