@@ -1,5 +1,5 @@
 .main-gallery img {
-    width: 100%;
+    width: 1920px;
 }
 
 .main-gallery-container {
@@ -39,22 +39,41 @@ button > img {
 .gallery-text {
     position: absolute;
     vertical-align: middle;
-    top: 0;
-    left: 150px;
+    top: 50px;
+    left: max(50px, 5%);
     color: white;
+    /*background-color: rgba(131, 131, 131, 0.301);*/
+    padding: 50px;
+    border-radius: 25px;
+}
+
+.gallery-text p {
+    margin: 0;
+    text-shadow: 0 0 19px #444444;
 }
 
 .header-1 {
     font-family: ff-mark;
-    font-size: 3.5vw;
+    font-size: 64px;
     font-weight: bold;
-    line-height: 3.5vw;
+    line-height: 64px;
 }
 
 .description-text-1 {
+    font-family: ff-mark-med;
     font-size: 24px;
 }
 
-.gallery-text p {
-    width: 50%;
+.gallery-text p.description-text-1 {
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.gallery-text p.header-1 {
+    max-width: 775px;
+    margin-bottom: 80px;
+}
+
+.gallery-text p:last-child {
+    margin: 0;
 }
