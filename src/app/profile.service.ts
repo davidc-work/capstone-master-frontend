@@ -19,6 +19,8 @@ export class ProfileService {
   }
 
   editProfile(customer_id: number, obj: any): Observable<any> {
-    return this.http.put(`http://user-profile-transaction.herokuapp.com/customer/${customer_id}`,obj);
+    console.log(customer_id)
+    console.log(obj)
+    return this.http.put(`http://user-profile-transaction.herokuapp.com/profile/${customer_id}`,obj);
   }
 }

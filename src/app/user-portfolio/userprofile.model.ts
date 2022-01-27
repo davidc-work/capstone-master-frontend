@@ -9,8 +9,6 @@ export interface UserPortfolio  {
     email?: string,
     birthdate?: string,
     age?: string,
-    createdAt?: string,
-    updatedAt?: string,
     ClientId?: number
   },
   ClientPortfolios?: [{
