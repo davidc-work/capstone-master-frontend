@@ -21,7 +21,12 @@ export class PortfolioService {
     return this.http.post('http://user-profile-transaction.herokuapp.com/portfolio/',obj);
   }
 
-  removeUserPortfolio(customer_id: number, fundkey_id: any): Observable<any> {
+
+  sellUserPortfolio(customer_id: number, fundkey_id: any): Observable<any> {
     return this.http.delete(`http://user-profile-transaction.herokuapp.com/portfolio/${customer_id}/${fundkey_id}`);
   }
+
+  // removeUserPortfolio(customer_id: number, fundkey_id: any): Observable<any> {
+  //   return this.http.delete(`http://user-profile-transaction.herokuapp.com/portfolio/${customer_id}/${fundkey_id}`);
+  // }
 }
