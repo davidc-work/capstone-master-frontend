@@ -124,3 +124,22 @@
     box-sizing: border-box;
     padding-left: 25px;
 }
+
+.stock-row {
+
+}
+
+.stock-row > * {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.stock-row > p:first-child {
+    width: 300px;
+    white-space: break-spaces;
+}
+
+.stock-row > p:nth-child(2) {
+    width: 150px;
+}

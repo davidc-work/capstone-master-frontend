@@ -1,1 +1,39 @@
-<p>stock works!</p>
+<div class="scroll">
+    <p class="page-title">{{stock.name}}</p>
+    <div class="container">
+        <p>ID: {{stock.id}}</p>
+        <div class="line">
+            <p>Name:</p><p>{{stock.name}}</p>
+        </div>
+        <div class="line">
+            <p>Ticker:</p><p>{{stock.lastSale}}</p>
+        </div>
+        <div class="line">
+            <p>Asset Class:</p><p>{{stock.netChange}}</p>
+        </div>
+        <div class="line">
+            <p>Expense Ratio:</p><p>{{stock.changePercent}}</p>
+        </div>
+        <div class="line">
+            <p>Price:</p><p>{{stock.marketCap}}</p>
+        </div>
+        <div class="line">
+            <p>Price Change:</p><p>{{stock.country}}</p>
+        </div>
+        <div class="line">
+            <p>YTD:</p><p>{{stock.ipoYear}}</p>
+        </div>
+        <div class="line">
+            <p>One Year:</p><p>{{stock.volume}}</p>
+        </div>
+        <div class="line">
+            <p>Five Year:</p><p>{{stock.sector}}</p>
+        </div>
+        <div class="line">
+            <p>Ten Year:</p><p>{{stock.industry}}</p>
+        </div>
+        <div class="buttons">
+            <button class="button-boxy-1 grey" (click)="back()">Back</button>
+        </div>
+    </div>
+</div>

@@ -23,16 +23,10 @@
             </div>
             <div class="mutual-funds-details">
                 <div class="details-scroll">
-                    <p>Testing</p>
-                    <p>Details</p>
-                    <p>Testing</p>
-                    <p>Details</p>
-                    <p>Testing</p>
-                    <p>Details</p>
-                    <p>Testing</p>
-                    <p>Details</p>
-                    <p>Testing</p>
-                    <p>Details</p>
+                    <div *ngFor="let stock of fund.stocks" class="stock-row">
+                        <p>{{stock.name}}</p>
+                        <p>{{stock.price}}</p>
+                    </div>
                 </div>
                 <button class="button-boxy-1 blue" (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>
                 <button class="button-boxy-1 red" (click)="toggleModal($event); setFund(fund)">Purchase</button>

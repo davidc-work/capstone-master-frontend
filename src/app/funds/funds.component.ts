@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FundService } from '../fund.service';
+import { StockService } from '../stock.service';
 import { Fund } from '../fund/fund.model';
+import { Stock } from '../stocks/stock.model';
 import { Router } from '@angular/router';
 import { TransactionComponent } from '../transaction/transaction.component';
 
@@ -14,9 +16,11 @@ import { TransactionComponent } from '../transaction/transaction.component';
 export class FundsComponent implements OnInit {
   fund:Fund = {};
 
-  constructor(private fundService: FundService, private router: Router) { }
+  constructor(private fundService: FundService, private stockService: StockService, private router: Router) { }
 
   funds:Fund[] = [];
+  stocks:Stock[] = [];
+
   @ViewChild(TransactionComponent) transactionComponent!: TransactionComponent;
 
   ngOnInit(): void {
@@ -24,8 +28,19 @@ export class FundsComponent implements OnInit {
   }
 
   getFunds() {
-    this.fundService.getFunds().subscribe(payload =>{
-      this.funds = payload.sort((a: any, b: any) => a.id - b.id);
+    this.fundService.getFunds().subscribe(payload => {
+      this.funds = payload.sort((a: any, b: any) => a.id - b.id).map((f: any) => {
+        f.stocks = [];
+        return f;
+      });
+      this.stockService.getStocks().subscribe(payload => {
+        this.stocks = payload;
+        this.stocks.forEach(s => this.funds[s.mutualFundId! - 1].stocks.push({
+          id: s.id,
+          name: s.name,
+          price: s.lastSale
+        }));
+      });
     });
   }
 

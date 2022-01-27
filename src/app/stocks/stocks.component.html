@@ -6,25 +6,36 @@
                 <p class="stocks-cell">ID</p>
                 <p class="stocks-cell">Name</p>
                 <p class="stocks-cell">Ticker</p>
-                <p class="stocks-cell">Change %</p>
+                <p class="stocks-cell">Price</p>
                 <p class="stocks-cell">Market Cap</p>
                 <p class="stocks-cell"></p>
             </div>
         </div>
-        <div *ngFor="let stock of stocks" class="stocks-row">
-            <div class="row" (click)="toggleAccordion(stock.id);">
-                <p class="stocks-cell">{{stock.id}}</p>
-                <p class="stocks-cell">{{stock.name}}</p>
-                <p class="stocks-cell">{{stock.symbol}}</p>
-                <p class="stocks-cell">{{stock.changePercent}}</p>
-                <p class="stocks-cell">{{stock.marketCap}}</p>
+        <div *ngFor="let s of stocks" class="stocks-row">
+            <div class="row" (click)="toggleAccordion(s.id);">
+                <p class="stocks-cell">{{s.id}}</p>
+                <p class="stocks-cell">{{s.name}}</p>
+                <p class="stocks-cell">{{s.symbol}}</p>
+                <p class="stocks-cell">{{s.lastSale}}</p>
+                <p class="stocks-cell">{{s.marketCap}}</p>
                 <img class="stocks-cell" src = "../../assets/img/down-arrow.png">
             </div>
             <div class="stocks-details">
                 <div class="details-scroll">
-                    <p>Information about the stock goes here!</p>
+                    <div class="stock-details">
+                        <p>{{s.name}} ({{s.symbol}})</p>
+                        <p>Price: {{s.lastSale}}</p>
+                        <p>Change: {{s.netChange}}</p>
+                        <p>Change %: {{s.changePercent}}</p>
+                        <p>Market Cap: {{s.marketCap}}</p>
+                        <p>Country: {{s.country}}</p>
+                        <p>IPO Year: {{s.ipoYear}}</p>
+                        <p>Volume: {{s.volume}}</p>
+                        <p>Sector: {{s.sector}}</p>
+                        <p>Industry: {{s.industry}}</p>
+                    </div>
                 </div>
-                <button class="button-boxy-1 blue" (click)="viewstock(stock.id); $event.stopPropagation();">Details</button>
+                <button class="button-boxy-1 blue" (click)="viewstock(s.id); $event.stopPropagation();">Details</button>
             </div>
         </div>
     </div>

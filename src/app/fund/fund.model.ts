@@ -10,5 +10,6 @@ export interface Fund {
         oneyr?: string,
         fiveyr?: string,
         tenyr?: string,
-        sinceInception?: string
+        sinceInception?: string,
+        stocks?: any
 }

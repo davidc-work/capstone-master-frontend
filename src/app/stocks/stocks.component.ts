@@ -13,6 +13,8 @@ export class StocksComponent implements OnInit {
 
   constructor(private stockService: StockService, private router: Router) { }
 
+  objectKeys = Object.keys;
+
   stocks:Stock[] = [];
 
   ngOnInit(): void {
@@ -20,8 +22,16 @@ export class StocksComponent implements OnInit {
   }
 
   getStocks() {
+    var formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+
     this.stockService.getStocks().subscribe(payload =>{
       this.stocks = payload.sort((a: any, b: any) => a.id - b.id);
+      this.stocks.forEach(s => {        
+        s.marketCap = formatter.format(+s.marketCap!).slice(0, -3);
+      });
     });
   }
 
