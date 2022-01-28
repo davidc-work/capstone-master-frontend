@@ -1,1 +1,44 @@
-<p>user-portfolio works!</p>
+<div>
+  <div style="display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid black;">
+    <h1>Profile</h1>
+    <div style="width: 75%; display: flex; flex-direction: row; justify-content: center; padding: 0 5px; padding-top: 20px;">
+      <div style="display: flex; flex-direction: column; width: 20%; padding: 0 50px;">
+        <img style="width: 15vw; border-radius: 200px;" src="../../assets/img/userprofile/profile.png" alt="" />
+        <p style="margin-bottom: -10px; font-size: 16pt; font-weight: bold; text-align: center;">{{name}}</p>
+        <p style="text-align: center;">{{email}}</p>
+      </div>
+      <div style="display: flex; flex-direction: column; width: 80%; padding-right: 20px;">
+        <div style="display: flex; flex-direction: row; justify-content:space-between;"><p>First name: </p><input style="padding-left: 20px; width: 80%;" [(ngModel)]="userProfile.firstName"  /></div>
+        <div style="display: flex; flex-direction: row; justify-content:space-between;"><p>Last name: </p><input style="padding-left: 20px; width: 80%;" [(ngModel)]="userProfile.lastName"  /></div>
+        <div style="display: flex; flex-direction: row; justify-content:space-between;"><p>Email: </p><input style="padding-left: 20px; width: 80%;" [(ngModel)]="userProfile.email"  /></div>
+        <div style="display: flex; flex-direction: row; justify-content:space-between;"><p>Birthdate: </p><input style="padding-left: 20px; width: 80%;" [(ngModel)]="userProfile.birthdate"  /></div>
+        <div style="display: flex; flex-direction: row; justify-content:space-between;"><p>Age: </p><input style="padding-left: 20px; width: 80%;" [(ngModel)]="userProfile.age"  /></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; width: 15vw;  margin-bottom: 50px; border-bottom: 2px;">
+      <button (click)="updateProfile()" style="width: 48%; font-size: 14pt; border-radius: 20px; color: white; background-color: red;">Save</button>
+      <button (click)="ngOnInit()" style="width: 48%; font-size: 14pt; border-radius: 20px;">Cancel</button>
+    </div>
+  </div>
+  <!-- <div style="display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid black;">
+    <h1>Portfolio</h1>
+
+    <table style="width: 75%;">
+      <tr style="text-align: center;">
+        <th>Fund Name</th>
+        <th>Quantity</th>
+        <th>Country</th>
+      </tr>
+      <tr>
+        <td>Capital Opportunity Admiral Shares </td>
+        <td>1</td>
+        <td>Germany</td>
+      </tr>
+      <tr>
+        <td>Centro</td>
+        <td>Francisco</td>
+        <td>Mexico</td>
+      </tr>
+    </table>
+  </div> -->
+</div>
