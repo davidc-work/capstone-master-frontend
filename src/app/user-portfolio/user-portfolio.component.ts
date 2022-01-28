@@ -20,7 +20,6 @@ export class UserPortfolioComponent implements OnInit {
   email: string = "";
   customer_id: any;
 
-
   updateProfile() {
     console.log(this.customer_id)
     console.log(this.userProfile)
@@ -31,7 +30,6 @@ export class UserPortfolioComponent implements OnInit {
     this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
   }
   
-
   ngOnInit(): void {
     this._user.getAllCustomer().subscribe((data) => {
       console.log(this.userData)
@@ -41,8 +39,7 @@ export class UserPortfolioComponent implements OnInit {
       this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
       this.email = this.userProfile.email;
       this.customer_id = this.userData.customer_id
-    }
-    )
+    });
   }
 
 }
