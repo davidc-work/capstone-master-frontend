@@ -10,11 +10,11 @@ export class FundService {
   constructor(private http:HttpClient) { } 
 
   getFunds(): Observable<any> {
-    return this.http.get("https://immense-brushlands-56087.herokuapp.com/funds");
+    return this.http.get("https://protected-dusk-89362.herokuapp.com/mutual-funds");
   }
 
   getFund(id: number): Observable<any> {
-    return this.http.get("https://immense-brushlands-56087.herokuapp.com/funds/"+id);
+    return this.http.get("https://protected-dusk-89362.herokuapp.com/mutual-funds/" + id);
   }
 
   setFund(id: number, obj: any): Observable<any> {

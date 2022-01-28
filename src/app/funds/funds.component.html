@@ -25,7 +25,7 @@
                 <div class="details-scroll">
                     <div *ngFor="let stock of fund.stocks" class="stock-row">
                         <p>{{stock.name}}</p>
-                        <p>{{stock.price}}</p>
+                        <p>{{stock.lastSale}}</p>
                     </div>
                 </div>
                 <button class="button-boxy-1 blue" (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>

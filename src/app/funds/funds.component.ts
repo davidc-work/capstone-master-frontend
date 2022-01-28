@@ -28,19 +28,8 @@ export class FundsComponent implements OnInit {
   }
 
   getFunds() {
-    this.fundService.getFunds().subscribe(payload => {
-      this.funds = payload.sort((a: any, b: any) => a.id - b.id).map((f: any) => {
-        f.stocks = [];
-        return f;
-      });
-      this.stockService.getStocks().subscribe(payload => {
-        this.stocks = payload;
-        this.stocks.forEach(s => this.funds[s.mutualFundId! - 1].stocks.push({
-          id: s.id,
-          name: s.name,
-          price: s.lastSale
-        }));
-      });
+    this.fundService.getFunds().subscribe(data => {
+      this.funds = data.sort((a: any, b: any) => a.id - b.id);
     });
   }
 

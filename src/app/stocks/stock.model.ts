@@ -1,6 +1,6 @@
 export interface Stock {
     id?: number,
-    mutualFundId?: number,
+    mutualFundIds?: string,
     symbol?: string,
     name?: string,
     lastSale?: string,
