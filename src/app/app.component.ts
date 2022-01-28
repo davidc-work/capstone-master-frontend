@@ -15,9 +15,9 @@ export class AppComponent implements OnInit {
   currentUrl: any;
   previousUrl: any;
   keysPressed: string[] = [];
-  dropdown: boolean = false;              //<===== Added variable for dropdown 1/21/2022 Sam
+  dropdown: boolean = false;
 
-  switch() {                              //<===== Added method for switching 1/21/2022 Sam
+  switch() {
     this.dropdown = !this.dropdown
   }
 
@@ -41,6 +41,15 @@ export class AppComponent implements OnInit {
       if (lastThree == 'lol' && ['add', 'edit'].includes(this.router.url.split('/').slice(-1)[0])) { // lol
         var elements = Array.from(document.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>);
         elements.forEach((e, i) => e.value = 'testing ' + i);
+      }
+    });
+
+    document.body.addEventListener('mousedown', e => {
+      console.log(e.target);
+      const t = <HTMLElement> e.target;
+      const dropdownElement = document.getElementsByClassName('dropdown')[0];
+      if (dropdownElement) {
+        if (!(dropdownElement.contains(t) || dropdownElement == t)) this.dropdown = false;
       }
     });
   }
