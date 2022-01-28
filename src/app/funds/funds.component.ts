@@ -15,6 +15,7 @@ import { TransactionComponent } from '../transaction/transaction.component';
 
 export class FundsComponent implements OnInit {
   fund:Fund = {};
+  loaded:boolean = false;
 
   constructor(private fundService: FundService, private stockService: StockService, private router: Router) { }
 
@@ -30,6 +31,7 @@ export class FundsComponent implements OnInit {
   getFunds() {
     this.fundService.getFunds().subscribe(data => {
       this.funds = data.sort((a: any, b: any) => a.id - b.id);
+      this.loaded = true;
     });
   }
 

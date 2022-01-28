@@ -16,6 +16,7 @@ export class StocksComponent implements OnInit {
   objectKeys = Object.keys;
 
   stocks:Stock[] = [];
+  loaded:boolean = false;
 
   ngOnInit(): void {
     this.getStocks();
@@ -32,6 +33,7 @@ export class StocksComponent implements OnInit {
       this.stocks.forEach(s => {        
         s.marketCap = formatter.format(+s.marketCap!).slice(0, -3);
       });
+      this.loaded = true;
     });
   }
 

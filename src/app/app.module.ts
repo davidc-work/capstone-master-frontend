@@ -17,6 +17,7 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { UserTransactionsComponent } from './user-transactions/user-transactions.component';
 import { FormsModule } from '@angular/forms';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     HomeComponent,
     TransactionComponent,
     UserTransactionsComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
