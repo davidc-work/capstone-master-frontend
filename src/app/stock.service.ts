@@ -11,11 +11,11 @@ export class StockService {
   constructor(private http:HttpClient) { } 
 
   getStocks(): Observable<any> {
-    return this.http.get("http://stocks-microservice.herokuapp.com/stocks");
+    return this.http.get("https://protected-dusk-89362.herokuapp.com/stocks");
   }
 
   getStock(id: number): Observable<any> {
-    return this.http.get("http://stocks-microservice.herokuapp.com/stocks/" + id);
+    return this.http.get("https://protected-dusk-89362.herokuapp.com/stocks/" + id);
   }
 
   /*setFund(id: number, obj: any): Observable<any> {

@@ -40,21 +40,10 @@ export class FundComponent implements OnInit {
     });
   }
 
-  edit() {
-    this.router.navigateByUrl(this.router.url + '/edit');
-  }
-
   back() {
     var e: HTMLElement = <HTMLElement>document.getElementsByClassName('scroll')[0];
     e.style.animation = '0.25s out-to-right';
     setTimeout(() => this.router.navigateByUrl('/funds'), 250);
-  }
-
-  delete() {
-    if (!confirm('Are you sure you want to delete fund ' + this.id + '?')) return ;
-    this.fundService.deleteFund(this.id).subscribe(d => {
-      this.back();
-    });
   }
 
   viewStocks() {

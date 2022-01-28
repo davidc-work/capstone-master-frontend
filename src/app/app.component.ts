@@ -45,7 +45,6 @@ export class AppComponent implements OnInit {
     });
 
     document.body.addEventListener('mousedown', e => {
-      console.log(e.target);
       const t = <HTMLElement> e.target;
       const dropdownElement = document.getElementsByClassName('dropdown')[0];
       if (dropdownElement) {
