@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { UserTransactionsComponent } from './user-transactions/user-transactions.component';
 import { FormsModule } from '@angular/forms';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     StockComponent,
     HomeComponent,
     TransactionComponent,
-    UserTransactionsComponent
+    UserTransactionsComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,

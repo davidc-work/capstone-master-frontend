@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: "funds/:id", component: FundComponent},
   {path: "funds/:id/edit", component: EditFundComponent },
   {path: "funds/:id/stocks", component: FundStocksComponent},
-  {path: "user-portfolio", component: UserPortfolioComponent},
+  {path: "user-profile", component: UserPortfolioComponent},
   {path: "transaction", component: TransactionComponent}
 ];
 
