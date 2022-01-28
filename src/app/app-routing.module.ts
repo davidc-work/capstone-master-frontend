@@ -10,6 +10,7 @@ import { StocksComponent } from './stocks/stocks.component';
 import { StockComponent } from './stock/stock.component';
 import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: "funds/:id/edit", component: EditFundComponent },
   {path: "funds/:id/stocks", component: FundStocksComponent},
   {path: "user-profile", component: UserPortfolioComponent},
-  {path: "transaction", component: TransactionComponent}
+  {path: "transaction", component: TransactionComponent},
+  {path: "login", component: LoginPageComponent}
 ];
 
 @NgModule({
