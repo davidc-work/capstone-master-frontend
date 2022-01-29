@@ -41,11 +41,21 @@ export class FundsComponent implements OnInit {
     setTimeout(() => this.router.navigateByUrl(this.router.url + '/' + n), 250);
   }
 
+  interval: any;
+
   toggleAccordion(n: any) {
+    if (this.interval) clearInterval(this.interval);
+
     const rowElements = document.getElementsByClassName('mutual-funds-row');
     const rowElement = Array.from(rowElements)[n];
-    rowElement.className = rowElement.className == 'mutual-funds-row' ? 'mutual-funds-row active' : 'mutual-funds-row';
-  }
+    const classes = rowElement.className.split(' ');
+    if (classes.includes('active')) {
+      rowElement.className = 'mutual-funds-row';
+      this.interval = setTimeout(() => (rowElement.children[1] as HTMLElement).style.display = 'none', 500);
+    } else {
+      (rowElement.children[1] as HTMLElement).style.display = 'block';
+      requestAnimationFrame(() => rowElement.className = 'mutual-funds-row active');
+    }  }
 
   toggleModal(e: any){
     //this.modalOn = !this.modalOn;

@@ -43,9 +43,20 @@ export class StocksComponent implements OnInit {
     setTimeout(() => this.router.navigateByUrl(this.router.url + '/' + n), 250);
   }
 
+  interval:any;
+
   toggleAccordion(n: any) {
+    if (this.interval) clearInterval(this.interval);
+
     const rowElements = document.getElementsByClassName('stocks-row');
     const rowElement = Array.from(rowElements)[n];
-    rowElement.className = rowElement.className == 'stocks-row' ? 'stocks-row active' : 'stocks-row';
+    const classes = rowElement.className.split(' ');
+    if (classes.includes('active')) {
+      rowElement.className = 'stocks-row';
+      this.interval = setTimeout(() => (rowElement.children[1] as HTMLElement).style.display = 'none', 500);
+    } else {
+      (rowElement.children[1] as HTMLElement).style.display = 'block';
+      requestAnimationFrame(() => rowElement.className = 'stocks-row active');
+    }
   }
 }

@@ -24,16 +24,15 @@
             <div class="stocks-details">
                 <div class="details-scroll">
                     <div class="stock-details">
-                        <p>{{s.name}} ({{s.symbol}})</p>
-                        <p>Price: {{s.lastSale}}</p>
-                        <p>Change: {{s.netChange}}</p>
-                        <p>Change %: {{s.changePercent}}</p>
-                        <p>Market Cap: {{s.marketCap}}</p>
-                        <p>Country: {{s.country}}</p>
-                        <p>IPO Year: {{s.ipoYear}}</p>
-                        <p>Volume: {{s.volume}}</p>
-                        <p>Sector: {{s.sector}}</p>
-                        <p>Industry: {{s.industry}}</p>
+                        <div class="stock-title">
+                            <p>{{s.name}} ({{s.symbol}}) <span [ngClass]="+s.netChange! > 0 ? 'green' : 'red'">{{s.netChange}} ({{s.changePercent}})</span></p>
+                        </div>
+                        <p><b>Country: </b>{{s.country}}</p>
+                        <p><b>Industry: </b>{{s.industry}}</p>
+                        <p><b>Sector: </b>{{s.sector}}</p>
+                        <p><b>IPO Year: </b>{{s.ipoYear}}</p>
+                        <p><b>Market Cap: </b>{{s.marketCap}}</p>
+                        <p><b>Volume: </b>{{s.volume}}</p>
                     </div>
                 </div>
                 <button class="button-boxy-1 blue" (click)="viewstock(s.id); $event.stopPropagation();">Details</button>
