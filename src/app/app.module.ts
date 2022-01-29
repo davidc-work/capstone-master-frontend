@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { LoadingComponent } from './loading/loading.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     UserTransactionsComponent,
     AccountSettingsComponent,
     LoadingComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SignupPageComponent
   ],
   imports: [
     BrowserModule,
