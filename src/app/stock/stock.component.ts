@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { StockService } from '../stock.service';
 import { Stock } from '../stocks/stock.model';
@@ -16,8 +17,9 @@ export class StockComponent implements OnInit {
   id:number = 0;
   stock!: Stock;
   
-  constructor(private route:ActivatedRoute, private stockService: StockService, private router: Router, private appComponent: AppComponent) {
+  constructor(private titleService: Title, private route:ActivatedRoute, private stockService: StockService, private router: Router, private appComponent: AppComponent) {
     this.router = router;
+    titleService.setTitle('RVProtect');
   }
   
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class StockComponent implements OnInit {
       this.id = +params['id'];
       this.stockService.getStock(this.id).subscribe(payload=> {
         this.stock = payload;
+        this.titleService.setTitle('RVProtect - ' + this.stock.name);
         this.keys = Object.keys(this.stock);
       });
     });

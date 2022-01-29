@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { StockService } from '../stock.service';
 import { Stock } from './stock.model';
 import { Router } from '@angular/router';
@@ -11,7 +12,9 @@ import { Router } from '@angular/router';
 
 export class StocksComponent implements OnInit {
 
-  constructor(private stockService: StockService, private router: Router) { }
+  constructor(private titleService: Title, private stockService: StockService, private router: Router) {
+    titleService.setTitle('RVProtect - Stocks');
+  }
 
   objectKeys = Object.keys;
 

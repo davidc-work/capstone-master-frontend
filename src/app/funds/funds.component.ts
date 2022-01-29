@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FundService } from '../fund.service';
 import { StockService } from '../stock.service';
 import { Fund } from '../fund/fund.model';
@@ -17,7 +18,9 @@ export class FundsComponent implements OnInit {
   fund:Fund = {};
   loaded:boolean = false;
 
-  constructor(private fundService: FundService, private stockService: StockService, private router: Router) { }
+  constructor(private fundService: FundService, private stockService: StockService, private router: Router, titleService: Title) {
+    titleService.setTitle('RVProtect - Mutual Funds');
+  }
 
   funds:Fund[] = [];
   stocks:Stock[] = [];

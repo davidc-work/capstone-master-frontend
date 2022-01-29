@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { FundService } from '../fund.service';
 import { Fund } from './fund.model';
@@ -19,8 +20,9 @@ export class FundComponent implements OnInit {
   
   @ViewChild(TransactionComponent) transactionComponent!: TransactionComponent;
   
-  constructor(private route:ActivatedRoute, private fundService: FundService, private router: Router, private appComponent: AppComponent) {
+  constructor(private titleService: Title, private route:ActivatedRoute, private fundService: FundService, private router: Router, private appComponent: AppComponent) {
     this.router = router;
+    titleService.setTitle('RVProtect');
   }
   
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class FundComponent implements OnInit {
       this.id = +params['id'];
       this.fundService.getFund(this.id).subscribe(payload=> {
         this.fund = payload;
+        this.titleService.setTitle('RVProtect - ' + this.fund.name);
         this.keys = Object.keys(this.fund);
       });
     });

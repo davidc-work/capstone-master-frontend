@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login-page',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class LoginPageComponent implements OnInit {
   username:string = "";
   password:string = "";
-  constructor() { }
+  constructor(private titleService: Title) {
+    titleService.setTitle('RVProtect - Login');
+  }
 
   ngOnInit(): void {
   }
