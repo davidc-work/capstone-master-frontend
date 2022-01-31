@@ -1,79 +1,79 @@
 .profile-container {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    border-bottom: 1px solid rgb(194, 194, 194);
-    padding: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgb(194, 194, 194);
+  padding: 70px;
 }
 
 h1 {
-    margin: 0;
-    margin-bottom: 25px;
+  margin: 0;
+  margin-bottom: 25px;
 }
 
 .button-container {
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .profile-alignment {
-    width: 75%; 
-    display: flex; 
-    flex-direction: row; 
-    justify-content: center; 
-    padding: 0 5px; 
-    padding-top: 20px;
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 5px;
+  padding-top: 20px;
 }
 
 .profile-info-editable {
-    padding: 30px;
-    padding-top: 15px;
+  padding: 30px;
+  padding-top: 15px;
 }
 
 .profile-info-editable > div {
-    
 }
 
 .profile-info-editable > div > * {
-    display: inline-block;
+  display: inline-block;
 }
 
 .profile-info-editable > div > p {
-    width: 80px;
-    margin: 10px;
-    margin-right: 20px;
+  width: 80px;
+  margin: 10px;
+  margin-right: 20px;
 }
 
 .profile-info-editable input {
-    width: 200px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid rgb(158, 158, 158);
-    outline: none;
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(158, 158, 158);
+  outline: none;
 }
 
 .profile-info-editable input:focus {
-    border: 1px solid deepskyblue;
-    box-shadow: 0 0 5px #c0f0ff;
+  border: 1px solid rgb(0, 140, 255);
 }
 
 .profile-avatar {
-    display: flex; 
-    flex-direction: column; 
-    width: 20%; 
-    padding: 0 85px;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  padding: 0 85px;
 }
 
 .profile-avatar img {
-    width: 15vw; 
-    border-radius: 200px;
+  width: 15vw;
+  border-radius: 200px;
 }
 
 .profile-avatar p {
-    text-align: center;
+  text-align: center;
 }
 
 .profile-avatar p:nth-child(2) {
-    margin-bottom: -10px; 
-    font-size: 16pt; 
-    font-weight: bold;   
+  margin-bottom: -10px;
+  font-size: 16pt;
+  font-weight: bold;
 }

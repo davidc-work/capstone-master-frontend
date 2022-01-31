@@ -1,59 +1,31 @@
 <div class="titlebar"></div>
 <div class="titlebar-overlay">
-  <a href="/"><p id="title">RVProtect</p></a> <!--Like "Vanguard" but instead of van it's "RV", and guard -> "Protect"...aw well, at least I thought I was funny :)-->
+  <a href="/"><p id="main-title" class="title">RVProtect</p></a> <!--Like "Vanguard" but instead of van it's "RV", and guard -> "Protect"...aw well, at least I thought I was funny :)-->
   <header>
     <a routerLink="/stocks">Stocks</a>
-
-    <!-- The New Version 1/21/2022 Sam-->
     <a routerLink="/funds">Mutual Funds</a>
-
-    <div 
-    *ngIf="dropdown" 
-    style="
-    display: flex;
-    justify-content: flex-end;
-    width: 95%;
-    position: absolute; 
-    height: auto;  
-    border-radius: 2px;  
-    margin-top: -20px;
-    "
-    >
-      <div style="display: flex;
-      border-top-left-radius: .5rem;
-      border-bottom-left-radius: .5rem;
-      border-bottom-left-radius: .5rem;
-      border: 2px solid #ededed;  background-color: white; flex-direction: column; align-items: flex-start; padding: 5px 5px;">
-        <p style=" line-height: .5em;">Signed in as</p>
-        <p style=" line-height: -5em;">User12345</p>
-        <a routerLink="/user-profile" style="
-        color: black;
-        width: 100%;
-        text-align:left;
-        line-height: 2rem;
-    " (click)="switch()" >Portfolio</a>
-        <a routerLink="/signout" style="
-        color: black;
-        width: 100%;
-        text-align:left;
-        line-height: 2rem;
-    " (click)="switch()">Signout</a>
+    <div *ngIf="dropdown" class="dropdown">
+      <div>
+        <p>Signed in as</p>
+        <p>User12345</p>
+        <div class="line"></div>
+        <a routerLink="/user-profile" (click)="switch()" >Profile</a>
+        <div class="line"></div>
+        <a routerLink="/account-settings" (click)="switch()">Account Settings</a>
+        <a routerLink="/signout" (click)="switch()">Signout</a>
       </div>
     </div>
-
-    <!-- The New Version 1/21/2022 Sam -->
-    <a id="profile-button"><img (click)="switch()" src="../../assets/img/profile-button.jpg">
-    </a>
-
-    <!-- <a id="profile-button"><img src="../../assets/img/profile-button.jpg"></a> The Old version -->
-
-
-  </header>
+    <a id="profile-button"><img (click)="switch()" src="../../assets/img/profile-button.jpg"></a>
+</header>
 </div>
 <div class="container">  
   <main class="main">
     <router-outlet></router-outlet>
   </main>
-  <div class="bottom"></div>
+  <div class="footer">
+    <p id="title-footer" class="title">RVProtect</p>
+    <p>© 2021-2022 The RVProtect Group, Inc. All rights reserved. RVProtect Marketing Corporation, Distributor of the RVProtect Funds. Your use of this site signifies that you accept our terms & conditions of use.</p>
+    <p class="fourth-wall-text">*Data, information, and/or values present on this website are intended for demonstration purposes only.  They are not based off of accurate or real-time information.</p>
+  </div>
 </div>
 

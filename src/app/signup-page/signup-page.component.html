@@ -1,0 +1,25 @@
+<div class="full">
+    <div class="container">
+        <p id="signup-label">Sign Up with RVProtect</p>
+        <form class="centered signup-box" (submit)="signup()">
+            <label for="fist-name" >First Name</label>
+            <input [(ngModel)]="firstName" name="first-name" type="text" />
+            <label for="last-name" >Last Name</label>
+            <input [(ngModel)]="lastName" name="last-name" type="text" />
+            <label for="birthdate" >Birthdate</label>
+            <input [(ngModel)]="birthdate" name="birthdate" type="text" />
+            <label for="email" >Email</label>
+            <input [(ngModel)]="email" name="email" type="text" />
+            <label for="username" >Username</label>
+            <input [(ngModel)]="username" name="username" type="text" />
+            <label for="password" >Password</label>
+            <input [(ngModel)]="password" name="password" type="password" />
+            <label for="confirm-password" >Confirm Password</label>
+            <input [(ngModel)]="confirmPassword" name="confirm-password" type="password" />
+            <button id="signup-button" class="button-boxy-1 green" type="submit">Sign Up</button>
+        </form>
+        <div class="centered login-box">
+            <p>Already have an account? <a href="/login">Sign in.</a></p>
+        </div>
+    </div>
+</div>

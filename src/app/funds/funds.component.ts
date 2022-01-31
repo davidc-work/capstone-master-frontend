@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FundService } from '../fund.service';
 import { StockService } from '../stock.service';
 import { Fund } from '../fund/fund.model';
@@ -15,8 +16,11 @@ import { TransactionComponent } from '../transaction/transaction.component';
 
 export class FundsComponent implements OnInit {
   fund:Fund = {};
+  loaded:boolean = false;
 
-  constructor(private fundService: FundService, private stockService: StockService, private router: Router) { }
+  constructor(private fundService: FundService, private stockService: StockService, private router: Router, titleService: Title) {
+    titleService.setTitle('RVProtect - Mutual Funds');
+  }
 
   funds:Fund[] = [];
   stocks:Stock[] = [];
@@ -29,7 +33,12 @@ export class FundsComponent implements OnInit {
 
   getFunds() {
     this.fundService.getFunds().subscribe(data => {
-      this.funds = data.sort((a: any, b: any) => a.id - b.id);
+      this.funds = data.sort((a: any, b: any) => a.id - b.id).map((f: any) => {
+        f.inSearch = true;
+        return f;
+      });
+
+      this.loaded = true;
     });
   }
 
@@ -39,29 +48,21 @@ export class FundsComponent implements OnInit {
     setTimeout(() => this.router.navigateByUrl(this.router.url + '/' + n), 250);
   }
 
-  addFund() {
-    var e: HTMLElement = <HTMLElement>document.getElementsByClassName('scroll')[0];
-    e.style.animation = '0.25s out-to-left';
-    setTimeout(() => this.router.navigateByUrl(this.router.url + '/add'), 250);
-  }
-
-  deleteFund(n: any) {
-    if (!confirm('Are you sure you want to delete fund ' + n + '?')) return ;
-    this.fundService.deleteFund(n).subscribe(d => {
-      var elements = <HTMLCollection>(document.getElementsByTagName('tr'));
-      var e: HTMLElement = <HTMLElement>(Array.from(elements).find(e => {
-        return e.children[0].innerHTML == n.toString();
-      }));
-      e.style.animation = '0.4s out-to-left';
-      e.style.animationFillMode = 'forwards';
-      setTimeout(() => this.getFunds(), 400);
-    });
-  }
+  interval: any;
 
   toggleAccordion(n: any) {
+    if (this.interval) clearInterval(this.interval);
+
     const rowElements = document.getElementsByClassName('mutual-funds-row');
     const rowElement = Array.from(rowElements)[n];
-    rowElement.className = rowElement.className == 'mutual-funds-row' ? 'mutual-funds-row active' : 'mutual-funds-row';
+    const classes = rowElement.className.split(' ');
+    if (classes.includes('active')) {
+      rowElement.className = 'mutual-funds-row';
+      this.interval = setTimeout(() => (rowElement.children[1] as HTMLElement).style.display = 'none', 500);
+    } else {
+      (rowElement.children[1] as HTMLElement).style.display = 'block';
+      requestAnimationFrame(() => rowElement.className = 'mutual-funds-row active');
+    }  
   }
 
   toggleModal(e: any){
@@ -69,8 +70,22 @@ export class FundsComponent implements OnInit {
     this.transactionComponent.toggleModal(e);
   }
 
+  updateSearch(e: any) {
+    requestAnimationFrame(() => { //wait for next frame to get value
+      const search = e.target.value.toLowerCase();
+      this.funds = this.funds.map((f: any) => {
+        f.inSearch = f.name.toLowerCase().includes(search);
+        return f;
+      });
+    });
+  }
+
   setFund(incoming:Fund){
     this.fund = incoming;
     console.log(this.fund);
+  }
+
+  viewStock(id: number) {
+    this.router.navigateByUrl('/stocks/' + id + '?return=funds');
   }
 }

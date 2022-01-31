@@ -1,0 +1,81 @@
+#login-label {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.full {
+
+}
+
+label {
+    display: block;
+}
+
+.centered {
+    // vertical-align: middle;
+    margin: auto;
+}
+
+.login-box, .signup-box {
+    width: 300px;
+    padding: 20px;
+    background-color: rgb(248, 248, 248);
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.login-box > * {
+    margin-bottom: 12px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.login-box input:focus {
+    border: 1px solid rgb(0, 140, 255);
+}
+
+.container {
+    height: 100vh;
+    margin-top: 10vh;
+}
+
+#login-button {
+    width: 100%;
+    font-family: system-ui;
+    font-size: 14px;
+    height: 35px;
+    line-height: 16px;
+    margin: 0;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.signup-box {
+    margin-top: 15px;
+    text-align: center;
+    height: -moz-fit-content;
+    height: fit-content;
+    font-size: 14px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.signup-box a {
+    text-decoration: none;
+    color: #1000ff;
+}
+
+.signup-box > * {
+    margin: 0;
+}

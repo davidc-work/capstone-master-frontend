@@ -103,13 +103,15 @@
 .stocks-details {
     height: auto;
     max-height: 0;
+    display: none;
     overflow: hidden;
-    transition: 0.5s;
     padding-left: 50px;
+    transition: 0.5s;
 }
 
 .stocks-row.active .stocks-details {
     max-height: 300px;
+    padding-bottom: 20px;
 }
 
 .stocks-details .details-scroll {
@@ -120,4 +122,42 @@
     border: 1px solid rgb(236, 236, 236);
     box-sizing: border-box;
     padding-left: 25px;
+}
+
+.stock-title {
+    width: 1090px;
+    white-space: break-spaces;
+    font-size: 36px;
+}
+
+.stock-title * {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.stock-title .red {
+    color: red;
+}
+
+.stock-title .green {
+    color: rgb(0, 194, 0);
+}
+
+.search-bar-container {
+    text-align: center;
+}
+
+.search-bar {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: 2px solid lightgrey;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.search-bar:focus {
+    border: 2px solid rgb(0, 153, 255);
 }

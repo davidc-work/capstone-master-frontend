@@ -1,5 +1,9 @@
+<app-loading *ngIf="!loaded"></app-loading>
 <div class="scroll">
     <p class="page-title">Stocks</p>
+    <div class="search-bar-container">
+        <input class="search-bar" type="text" placeholder="Search for a stock..." (keydown)="updateSearch($event)">
+    </div>
     <div id="table-stocks">
         <div class="stocks-row header">
             <div class="row">
@@ -12,31 +16,32 @@
             </div>
         </div>
         <div *ngFor="let s of stocks" class="stocks-row">
-            <div class="row" (click)="toggleAccordion(s.id);">
-                <p class="stocks-cell">{{s.id}}</p>
-                <p class="stocks-cell">{{s.name}}</p>
-                <p class="stocks-cell">{{s.symbol}}</p>
-                <p class="stocks-cell">{{s.lastSale}}</p>
-                <p class="stocks-cell">{{s.marketCap}}</p>
-                <img class="stocks-cell" src = "../../assets/img/down-arrow.png">
-            </div>
-            <div class="stocks-details">
-                <div class="details-scroll">
-                    <div class="stock-details">
-                        <p>{{s.name}} ({{s.symbol}})</p>
-                        <p>Price: {{s.lastSale}}</p>
-                        <p>Change: {{s.netChange}}</p>
-                        <p>Change %: {{s.changePercent}}</p>
-                        <p>Market Cap: {{s.marketCap}}</p>
-                        <p>Country: {{s.country}}</p>
-                        <p>IPO Year: {{s.ipoYear}}</p>
-                        <p>Volume: {{s.volume}}</p>
-                        <p>Sector: {{s.sector}}</p>
-                        <p>Industry: {{s.industry}}</p>
-                    </div>
+            <ng-container *ngIf="s.inSearch">
+                <div class="row" (click)="toggleAccordion(s.id);">
+                    <p class="stocks-cell">{{s.id}}</p>
+                    <p class="stocks-cell">{{s.name}}</p>
+                    <p class="stocks-cell">{{s.symbol}}</p>
+                    <p class="stocks-cell">{{s.lastSale}}</p>
+                    <p class="stocks-cell">{{s.marketCap}}</p>
+                    <img class="stocks-cell" src = "../../assets/img/down-arrow.png">
                 </div>
-                <button class="button-boxy-1 blue" (click)="viewstock(s.id); $event.stopPropagation();">Details</button>
-            </div>
+                <div class="stocks-details">
+                    <div class="details-scroll">
+                        <div class="stock-details">
+                            <div class="stock-title">
+                                <p>{{s.name}} ({{s.symbol}}) <span [ngClass]="+s.netChange! > 0 ? 'green' : 'red'">{{s.netChange}} ({{s.changePercent}})</span></p>
+                            </div>
+                            <p><b>Country: </b>{{s.country}}</p>
+                            <p><b>Industry: </b>{{s.industry}}</p>
+                            <p><b>Sector: </b>{{s.sector}}</p>
+                            <p><b>IPO Year: </b>{{s.ipoYear}}</p>
+                            <p><b>Market Cap: </b>{{s.marketCap}}</p>
+                            <p><b>Volume: </b>{{s.volume}}</p>
+                        </div>
+                    </div>
+                    <button class="button-boxy-1 blue" (click)="viewstock(s.id); $event.stopPropagation();">Details</button>
+                </div>
+            </ng-container>            
         </div>
     </div>
 </div>
