@@ -84,4 +84,8 @@ export class FundsComponent implements OnInit {
     this.fund = incoming;
     console.log(this.fund);
   }
+
+  viewStock(id: number) {
+    this.router.navigateByUrl('/stocks/' + id + '?return=funds');
+  }
 }

@@ -13,9 +13,10 @@ import { AppComponent } from '../app.component';
 })
 
 export class StockComponent implements OnInit {
-  keys:any;
-  id:number = 0;
+  keys: any;
+  id: number = 0;
   stock!: Stock;
+  returnTo: string = '/stocks';
   
   constructor(private titleService: Title, private route:ActivatedRoute, private stockService: StockService, private router: Router, private appComponent: AppComponent) {
     this.router = router;
@@ -38,11 +39,17 @@ export class StockComponent implements OnInit {
         this.keys = Object.keys(this.stock);
       });
     });
+
+    this.route.queryParams.subscribe(params => {
+      if (params['return']) {
+        this.returnTo = '/' + params['return'];
+      }
+    });
   }
 
   back() {
     var e: HTMLElement = <HTMLElement>document.getElementsByClassName('scroll')[0];
     e.style.animation = '0.25s out-to-right';
-    setTimeout(() => this.router.navigateByUrl('/stocks'), 250);
+    setTimeout(() => this.router.navigateByUrl(this.returnTo), 250);
   }
 }
