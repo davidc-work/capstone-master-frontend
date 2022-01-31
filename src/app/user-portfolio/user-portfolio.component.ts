@@ -46,7 +46,6 @@ export class UserPortfolioComponent implements OnInit {
     this.edit = !this.edit;
     this.email = val.email;
     this.name = val.firstName+" "+val.lastName
-    console.log(val)
   }
   
   ngOnInit(): void {

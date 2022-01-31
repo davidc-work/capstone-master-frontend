@@ -19,35 +19,25 @@ export class AccountSettingsComponent implements OnInit {
   constructor(private _profile: ProfileService) { }
 
 
-  // @Output() onHide = new EventEmitter<boolean>();
-  // setHide(){
-  //    this.onHide.emit(true);
-  // }
-
 
 
   save() {
-    console.log("AM I SAVING?")
-    console.log("customer_id ",this.customer_id)
-    console.log("userProfile ",this.userProfile)
     this._profile.editProfile(this.customer_id, this.userProfile).subscribe((data) => {
-      console.log("Checking line 30",data)
+      console.log(data);
     })
     this.update.emit(this.userProfile)
   }
 
+  cancel() {
+    this.update.emit(this.userProfile)
+  }
 
-  // updateProfile() {
-  //   this._profile.editProfile(this.customer_id, this.userProfile).subscribe((data) => {
-  //     console.log(data)
-  //   })
-  //   this.email = this.userProfile.email;
-  //   this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
-  // }
+
 
   ngOnInit(): void {
     this.userProfile = this.data;
     this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
+    this.email = this.userProfile.email
     this.customer_id = this.id
   }
 
