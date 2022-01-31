@@ -45,12 +45,13 @@ export class TransactionComponent implements OnInit {
   }
 
   checkInt(){
-    if(this.quantityToBuy % 1 !== 0){
+    this.quantityToBuy = Math.max(Math.min(Math.round(this.quantityToBuy), 9999), 0);
+    /*if(this.quantityToBuy % 1 !== 0){
       this.quantityToBuy % 1 > 0.5 ? 
         this.quantityToBuy = Math.ceil(this.quantityToBuy) 
         : 
         this.quantityToBuy = Math.floor(this.quantityToBuy)
-    }
+    }*/
   }
 
   addCommas(){
@@ -62,5 +63,12 @@ export class TransactionComponent implements OnInit {
     console.log(this.price, this.quantityToBuy)
     this.priceString = this.total.toLocaleString("en-US");
     console.log(this.total, this.priceString);
+  }
+
+  checkInput() {
+    requestAnimationFrame(() => {
+      this.checkInt();
+      this.addCommas();
+    });
   }
 }

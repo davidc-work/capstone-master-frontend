@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FundsComponent } from './funds/funds.component';
 import { FundComponent } from './fund/fund.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FundStocksComponent } from './fund-stocks/fund-stocks.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
 import { StockComponent } from './stock/stock.component';
@@ -24,7 +23,6 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     AppComponent,
     FundsComponent,
     FundComponent,
-    FundStocksComponent,
     StocksComponent,
     UserPortfolioComponent,
     StockComponent,
