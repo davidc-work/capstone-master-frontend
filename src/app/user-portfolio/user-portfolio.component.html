@@ -1,5 +1,22 @@
 <div>
-  <div class="profile-container">
+
+  <app-account-settings *ngIf="edit" [id]="customer_id" [data]="userProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
+
+  
+
+  <!-- <app-showoff (onHide)="changeHide($event)"></app-showoff> -->
+
+
+
+  <!-- export class AppComponent {
+    hide = false;
+  
+    changeHide(val: boolean) {
+      this.hide = val;
+    }
+  } -->
+  
+  <div *ngIf="!edit" class="profile-container">
     <h1>My Account</h1>
     <div class="profile-alignment">
       <div class="profile-avatar">
@@ -14,31 +31,9 @@
         <div><p>Birthdate: </p><input [(ngModel)]="userProfile.birthdate"  /></div>
         <div><p>Age: </p><input [(ngModel)]="userProfile.age"/></div>
         <div class="button-container">
-          <button (click)="ngOnInit()" class="button-boxy-1 grey">Cancel</button>
-          <button (click)="updateProfile()" class="button-boxy-1 blue">Save</button>
+          <button (click)="editProfile()" class="button-boxy-1 grey">Edit</button>
         </div>
       </div>
     </div>
   </div>
-  <!-- <div style="display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid black;">
-    <h1>Portfolio</h1>
-
-    <table style="width: 75%;">
-      <tr style="text-align: center;">
-        <th>Fund Name</th>
-        <th>Quantity</th>
-        <th>Country</th>
-      </tr>
-      <tr>
-        <td>Capital Opportunity Admiral Shares </td>
-        <td>1</td>
-        <td>Germany</td>
-      </tr>
-      <tr>
-        <td>Centro</td>
-        <td>Francisco</td>
-        <td>Mexico</td>
-      </tr>
-    </table>
-  </div> -->
 </div>

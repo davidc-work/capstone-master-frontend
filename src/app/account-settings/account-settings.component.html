@@ -1,1 +1,23 @@
-<p>account-settings works!</p>
+<div>
+  <div class="profile-container">
+    <h1>Edit Profile</h1>
+    <div class="profile-alignment">
+      <div class="profile-avatar">
+        <img src="../../assets/img/userprofile/profile.png" alt="" />
+        <p>{{name}}</p>
+        <p>{{email}}</p>
+      </div>
+      <div class="profile-info-editable">
+        <div><p>First name: </p><input [(ngModel)]="userProfile.firstName"/></div>
+        <div><p>Last name: </p><input [(ngModel)]="userProfile.lastName"/></div>
+        <div><p>Email: </p><input [(ngModel)]="userProfile.email"/></div>
+        <div><p>Birthdate: </p><input [(ngModel)]="userProfile.birthdate"  /></div>
+        <div><p>Age: </p><input [(ngModel)]="userProfile.age"/></div>
+        <div class="button-container">
+          <button (click)="ngOnInit()" class="button-boxy-1 grey">Cancel</button>
+          <button (click)="save()" class="button-boxy-1 blue">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
