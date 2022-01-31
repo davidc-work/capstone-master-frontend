@@ -1,0 +1,22 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: auto;
+    height: 100%;
+}
+
+.loadBody {
+    height: 100vh;
+    position: absolute;
+    top: 45vh;
+    left: 45vw;
+    z-index: 2000;
+    margin: auto;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.loadBody img {
+    height: 10vh;
+}

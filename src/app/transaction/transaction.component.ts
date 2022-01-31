@@ -30,11 +30,8 @@ export class TransactionComponent implements OnInit {
   
   ngOnInit(): void {
     setTimeout(()=>{
-      console.log("After")
-      console.log(this.fund)
       if(this.fund.price){
         this.price = +this.fund.price.slice(1)
-        console.log(this.price)
       }
     },500);
 

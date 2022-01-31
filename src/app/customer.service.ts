@@ -14,7 +14,6 @@ export class CustomerService {
   }
 
   getAllCustomer(): Observable<any> {
-    console.log("TEST")
     return this.http.get(`http://user-profile-transaction.herokuapp.com/customer`);
   }
 

@@ -8,7 +8,7 @@
         <p>Fund Name: {{ fund.name }}</p>
         <p>Price Per Share: {{ fund.price }}</p>
         <p>Select Quantity to Purchase
-            <input name="quantity" type="number" min="0" step="1" [(ngModel)]="quantityToBuy" (change)="checkInt(); addCommas()" />
+            <input name="quantity" type="number" min="0" step="1" [(ngModel)]="quantityToBuy" (keyup)="checkInt(); addCommas()" />
         </p>
         <p>Total: <span>$ {{ priceString || "0.00" }}</span></p>
         <button class="button-boxy-1 grey" (click)="toggleModal($event)">Cancel</button>
