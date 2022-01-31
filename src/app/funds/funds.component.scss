@@ -111,10 +111,12 @@
     display: none;
     transition: 0.5s;
     padding-left: 50px;
+    padding-bottom: 0;
 }
 
 .mutual-funds-row.active .mutual-funds-details {
     max-height: 300px;
+    padding-bottom: 20px;
 }
 
 .mutual-funds-details .details-scroll {
