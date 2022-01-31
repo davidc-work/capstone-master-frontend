@@ -35,6 +35,7 @@ export class StocksComponent implements OnInit {
       this.stocks = payload.sort((a: any, b: any) => a.id - b.id);
       this.stocks.forEach(s => {        
         s.marketCap = formatter.format(+s.marketCap!).slice(0, -3);
+        s.inSearch = true;
       });
       this.loaded = true;
     });
@@ -61,5 +62,15 @@ export class StocksComponent implements OnInit {
       (rowElement.children[1] as HTMLElement).style.display = 'block';
       requestAnimationFrame(() => rowElement.className = 'stocks-row active');
     }
+  }
+
+  updateSearch(e: any) {
+    requestAnimationFrame(() => { //wait for next frame to get value
+      const search = e.target.value.toLowerCase();
+      this.stocks = this.stocks.map((f: any) => {
+        f.inSearch = f.name.toLowerCase().includes(search);
+        return f;
+      });
+    });
   }
 }

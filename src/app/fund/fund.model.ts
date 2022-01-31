@@ -11,5 +11,6 @@ export interface Fund {
         fiveyr?: string,
         tenyr?: string,
         sinceInception?: string,
-        stocks?: any
+        stocks?: any,
+        inSearch?: boolean
 }

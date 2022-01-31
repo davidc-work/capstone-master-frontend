@@ -33,7 +33,11 @@ export class FundsComponent implements OnInit {
 
   getFunds() {
     this.fundService.getFunds().subscribe(data => {
-      this.funds = data.sort((a: any, b: any) => a.id - b.id);
+      this.funds = data.sort((a: any, b: any) => a.id - b.id).map((f: any) => {
+        f.inSearch = true;
+        return f;
+      });
+
       this.loaded = true;
     });
   }
@@ -58,11 +62,22 @@ export class FundsComponent implements OnInit {
     } else {
       (rowElement.children[1] as HTMLElement).style.display = 'block';
       requestAnimationFrame(() => rowElement.className = 'mutual-funds-row active');
-    }  }
+    }  
+  }
 
   toggleModal(e: any){
     //this.modalOn = !this.modalOn;
     this.transactionComponent.toggleModal(e);
+  }
+
+  updateSearch(e: any) {
+    requestAnimationFrame(() => { //wait for next frame to get value
+      const search = e.target.value.toLowerCase();
+      this.funds = this.funds.map((f: any) => {
+        f.inSearch = f.name.toLowerCase().includes(search);
+        return f;
+      });
+    });
   }
 
   setFund(incoming:Fund){

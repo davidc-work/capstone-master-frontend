@@ -141,3 +141,22 @@
 .stock-title .green {
     color: rgb(0, 194, 0);
 }
+
+.search-bar-container {
+    text-align: center;
+}
+
+.search-bar {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: 2px solid lightgrey;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.search-bar:focus {
+    border: 2px solid rgb(0, 153, 255);
+}

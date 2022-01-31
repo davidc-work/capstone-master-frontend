@@ -3,6 +3,7 @@
     font-size: 42px;
     font-family: 'roadrunners';
     color: #bf0000;
+    margin-bottom: 30px;
 }
 
 #table-mutual-funds {
@@ -143,4 +144,23 @@
 
 .stock-row > p:nth-child(2) {
     width: 150px;
+}
+
+.search-bar-container {
+    text-align: center;
+}
+
+.search-bar {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: 2px solid lightgrey;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.search-bar:focus {
+    border: 2px solid rgb(0, 153, 255);
 }

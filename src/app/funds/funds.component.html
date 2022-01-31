@@ -1,7 +1,9 @@
 <app-loading *ngIf="!loaded"></app-loading>
 <div class="scroll">
     <p class="page-title">Mutual Funds</p>
-    <!--<button (click)="addFund()" id="add-fund" class="button-round-1 blue">+ Add Fund</button>-->
+    <div class="search-bar-container">
+        <input class="search-bar" type="text" placeholder="Search for a fund..." (keydown)="updateSearch($event)">
+    </div>
     <div id="table-mutual-funds">
         <div class="mutual-funds-row header">
             <div class="row">
@@ -14,24 +16,26 @@
             </div>
         </div>
         <div *ngFor="let fund of funds" class="mutual-funds-row">
-            <div class="row" (click)="toggleAccordion(fund.id);">
-                <p class="mutual-funds-cell">{{fund.id}}</p>
-                <p class="mutual-funds-cell">{{fund.name}}</p>
-                <p class="mutual-funds-cell">{{fund.ticker}}</p>
-                <p class="mutual-funds-cell">{{fund.assetClass}}</p>
-                <p class="mutual-funds-cell">{{fund.price}}</p>
-                <img class="mutual-funds-cell" src = "../../assets/img/down-arrow.png">
-            </div>
-            <div class="mutual-funds-details">
-                <div class="details-scroll">
-                    <div *ngFor="let stock of fund.stocks" class="stock-row">
-                        <p>{{stock.name}}</p>
-                        <p>{{stock.lastSale}}</p>
-                    </div>
+            <ng-container *ngIf="fund.inSearch">
+                <div class="row" (click)="toggleAccordion(fund.id);">
+                    <p class="mutual-funds-cell">{{fund.id}}</p>
+                    <p class="mutual-funds-cell">{{fund.name}}</p>
+                    <p class="mutual-funds-cell">{{fund.ticker}}</p>
+                    <p class="mutual-funds-cell">{{fund.assetClass}}</p>
+                    <p class="mutual-funds-cell">{{fund.price}}</p>
+                    <img class="mutual-funds-cell" src = "../../assets/img/down-arrow.png">
                 </div>
-                <button class="button-boxy-1 blue" (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>
-                <button class="button-boxy-1 red" style="margin-left: 0" (click)="toggleModal($event); setFund(fund)">Purchase</button>
-            </div>
+                <div class="mutual-funds-details">
+                    <div class="details-scroll">
+                        <div *ngFor="let stock of fund.stocks" class="stock-row">
+                            <p>{{stock.name}}</p>
+                            <p>{{stock.lastSale}}</p>
+                        </div>
+                    </div>
+                    <button class="button-boxy-1 blue" (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>
+                    <button class="button-boxy-1 red" style="margin-left: 0" (click)="toggleModal($event); setFund(fund)">Purchase</button>
+                </div>
+            </ng-container>
         </div>
     </div>
 </div>
