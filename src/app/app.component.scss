@@ -39,15 +39,23 @@ a {
   z-index: 9;
 }
 
-#title {
-  text-align: left;
-  transform: translateX(90px);
+.title {
   font-size: 32px;
   margin: 0;
   line-height: 75px;
   width: fit-content;
   font-family: "roadrunners";
   color: #b30000;
+}
+
+#main-title {
+  text-align: left;
+  transform: translateX(90px);
+}
+
+#title-footer {
+  margin: auto;
+  color: rgb(192, 192, 192);
 }
 
 .container {
