@@ -38,10 +38,10 @@ export class UserPortfolioComponent implements OnInit {
   
   ngOnInit(): void {
     this._user.getAllCustomer().subscribe((data) => {
-      console.log(this.userData)
       this.userData = data[2]
       this.userPortfolio = this.userData.ClientPortfolios
-      this.userProfile = this.userData.ClientProfile
+      this.userProfile = this.userData.ClientProfile;
+      this.userProfile.birthdate = new Date(this.userProfile.birthdate).toISOString().split('T')[0];
       this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
       this.email = this.userProfile.email;
       this.customer_id = this.userData.customer_id
