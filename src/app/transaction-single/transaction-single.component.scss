@@ -1,0 +1,53 @@
+.scroll {
+    opacity: 0;
+    animation: 0.25s in-from-right;
+    animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    width: 800px;
+    background-color: #f7f7f7;
+    padding: 43px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    box-shadow: 0 0 12px #c5c5c5;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 42px;
+    font-family: "roadrunners";
+    color: #bf0000;
+    max-width: 800px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// .buttons {
+//     width: fit-content;
+//     position: relative;
+//     left: 50%;
+//     transform: translate(-50%, 18px);
+// }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+tr {
+    text-align: center;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}

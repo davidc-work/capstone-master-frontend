@@ -18,6 +18,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { LoadingComponent } from './loading/loading.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { TransactionSingleComponent } from './transaction-single/transaction-single.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     AccountSettingsComponent,
     LoadingComponent,
     LoginPageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    TransactionSingleComponent
   ],
   imports: [
     BrowserModule,
