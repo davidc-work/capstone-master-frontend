@@ -5,12 +5,12 @@
             <button class="modalBtn" (click)="toggleModal($event)">X</button>
         </div>
         <hr>
-        <p>Fund Name: {{ fund.name }}</p>
-        <p>Price Per Share: {{ fund.price }}</p>
-        <p>Select Quantity to Purchase
-            <input name="quantity" type="number" min="0" step="1" [(ngModel)]="quantityToBuy" (keyup)="checkInt(); addCommas()" />
-        </p>
-        <p>Total: <span>$ {{ priceString || "0.00" }}</span></p>
+        <div class="line"><p>Fund Name: </p><p>{{ fund.name }}</p></div>
+        <div class="line"><p>Price Per Share: </p><p>{{ fund.price }}</p></div>
+        <div class="line">
+            <p>Quantity: </p><input id="share-input" name="quantity" type="number" min="0" max="9999" step="1" [(ngModel)]="quantityToBuy" (change)="checkInput();" />
+        </div>
+        <div class="line"><p>Total: </p><p>{{ priceString || '0.00' }}</p></div>
         <button class="button-boxy-1 grey" (click)="toggleModal($event)">Cancel</button>
         <button class="button-boxy-1 blue">Purchase</button>
     </div>

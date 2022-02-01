@@ -41,6 +41,20 @@
     transition: 0.4s;
 }
 
+.modalBody .line {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.modalBody .line > * {
+    display: inline-block;
+    margin: 0;
+}
+
+.modalBody .line > *:first-child {
+    margin-right: 8px;
+}
+
 .overlay.visible .modalBody {
     opacity: 1;
     transform: translateY(-50%);
@@ -70,4 +84,19 @@ hr {
 button:nth-last-child(2) {
     margin-left: 0;
     margin-right: 0;
+}
+
+#share-input {
+    width: 50px;
+    text-align: center;
+    padding: 3px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid lightgrey;
+}
+
+/* share input number arrows always visible */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
 }
