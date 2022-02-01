@@ -1,5 +1,7 @@
 <div>
-  <div class="profile-container">
+
+  <app-account-settings *ngIf="edit" [id]="customer_id" [data]="userProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
+  <div *ngIf="!edit" class="profile-container">
     <h1>My Account</h1>
     <div class="profile-alignment">
       <div class="profile-avatar">
@@ -8,37 +10,59 @@
         <p>{{email}}</p>
       </div>
       <div class="profile-info-editable">
-        <div><p>First name: </p><input [(ngModel)]="userProfile.firstName"/></div>
-        <div><p>Last name: </p><input [(ngModel)]="userProfile.lastName"/></div>
-        <div><p>Email: </p><input [(ngModel)]="userProfile.email"/></div>
-        <div><p>Birthdate: </p><input [(ngModel)]="userProfile.birthdate"  /></div>
-        <div><p>Age: </p><input [(ngModel)]="userProfile.age"/></div>
+        <div><p>First name: </p><input disabled=true value={{userProfile.firstName}}/></div>
+        <div><p>Last name: </p><input disabled=true value={{userProfile.lastName}}/></div>
+        <div><p>Email: </p><input disabled=true value={{userProfile.email}}/></div>
+        <div><p>Birthdate: </p><input disabled=true value={{userProfile.birthdate}} type="date"/></div>
         <div class="button-container">
-          <button (click)="ngOnInit()" class="button-boxy-1 grey">Cancel</button>
-          <button (click)="updateProfile()" class="button-boxy-1 blue">Save</button>
+          <button (click)="editProfile()" class="button-boxy-1 grey">Edit</button>
         </div>
       </div>
     </div>
   </div>
-  <!-- <div style="display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid black;">
-    <h1>Portfolio</h1>
 
-    <table style="width: 75%;">
-      <tr style="text-align: center;">
-        <th>Fund Name</th>
-        <th>Quantity</th>
-        <th>Country</th>
-      </tr>
+  
+
+  <div class="profile-container">
+
+
+    
+    <table>
       <tr>
-        <td>Capital Opportunity Admiral Shares </td>
-        <td>1</td>
-        <td>Germany</td>
+        <th scope="">Name
+          <button (click)="chosenFilter('name')">
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+          </button>
+        </th>
+        <th scope="">Ticker
+          <button (click)="chosenFilter('ticker')">
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+          </button>
+        </th>
+        <th scope="">Price
+          <button (click)="chosenFilter('price')">
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+          </button>
+        </th>
+        <th scope="">Quantity
+          <button (click)="chosenFilter('quantity')">
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+          </button>
+        </th>
       </tr>
-      <tr>
-        <td>Centro</td>
-        <td>Francisco</td>
-        <td>Mexico</td>
+
+
+
+
+      <tr *ngFor="let portfolio of userPortfolio">
+        <td class="table-content">
+          <!-- add route here for specific fund -->
+          <a href="">{{portfolio.name}}</a>
+        </td>
+        <td class="table-content">{{portfolio.ticker}}</td>
+        <td class="table-content">{{portfolio.price}}</td>
+        <td class="table-content">{{portfolio.quantity}}</td>
       </tr>
     </table>
-  </div> -->
+  </div>
 </div>

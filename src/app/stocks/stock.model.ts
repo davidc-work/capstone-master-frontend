@@ -13,5 +13,6 @@ export interface Stock {
     sector?: string,
     industry?: string,
     createdAt?: string,
-    updatedAt?: string
+    updatedAt?: string,
+    inSearch?: boolean
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider";
 
 @Component({
@@ -8,7 +9,9 @@ import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider";
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) {
+    titleService.setTitle('RVProtect');
+  }
 
   ngOnInit(): void {
     var mainGallery = tns({

@@ -1,36 +1,36 @@
 <div class="scroll">
-    <p class="page-title">{{stock.name}}</p>
+    <p class="page-title">{{stock?.name}}</p>
     <div class="container">
-        <p>ID: {{stock.id}}</p>
+        <p>ID: {{stock?.id}}</p>
         <div class="line">
-            <p>Name:</p><p>{{stock.name}}</p>
+            <p>Name:</p><p>{{stock?.name}}</p>
         </div>
         <div class="line">
-            <p>Ticker:</p><p>{{stock.lastSale}}</p>
+            <p>Price:</p><p>{{stock?.lastSale}}</p>
         </div>
         <div class="line">
-            <p>Asset Class:</p><p>{{stock.netChange}}</p>
+            <p>Change:</p><p>{{stock?.netChange}}</p>
         </div>
         <div class="line">
-            <p>Expense Ratio:</p><p>{{stock.changePercent}}</p>
+            <p>Change %:</p><p>{{stock?.changePercent}}</p>
         </div>
         <div class="line">
-            <p>Price:</p><p>{{stock.marketCap}}</p>
+            <p>Market Cap:</p><p>{{'$' + (stock?.marketCap ? stock?.marketCap!.slice(0, -3) : '')}}</p>
         </div>
         <div class="line">
-            <p>Price Change:</p><p>{{stock.country}}</p>
+            <p>Country:</p><p>{{stock?.country}}</p>
         </div>
         <div class="line">
-            <p>YTD:</p><p>{{stock.ipoYear}}</p>
+            <p>IPO Year:</p><p>{{stock?.ipoYear}}</p>
         </div>
         <div class="line">
-            <p>One Year:</p><p>{{stock.volume}}</p>
+            <p>Volume:</p><p>{{stock?.volume}}</p>
         </div>
         <div class="line">
-            <p>Five Year:</p><p>{{stock.sector}}</p>
+            <p>Sector:</p><p>{{stock?.sector}}</p>
         </div>
         <div class="line">
-            <p>Ten Year:</p><p>{{stock.industry}}</p>
+            <p>Industry:</p><p>{{stock?.industry}}</p>
         </div>
         <div class="buttons">
             <button class="button-boxy-1 grey" (click)="back()">Back</button>

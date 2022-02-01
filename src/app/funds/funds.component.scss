@@ -3,6 +3,7 @@
     font-size: 42px;
     font-family: 'roadrunners';
     color: #bf0000;
+    margin-bottom: 30px;
 }
 
 #table-mutual-funds {
@@ -107,12 +108,15 @@
     height: auto;
     max-height: 0;
     overflow: hidden;
+    display: none;
     transition: 0.5s;
     padding-left: 50px;
+    padding-bottom: 0;
 }
 
 .mutual-funds-row.active .mutual-funds-details {
     max-height: 300px;
+    padding-bottom: 20px;
 }
 
 .mutual-funds-details .details-scroll {
@@ -122,24 +126,69 @@
     margin-bottom: 10px;
     border: 1px solid rgb(236, 236, 236);
     box-sizing: border-box;
-    padding-left: 25px;
 }
 
 .stock-row {
-    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.stock-row.header {
+    font-weight: bold;
+    background-color: rgb(235, 235, 235) !important;
+    cursor: unset;
 }
 
 .stock-row > * {
     display: inline-block;
-    margin-right: 20px;
+    margin: 0;
+    margin-left: 20px;
     vertical-align: middle;
+    text-align: center;
+}
+
+.stock-row:nth-child(odd) {
+    background-color: rgb(247, 247, 247);
+}
+
+.stock-row:hover {
+    background-color: rgb(228, 228, 228);
 }
 
 .stock-row > p:first-child {
     width: 300px;
     white-space: break-spaces;
+    text-align: left;
 }
 
 .stock-row > p:nth-child(2) {
     width: 150px;
+}
+
+.stock-row > p:nth-child(3) {
+    width: 150px;
+}
+
+.stock-row > p:nth-child(4) {
+    width: 150px;
+}
+
+.search-bar-container {
+    text-align: center;
+}
+
+.search-bar {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: 2px solid lightgrey;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.search-bar:focus {
+    border: 2px solid rgb(0, 153, 255);
 }
