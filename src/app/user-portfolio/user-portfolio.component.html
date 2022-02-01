@@ -24,26 +24,44 @@
   
 
   <div class="profile-container">
-    <div class="filter-container">
-      <button (click)="filterButton()">Filter</button>
-      <div *ngIf="showFilter">
-      <ul *ngFor="let type of filter">
-        <li><button (click)="sortPortfolio(type)">{{type}}</button></li>
-      </ul>
-    </div>
-    </div>
+
+
+    
     <table>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Ticker</th>
-        <th scope="col">Price</th>
-        <th scope="col">Quantity</th>
+        <th scope="">Name
+          <button (click)="chosenFilter('name')">
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+          </button>
+        </th>
+        <th scope="">Ticker
+          <button (click)="chosenFilter('ticker')">
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+          </button>
+        </th>
+        <th scope="">Price
+          <button (click)="chosenFilter('price')">
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+          </button>
+        </th>
+        <th scope="">Quantity
+          <button (click)="chosenFilter('quantity')">
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+          </button>
+        </th>
       </tr>
+
+
+
+
       <tr *ngFor="let portfolio of userPortfolio">
-        <td>{{portfolio.name}}</td>
-        <td>{{portfolio.ticker}}</td>
-        <td>{{portfolio.price}}</td>
-        <td>{{portfolio.quantity}}</td>
+        <td class="table-content">
+          <!-- add route here for specific fund -->
+          <a href="">{{portfolio.name}}</a>
+        </td>
+        <td class="table-content">{{portfolio.ticker}}</td>
+        <td class="table-content">{{portfolio.price}}</td>
+        <td class="table-content">{{portfolio.quantity}}</td>
       </tr>
     </table>
   </div>

@@ -93,18 +93,36 @@ h1 {
   border: none;
 }
 
+.filter-button {
+  width: 20px;
+}
+
 table {
   width: 75vw;
   border: 1px solid rgb(194, 194, 194);
 
-  th {
-    padding: 2vh;
+  th button {
+    position: absolute;
+    border: none;
+    background: none;
   }
-  td {
-    border: 1px solid rgb(194, 194, 194);
-    text-align: center;
-    padding: 8vh 2vw;
+}
+
+.filter-dropdown {
+  font-size: 8pt;
+
+  div {
+    // position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
   }
+}
+
+.table-content {
+  border: 1px solid rgb(194, 194, 194);
+  text-align: center;
+  padding: 8vh 2vw;
 }
 
 table tr:nth-child(1) {
@@ -113,18 +131,18 @@ table tr:nth-child(1) {
   color: white;
 }
 
-table tr th:nth-child(1) {
+table tr button th:nth-child(1) {
   width: 15%;
 }
 
-table tr th:nth-child(2) {
-  width: 10%;
+table tr button th:nth-child(2) {
+  width: 8%;
 }
 
-table tr th:nth-child(3) {
+table tr button th:nth-child(3) {
   width: 15%;
 }
 
-table tr th:nth-child(4) {
-  width: 5%;
+table tr button th:nth-child(4) {
+  width: 8%;
 }
