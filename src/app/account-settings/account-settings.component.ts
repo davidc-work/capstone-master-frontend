@@ -39,7 +39,6 @@ export class AccountSettingsComponent implements OnInit {
     this.userProfile = this.data;
     this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
     this.email = this.userProfile.email
-    console.log(this.id)
     this.customer_id = this.id
   }
 

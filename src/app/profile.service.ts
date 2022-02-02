@@ -23,7 +23,7 @@ export class ProfileService {
   editProfile(customer_id: number, obj: any): Observable<any> {
     console.log(customer_id)
     console.log(obj)
-    return this.http.put(`https://protected-dusk-89362.herokuapp.com/profile/${customer_id}`, Object.assign({
+    return this.http.put(`https://protected-dusk-89362.herokuapp.com/user/${customer_id}`, Object.assign({
       username: localStorage.getItem('username'),
       sessionID: localStorage.getItem('sessionID')
     }, obj));
