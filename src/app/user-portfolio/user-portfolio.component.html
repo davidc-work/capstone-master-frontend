@@ -49,6 +49,11 @@
             <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
+      <button (click)="chosenFilter('quantity')">
+        <th scope="">Quantity
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+        </th>
+      </button>
       </tr>
 
 
@@ -61,6 +66,7 @@
         </td>
         <td class="table-content">{{portfolio.ticker}}</td>
         <td class="table-content">{{portfolio.price}}</td>
+        <td class="table-content">{{portfolio.quantity}}</td>
         <td class="table-content">{{portfolio.quantity}}</td>
       </tr>
     </table>

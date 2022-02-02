@@ -173,11 +173,21 @@ table tr td:nth-child(3) {
 table tr button:nth-child(4) {
   display: flex;
   justify-content: center;
-  width: 20%;
+  width: 10%;
 }
 
 table tr td:nth-child(4) {
-  width: 20%;
+  width: 10%;
+}
+
+table tr button:nth-child(5) {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
+
+table tr td:nth-child(5) {
+  width: 10%;
 }
 
 // table tr th:nth-child(1) {
