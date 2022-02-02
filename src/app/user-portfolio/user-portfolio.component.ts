@@ -18,6 +18,7 @@ export class UserPortfolioComponent implements OnInit {
   userData: any;
   filter: any = ["Price High to Low","Price Low to High", "Quantity High to Low", "Quantity Low to High","Sort Name Ascending","Sort Name Descending"]
   response: any;
+  totalPrice: any;
   /*userPortfolio: any = [
     {
       name: "Capital Opportunity Admiral Shares",
@@ -50,6 +51,8 @@ export class UserPortfolioComponent implements OnInit {
       quantity: 4
     }
   ]*/
+
+
   userPortfolio: any = '';
   userProfile: any = {}
   name: string = "";
@@ -94,25 +97,6 @@ export class UserPortfolioComponent implements OnInit {
     }
   }
 
-  // chosenFilter(val: string) {
-
-  //   this.test(val)
-
-    // switch (val) {
-    //   case "name":
-    //     this.filterName = !this.filterName
-    //     break;
-    // case "ticker":
-    //     this.filterTicker = !this.filterTicker
-    //     break;
-    // case "price":
-    //     this.filterPrice = !this.filterPrice
-    //     break;
-    // case "quantity":
-    //     this.filterQuantity = !this.filterQuantity
-    //     break;
-    // }
-  // }
 
   closeAll() {
     this.filterName = false;
@@ -122,50 +106,52 @@ export class UserPortfolioComponent implements OnInit {
   }
 
   chosenFilter(val: string) {
+
+    console.log(this.userData.ClientPortfolios)
     switch (val) {
       case "name":
         if (this.filterName) {
-          this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-            return (portfolio1.name > portfolio2.name ? -1 : 1)
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return (portfolio1.fundData.name > portfolio2.fundData.name ? -1 : 1)
           })
         } else {
-          this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-            return (portfolio1.name > portfolio2.name) ? 1 : ((portfolio2.name > portfolio1.name) ? -1 : 0)
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return (portfolio1.fundData.name > portfolio2.fundData.name) ? 1 : ((portfolio2.fundData.name > portfolio1.fundData.name) ? -1 : 0)
           })
         }
         this.filterName = !this.filterName
         break;
       case "ticker":
         if (this.filterTicker) {
-          this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-            return (portfolio1.ticker > portfolio2.ticker ? -1 : 1)
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return (portfolio1.fundData.ticker > portfolio2.fundData.ticker ? -1 : 1)
           })
         } else {
-          this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-            return (portfolio1.ticker > portfolio2.ticker) ? 1 : ((portfolio2.ticker > portfolio1.ticker) ? -1 : 0)
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return (portfolio1.fundData.ticker > portfolio2.fundData.ticker) ? 1 : ((portfolio2.fundData.ticker > portfolio1.fundData.ticker) ? -1 : 0)
           })
         }
         this.filterTicker = !this.filterTicker
         break;
       case "price":
         if (this.filterPrice) {
-          this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-            return parseInt(portfolio1.price.substring(1)) - parseInt(portfolio2.price.substring(1))
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return parseInt(portfolio1.fundData.price.substring(1)) - parseInt(portfolio2.fundData.price.substring(1))
           })
         } else {
-          this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-            return parseInt(portfolio2.price.substring(1)) - parseInt(portfolio1.price.substring(1))
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return parseInt(portfolio2.fundData.price.substring(1)) - parseInt(portfolio1.fundData.price.substring(1))
           })
         }
         this.filterPrice = !this.filterPrice
         break;
       case "quantity":
         if (this.filterQuantity) {
-          this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return portfolio1.quantity - portfolio2.quantity
           })
         } else {
-          this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return portfolio2.quantity - portfolio1.quantity
           })
         }
@@ -193,64 +179,66 @@ export class UserPortfolioComponent implements OnInit {
     this.item = this.userProfile;
   }
 
-  sortPortfolio(val: any) {
-    switch (val) {
-      case "Price High to Low":
-        this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-          return parseInt(portfolio2.price.substring(1)) - parseInt(portfolio1.price.substring(1))
-        })
-        this.filterButton()
-        break;
-      case "Price Low to High":
-        this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-          return parseInt(portfolio1.price.substring(1)) - parseInt(portfolio2.price.substring(1))
-        })
-        this.filterButton()
-        break;
-      case "Quantity High to Low":
-        this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-          return portfolio2.quantity - portfolio1.quantity
-        })
-        this.filterButton()
-        break;
-      case "Quantity Low to High":
-        this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-          return portfolio1.quantity - portfolio2.quantity
-        })
-        this.filterButton()
-        break;
+  // sortPortfolio(val: any) {
+  //   switch (val) {
+  //     case "Price High to Low":
+  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+  //         return parseInt(portfolio2.price.substring(1)) - parseInt(portfolio1.price.substring(1))
+  //       })
+  //       this.filterButton()
+  //       break;
+  //     case "Price Low to High":
+  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+  //         return parseInt(portfolio1.price.substring(1)) - parseInt(portfolio2.price.substring(1))
+  //       })
+  //       this.filterButton()
+  //       break;
+  //     case "Quantity High to Low":
+  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+  //         return portfolio2.quantity - portfolio1.quantity
+  //       })
+  //       this.filterButton()
+  //       break;
+  //     case "Quantity Low to High":
+  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+  //         return portfolio1.quantity - portfolio2.quantity
+  //       })
+  //       this.filterButton()
+  //       break;
 
       
-      case "Sort Name Ascending":
-        this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-          return (portfolio1.name > portfolio2.name) ? 1 : ((portfolio2.name > portfolio1.name) ? -1 : 0)
-        })
-        this.filterButton()
-        break;
+  //     case "Sort Name Ascending":
+  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+  //         return (portfolio1.name > portfolio2.name) ? 1 : ((portfolio2.name > portfolio1.name) ? -1 : 0)
+  //       })
+  //       this.filterButton()
+  //       break;
       
-      case "Sort Name Descending":
-        this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-          return (portfolio1.name > portfolio2.name ? -1 : 1)
-        })
-        this.filterButton()
-        break;
+  //     case "Sort Name Descending":
+  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+  //         return (portfolio1.name > portfolio2.name ? -1 : 1)
+  //       })
+  //       this.filterButton()
+  //       break;
       
-      case "Sort Ticker Ascending":
-        this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-          return (portfolio1.ticker > portfolio2.ticker) ? 1 : ((portfolio2.ticker > portfolio1.ticker) ? -1 : 0)
-        })
-        this.filterButton()
-        break;
+  //     case "Sort Ticker Ascending":
+  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+  //         return (portfolio1.ticker > portfolio2.ticker) ? 1 : ((portfolio2.ticker > portfolio1.ticker) ? -1 : 0)
+  //       })
+  //       this.filterButton()
+  //       break;
     
-      case "Sort Ticker Descending":
-        this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-          return (portfolio1.ticker > portfolio2.ticker ? -1 : 1)
-        })
-        this.filterButton()
-        break;
-    }
-    this.closeAll()
-  }
+  //     case "Sort Ticker Descending":
+  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
+  //         return (portfolio1.ticker > portfolio2.ticker ? -1 : 1)
+  //       })
+  //       this.filterButton()
+  //       break;
+  //   }
+  //   this.closeAll()
+  // }
+
+  
   
 
   refreshPage(val:any) {
@@ -260,6 +248,11 @@ export class UserPortfolioComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    if (this.userData) {
+      for (let portfolio of this.userData.ClientPortfolios) {
+        portfolio.totalPrice = parseInt(portfolio.price.substring(1)) * parseInt(portfolio.quantity);
+      }
+    }
     /*this._user.getAllCustomer().subscribe((data) => {
       this.userData = data[2]
       this.userProfile = this.userData.ClientProfile;
@@ -267,6 +260,12 @@ export class UserPortfolioComponent implements OnInit {
       this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
       this.email = this.userProfile.email;
       this.customer_id = this.userData.customer_id
+
+      console.log("checking")
+      for (let i = 0; i < this.userPortfolio.length; i++) {
+        this.userPortfolio["totalPrice"] = this.userPortfolio.quantity * parseInt(this.userPortfolio.price.substring(1))
+        console.log("I AM HERE!!!",this.userPortfolio);
+      }
 
       this.titleService.setTitle('RVProtect - ' + this.name);
     });*/

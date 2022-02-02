@@ -1,6 +1,8 @@
 <div>
 
-  <app-account-settings *ngIf="edit" [id]="customer_id" [data]="userProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
+  <app-account-settings *ngIf="edit" [id]="customer_id" [data]="userData.ClientProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
+
+
   <div *ngIf="!edit" class="profile-container">
     <h1>My Account</h1>
     <div class="profile-alignment">
@@ -29,26 +31,31 @@
     
     <table>
       <tr>
-        <th scope="">Name
-          <button (click)="chosenFilter('name')">
+        <button (click)="chosenFilter('name')"><th scope="">Name
+          
             <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
-          </button>
         </th>
+      </button>
+      <button (click)="chosenFilter('ticker')">
         <th scope="">Ticker
-          <button (click)="chosenFilter('ticker')">
             <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
-          </button>
         </th>
+      </button>
+      <button (click)="chosenFilter('price')">
         <th scope="">Price
-          <button (click)="chosenFilter('price')">
             <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
-          </button>
         </th>
+      </button>
+      <button (click)="chosenFilter('quantity')">
         <th scope="">Quantity
-          <button (click)="chosenFilter('quantity')">
             <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
-          </button>
         </th>
+      </button>
+      <button (click)="chosenFilter('quantity')">
+        <th scope="">Total
+            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+        </th>
+      </button>
       </tr>
       <tr *ngFor="let portfolio of userPortfolio">
         <td class="table-content">
@@ -58,6 +65,7 @@
         <td class="table-content">{{portfolio.fundData.ticker}}</td>
         <td class="table-content">{{portfolio.fundData.price}}</td>
         <td class="table-content">{{portfolio.quantity}}</td>
+        <td class="table-content">{{portfolio.totalPrice}}</td>
       </tr>
     </table>
   </div>
