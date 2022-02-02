@@ -1,0 +1,58 @@
+.container {
+    height: 100%;
+    width: 69vw;
+    background-color: #f7f7f7;
+    padding: 43px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    box-shadow: 0 0 12px #c5c5c5;
+    margin-bottom: 5vh;
+}
+.row{
+    display: flex;
+}
+
+.col{
+    height: 100%;
+    padding: 20px;
+    flex: 1;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
+
+.vert {
+    top: 50%;
+}
+
+.icon {
+    height: 40px;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.depositBtn {
+    color: white;
+    background-color: grey;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.depositBtn:hover {
+    background-color: green;
+    content: '/Now';
+    transition: 1s;
+}
+
+.sideDivider {
+    border-right: rgba(128, 128, 128, 0.116) 1px solid ;
+}
