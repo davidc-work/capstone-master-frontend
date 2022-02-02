@@ -22,6 +22,7 @@ export class AccountSettingsComponent implements OnInit {
 
 
   save() {
+    console.log("Save method ",this.customer_id)
     this._profile.editProfile(this.customer_id, this.userProfile).subscribe((data) => {
       console.log(data);
     })
@@ -38,6 +39,7 @@ export class AccountSettingsComponent implements OnInit {
     this.userProfile = this.data;
     this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
     this.email = this.userProfile.email
+    console.log(this.id)
     this.customer_id = this.id
   }
 

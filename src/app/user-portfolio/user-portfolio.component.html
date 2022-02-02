@@ -1,6 +1,6 @@
 <div>
 
-  <app-account-settings *ngIf="edit" [id]="customer_id" [data]="userData.ClientProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
+  <app-account-settings *ngIf="edit" [id]="userData.customer_id" [data]="userData.ClientProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
 
 
   <div *ngIf="!edit" class="profile-container">

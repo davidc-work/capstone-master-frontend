@@ -106,8 +106,6 @@ export class UserPortfolioComponent implements OnInit {
   }
 
   chosenFilter(val: string) {
-
-    console.log(this.userData.ClientPortfolios)
     switch (val) {
       case "name":
         if (this.filterName) {
