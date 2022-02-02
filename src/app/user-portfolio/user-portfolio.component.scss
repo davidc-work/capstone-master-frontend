@@ -121,28 +121,77 @@ table {
 
 .table-content {
   border: 1px solid rgb(194, 194, 194);
+  padding: 2vh 0px;
+}
+
+// table tr:nth-child(1) {
+//   color: white;
+// }
+
+table tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
   text-align: center;
-  padding: 8vh 2vw;
 }
 
-table tr:nth-child(1) {
-  background-color: maroon;
-  text-align: center;
-  color: white;
+table tr:nth-child(2) {
+  width: 100%;
 }
 
-table tr button th:nth-child(1) {
-  width: 15%;
+table tr button:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  width: 40%;
 }
 
-table tr button th:nth-child(2) {
-  width: 8%;
+table tr td:nth-child(1) {
+  width: 40%;
 }
 
-table tr button th:nth-child(3) {
-  width: 15%;
+table tr button:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  width: 20%;
 }
 
-table tr button th:nth-child(4) {
-  width: 8%;
+table tr td:nth-child(2) {
+  width: 20%;
 }
+
+table tr button:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+table tr td:nth-child(3) {
+  width: 20%;
+}
+
+table tr button:nth-child(4) {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+table tr td:nth-child(4) {
+  width: 20%;
+}
+
+// table tr th:nth-child(1) {
+//   width: 15%;
+// }
+
+// table tr th:nth-child(2) {
+//   width: 8%;
+// }
+
+// table tr th:nth-child(3) {
+//   width: 15%;
+// }
+
+// table tr th:nth-child(4) {
+//   width: 8%;
+// }

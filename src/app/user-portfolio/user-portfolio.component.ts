@@ -250,6 +250,8 @@ export class UserPortfolioComponent implements OnInit {
     }
     this.closeAll()
   }
+
+  
   
 
   refreshPage(val:any) {
@@ -267,8 +269,15 @@ export class UserPortfolioComponent implements OnInit {
       this.email = this.userProfile.email;
       this.customer_id = this.userData.customer_id
 
+      console.log("checking")
+      for (let i = 0; i < this.userPortfolio.length; i++) {
+        this.userPortfolio["totalPrice"] = this.userPortfolio.quantity * parseInt(this.userPortfolio.price.substring(1))
+        console.log("I AM HERE!!!",this.userPortfolio);
+      }
+
       this.titleService.setTitle('RVProtect - ' + this.name);
     });
+    console.log(this.userPortfolio)
   }
 
 }
