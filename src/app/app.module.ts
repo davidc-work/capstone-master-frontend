@@ -18,6 +18,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { TransactionSingleComponent } from './transaction-single/transaction-single.component';
+import { BillingComponent } from './billing/billing.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TransactionSingleComponent } from './transaction-single/transaction-sin
     LoadingComponent,
     LoginPageComponent,
     SignupPageComponent,
-    TransactionSingleComponent
+    TransactionSingleComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,
