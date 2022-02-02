@@ -60,7 +60,7 @@
       <tr *ngFor="let portfolio of userPortfolio">
         <td class="table-content">
           <!-- add route here for specific fund -->
-          <a href="">{{portfolio.fundData.name}}</a>
+          <a href="/receipts/{{userData?.customer_id}}/{{portfolio.fundKey}}">{{portfolio.fundData.name}}</a>
         </td>
         <td class="table-content">{{portfolio.fundData.ticker}}</td>
         <td class="table-content">{{portfolio.fundData.price}}</td>

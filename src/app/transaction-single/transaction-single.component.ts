@@ -11,6 +11,7 @@ import { Transaction } from '../transaction/transaction.model';
 export class TransactionSingleComponent implements OnInit {
   transactions:Transaction[] = [];
   fundName:String = "";
+  userData:any;
   constructor(private portfolioService: PortfolioService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,11 +20,15 @@ export class TransactionSingleComponent implements OnInit {
       if(!params["fundId"] || ! params["userId"]){
         return
       } else {
-        this.portfolioService.getAllTransactionByFund(+params["fundId"], +params["userId"]).subscribe((response: any) => {
-          console.log(response);
-          this.transactions= response;
-          this.fundName = response[0].itemDescription;
-        })
+        setTimeout(() => {
+          console.log(this.userData, "User data")
+          let sessionID = localStorage.getItem("sessionID");
+          this.portfolioService.getAllTransactionByFund(+params["fundId"], params["userId"], {username: this.userData.username, sessionID: sessionID}).subscribe((response: any) => {
+            console.log(response);
+            this.transactions= response;
+            this.fundName = response[0].itemDescription;
+          })
+        }, 1000)
       }
     });
   }

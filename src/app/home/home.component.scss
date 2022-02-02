@@ -18,7 +18,7 @@ button {
     border: none;
     background: none;
     position: absolute;
-    top: 50%;
+    top: 20%;
     filter: drop-shadow(0 0 5px rgb(212, 212, 212));
     cursor: pointer;
     opacity: 0.5;
@@ -61,10 +61,40 @@ button > img {
     line-height: 64px;
 }
 
+.header-2 {
+    font-family: ff-mark;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 45px;
+}
 .description-text-1 {
     font-family: ff-mark-med;
     font-size: 24px;
 }
+.description-text-2 {
+    font-family: ff-mark-med;
+    font-size: 20px;
+}
+
+.routes {
+    border: 10pt;
+    display: flex;
+    flex-direction: row;
+    background: fixed;
+    position: relative;
+    margin-left: 80px;
+}
+
+.routes button{
+    background-color: rgb(145, 38, 38);
+    opacity: 100%;
+    font-family: ff-mark-med;
+    font-size: larger;
+    color: white;
+    height: 45px;   
+    filter: drop-shadow(0 0  0px); 
+}
+
 
 .gallery-text p.description-text-1 {
     max-width: 500px;
@@ -78,4 +108,17 @@ button > img {
 
 .gallery-text p:last-child {
     margin: 0;
+}
+
+.content-drawers p.description-text-2 {
+    max-width: 500px;
+    margin-bottom: 30px;
+    margin-left: 80px;
+
+}
+
+.content-drawers p.header-2 {
+    max-width: 775px;
+    margin-bottom: 30px;
+    margin-left: 80px;
 }
