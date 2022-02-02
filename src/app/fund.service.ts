@@ -17,3 +17,6 @@ export class FundService {
     return this.http.get("https://protected-dusk-89362.herokuapp.com/mutual-funds/" + id);
   }
 }
+
+
+// transaction/sell to POST

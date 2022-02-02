@@ -1,6 +1,19 @@
+.scroll {
+  opacity: 0;
+  animation: 0.25s in-from-right;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
+  width: 100vw;
+  height: 100vh;
+}
+
 .profile-container {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  animation: 0.25s in-from-right;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
   align-items: center;
   border-bottom: 1px solid rgb(194, 194, 194);
   padding: 70px;
@@ -10,6 +23,8 @@
 h1 {
   margin: 0;
   margin-bottom: 25px;
+  font-family: "roadrunners";
+  color: #bf0000;
 }
 
 .button-container {
@@ -98,6 +113,11 @@ h1 {
   width: 20px;
 }
 
+.filter-button-flip {
+  width: 20px;
+  transform: rotate(180deg);
+}
+
 table {
   width: 75vw;
   border: 1px solid rgb(194, 194, 194);
@@ -135,6 +155,13 @@ table tr {
   justify-content: center;
   width: 100%;
   text-align: center;
+
+  button {
+    background-color: #bf0000;
+    color: white;
+    font-weight: bolder;
+    font-size: 12pt;
+  }
 }
 
 table tr:nth-child(2) {
@@ -148,7 +175,13 @@ table tr button:nth-child(1) {
 }
 
 table tr td:nth-child(1) {
+  text-align: left;
+  padding-left: 10px;
   width: 40%;
+
+  a {
+    color: black;
+  }
 }
 
 table tr button:nth-child(2) {
@@ -246,10 +279,10 @@ table tr td:nth-child(5) {
   transition: .4s; 
 } 
 input:checked + .slider { 
-  background-color: #2196F3; 
+  background-color: rgb(175, 0, 0); 
 } 
 input:focus + .slider { 
-  box-shadow: 0 0 1px #2196F3; 
+  box-shadow: 0 0 1px rgb(175, 0, 0); 
 } 
 input:checked + .slider:before { 
   -webkit-transform: translateX(26px); 

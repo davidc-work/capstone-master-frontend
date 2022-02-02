@@ -1,3 +1,10 @@
+.scroll {
+  opacity: 0;
+  animation: 0.25s in-from-right;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
+}
+
 .profile-container {
   display: flex;
   flex-direction: column;
@@ -9,6 +16,8 @@
 h1 {
   margin: 0;
   margin-bottom: 25px;
+  font-family: "roadrunners";
+  color: #bf0000;
 }
 
 .button-container {

@@ -1,4 +1,4 @@
-<div>
+<div class="scroll">
 
   <app-account-settings *ngIf="edit" [id]="customer_id" [data]="userData.ClientProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
   <div style="text-align: center;">
@@ -42,28 +42,32 @@
     <table>
       <tr>
         <button (click)="chosenFilter('name')"><th scope="">Name
-          
-            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+            <img 
+            [ngClass]="arrow[0] ? 'filter-button' : 'filter-button-flip' "
+            src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
       <button (click)="chosenFilter('ticker')">
         <th scope="">Ticker
-            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+            <img
+             [ngClass]="arrow[1] ? 'filter-button' : 'filter-button-flip' "
+              src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
       <button (click)="chosenFilter('price')">
         <th scope="">Price
-            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+            <img [ngClass]="arrow[2] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
       <button (click)="chosenFilter('quantity')">
         <th scope="">Quantity
-            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+            <img [ngClass]="arrow[3] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
       <button (click)="chosenFilter('total')">
         <th scope="">Total
-            <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
+            <img 
+            [ngClass]="arrow[4] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
       </tr>

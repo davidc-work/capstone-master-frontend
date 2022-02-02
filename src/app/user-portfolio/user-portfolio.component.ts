@@ -16,7 +16,8 @@ export class UserPortfolioComponent implements OnInit {
     titleService.setTitle('RVProtect - Profile');
   }
   userData: any;
-  filter: any = ["Price High to Low","Price Low to High", "Quantity High to Low", "Quantity Low to High","Sort Name Ascending","Sort Name Descending"]
+  filter: any = ["Price High to Low", "Price Low to High", "Quantity High to Low", "Quantity Low to High", "Sort Name Ascending", "Sort Name Descending"]
+  arrow: any = [true,true,true,true,true];
   response: any;
   totalPrice: any;
   view:string = "Account";
@@ -106,11 +107,20 @@ export class UserPortfolioComponent implements OnInit {
     this.filterTicker = false;
   }
 
-  chosenFilter(val: string) {
+  arrowSwitcher(index:any) {
+    for (let i = 0; i < this.arrow.length; i++){
+      if (index == i) {
+        this.arrow[i] = !this.arrow[i];
+      } else {
+        this.arrow[i] = true;
+      }
+    }
+  }
 
-    console.log(this.userData.ClientPortfolios)
+  chosenFilter(val: string) {
     switch (val) {
       case "name":
+        this.arrowSwitcher(0)
         if (this.filterName) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return (portfolio1.fundData.name > portfolio2.fundData.name ? -1 : 1)
@@ -123,6 +133,7 @@ export class UserPortfolioComponent implements OnInit {
         this.filterName = !this.filterName
         break;
       case "ticker":
+        this.arrowSwitcher(1)
         if (this.filterTicker) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return (portfolio1.fundData.ticker > portfolio2.fundData.ticker ? -1 : 1)
@@ -135,6 +146,7 @@ export class UserPortfolioComponent implements OnInit {
         this.filterTicker = !this.filterTicker
         break;
       case "price":
+        this.arrowSwitcher(2)
         if (this.filterPrice) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return parseInt(portfolio1.fundData.price.substring(1)) - parseInt(portfolio2.fundData.price.substring(1))
@@ -147,6 +159,7 @@ export class UserPortfolioComponent implements OnInit {
         this.filterPrice = !this.filterPrice
         break;
       case "quantity":
+        this.arrowSwitcher(3)
         if (this.filterQuantity) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return portfolio1.quantity - portfolio2.quantity
@@ -160,6 +173,7 @@ export class UserPortfolioComponent implements OnInit {
         break;
       
       case "total":
+        this.arrowSwitcher(4)
         if (this.filterPrice) {
             this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return portfolio1.quantity*portfolio1.fundData.price.substring(1) - portfolio2.quantity*portfolio2.fundData.price.substring(1)

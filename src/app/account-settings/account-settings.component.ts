@@ -22,6 +22,7 @@ export class AccountSettingsComponent implements OnInit {
 
 
   save() {
+    console.log("Save method ",this.customer_id)
     this._profile.editProfile(this.customer_id, this.userProfile).subscribe((data) => {
       console.log(data);
     })
