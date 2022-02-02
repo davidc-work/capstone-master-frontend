@@ -106,12 +106,20 @@ export class UserPortfolioComponent implements OnInit {
     this.filterTicker = false;
   }
 
+  arrowSwitcher(index:any) {
+    for (let i = 0; i < this.arrow.length; i++){
+      if (index == i) {
+        this.arrow[i] = !this.arrow[i];
+      } else {
+        this.arrow[i] = true;
+      }
+    }
+  }
+
   chosenFilter(val: string) {
-    console.log(this.userData)
-    let status = this.arrow
     switch (val) {
       case "name":
-        status[0] = !status[0];
+        this.arrowSwitcher(0)
         if (this.filterName) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return (portfolio1.fundData.name > portfolio2.fundData.name ? -1 : 1)
@@ -124,7 +132,7 @@ export class UserPortfolioComponent implements OnInit {
         this.filterName = !this.filterName
         break;
       case "ticker":
-        status[1] = !status[1];
+        this.arrowSwitcher(1)
         if (this.filterTicker) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return (portfolio1.fundData.ticker > portfolio2.fundData.ticker ? -1 : 1)
@@ -137,7 +145,7 @@ export class UserPortfolioComponent implements OnInit {
         this.filterTicker = !this.filterTicker
         break;
       case "price":
-        status[2] = !status[2];
+        this.arrowSwitcher(2)
         if (this.filterPrice) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return parseInt(portfolio1.fundData.price.substring(1)) - parseInt(portfolio2.fundData.price.substring(1))
@@ -150,7 +158,7 @@ export class UserPortfolioComponent implements OnInit {
         this.filterPrice = !this.filterPrice
         break;
       case "quantity":
-        status[3] = !status[3];
+        this.arrowSwitcher(3)
         if (this.filterQuantity) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return portfolio1.quantity - portfolio2.quantity
@@ -164,7 +172,7 @@ export class UserPortfolioComponent implements OnInit {
         break;
       
       case "total":
-        status[4] = !status[4];
+        this.arrowSwitcher(4)
         if (this.filterPrice) {
             this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return portfolio1.quantity*portfolio1.fundData.price.substring(1) - portfolio2.quantity*portfolio2.fundData.price.substring(1)

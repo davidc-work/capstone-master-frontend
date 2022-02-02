@@ -158,7 +158,8 @@ table tr {
   button {
     background-color: #bf0000;
     color: white;
-    font-family: "roadrunners";
+    font-weight: bolder;
+    font-size: 12pt;
   }
 }
 
@@ -173,7 +174,13 @@ table tr button:nth-child(1) {
 }
 
 table tr td:nth-child(1) {
+  text-align: left;
+  padding-left: 10px;
   width: 40%;
+
+  a {
+    color: black;
+  }
 }
 
 table tr button:nth-child(2) {
