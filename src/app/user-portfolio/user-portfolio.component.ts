@@ -15,9 +15,9 @@ export class UserPortfolioComponent implements OnInit {
   constructor(private titleService: Title, private _user: CustomerService, private _profile: ProfileService, private _portfolio: PortfolioService ) {
     titleService.setTitle('RVProtect - Profile');
   }
+  userData: any;
   filter: any = ["Price High to Low","Price Low to High", "Quantity High to Low", "Quantity Low to High","Sort Name Ascending","Sort Name Descending"]
   response: any;
-  userData: UserPortfolio = {}
   userPortfolio: any = [
     {
       name: "Capital Opportunity Admiral Shares",
@@ -259,7 +259,7 @@ export class UserPortfolioComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this._user.getAllCustomer().subscribe((data) => {
+    /*this._user.getAllCustomer().subscribe((data) => {
       this.userData = data[2]
       this.userProfile = this.userData.ClientProfile;
       this.userProfile.birthdate = new Date(this.userProfile.birthdate).toISOString().split('T')[0];
@@ -268,7 +268,7 @@ export class UserPortfolioComponent implements OnInit {
       this.customer_id = this.userData.customer_id
 
       this.titleService.setTitle('RVProtect - ' + this.name);
-    });
+    });*/
   }
 
 }

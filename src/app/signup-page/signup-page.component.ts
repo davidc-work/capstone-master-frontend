@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
+import { CookieService } from '../cookie.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -15,7 +18,7 @@ export class SignupPageComponent implements OnInit {
   password:string = "";
   confirmPassword:string = "";
 
-  constructor(private titleService: Title) {
+  constructor(private cookieService: CookieService, private titleService: Title, private authenticationService: AuthenticationService, private router: Router) {
     titleService.setTitle('RVProtect - Sign Up');
   }
 
@@ -23,7 +26,22 @@ export class SignupPageComponent implements OnInit {
   }
 
   signup() {
-
+    this.authenticationService.signup({
+      firstName: this.firstName,
+      lastName: this.lastName,
+      birthdate: this.birthdate,
+      email: this.email,
+      username: this.username,
+      password: this.password
+    }).subscribe(d => {
+      console.log(d);
+      if (!d.error) {
+        //this.cookieService.set('sessionID', d.sessionID, 30);
+        //this.cookieService.set('username', d.username, 30);
+        localStorage.setItem('sessionID', d.sessionID);
+        localStorage.setItem('username', d.username);
+        this.router.navigateByUrl('/login');
+      }
+    });
   }
-
 }

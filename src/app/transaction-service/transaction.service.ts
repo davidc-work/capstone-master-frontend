@@ -8,9 +8,17 @@ import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 })
 export class TransactionService {
   transactionUrl = "https://transaction-microservice-v1.herokuapp.com";
+  masterUrl = 'https://protected-dusk-89362.herokuapp.com';
   constructor(private httpClient: HttpClient) { }
 
   //Transaction Service
+  purchaseFund(data: any): Observable<any> {
+    return this.httpClient.post(`${this.masterUrl}/purchase-fund`, Object.assign({
+      username: localStorage.getItem('username'),
+      sessionID: localStorage.getItem('sessionID')
+    }, data));
+  }
+
   //GET
   getTransactionProfile(username: string):Observable<any>{
     return this.httpClient.get(`${this.transactionUrl}/customers/${username}`);

@@ -17,6 +17,7 @@ import { TransactionComponent } from '../transaction/transaction.component';
 export class FundsComponent implements OnInit {
   fund:Fund = {};
   loaded:boolean = false;
+  userData: any;
 
   constructor(private fundService: FundService, private stockService: StockService, private router: Router, titleService: Title) {
     titleService.setTitle('RVProtect - Mutual Funds');
@@ -33,6 +34,7 @@ export class FundsComponent implements OnInit {
 
   getFunds() {
     this.fundService.getFunds().subscribe(data => {
+      console.log(data);
       this.funds = data.sort((a: any, b: any) => a.id - b.id).map((f: any) => {
         f.inSearch = true;
         return f;
@@ -74,7 +76,7 @@ export class FundsComponent implements OnInit {
     requestAnimationFrame(() => { //wait for next frame to get value
       const search = e.target.value.toLowerCase();
       this.funds = this.funds.map((f: any) => {
-        f.inSearch = f.name.toLowerCase().includes(search);
+        f.inSearch = f.name.toLowerCase().includes(search) || f.ticker.toLowerCase().includes(search);
         return f;
       });
     });

@@ -12,6 +12,6 @@
         </div>
         <div class="line"><p>Total: </p><p>{{ priceString || '0.00' }}</p></div>
         <button class="button-boxy-1 grey" (click)="toggleModal($event)">Cancel</button>
-        <button class="button-boxy-1 blue">Purchase</button>
+        <button class="button-boxy-1 blue" (click)="purchase()">Purchase</button>
     </div>
 </div>

@@ -6,14 +6,14 @@
     <div class="profile-alignment">
       <div class="profile-avatar">
         <img src="../../assets/img/userprofile/profile.png" alt="" />
-        <p>{{name}}</p>
-        <p>{{email}}</p>
+        <p>{{userData?.ClientProfile.firstName}}</p>
+        <p>{{userData?.ClientProfile.email}}</p>
       </div>
       <div class="profile-info-editable">
-        <div><p>First name: </p><input disabled=true value={{userProfile.firstName}}/></div>
-        <div><p>Last name: </p><input disabled=true value={{userProfile.lastName}}/></div>
-        <div><p>Email: </p><input disabled=true value={{userProfile.email}}/></div>
-        <div><p>Birthdate: </p><input disabled=true value={{userProfile.birthdate}} type="date"/></div>
+        <div><p>First name: </p><input disabled=true value={{userData?.ClientProfile.firstName}}/></div>
+        <div><p>Last name: </p><input disabled=true value={{userData?.ClientProfile.lastName}}/></div>
+        <div><p>Email: </p><input disabled=true value={{userData?.ClientProfile.email}}/></div>
+        <div><p>Birthdate: </p><input disabled=true value={{userData?.ClientProfile.birthdate}} type="date"/></div>
         <div class="button-container">
           <button (click)="editProfile()" class="button-boxy-1 grey">Edit</button>
         </div>

@@ -1,5 +1,6 @@
 import { Component, Input, EventEmitter, OnInit, Output } from '@angular/core';
 import { Fund } from '../fund/fund.model';
+import { TransactionService } from '../transaction-service/transaction.service';
 
 @Component({
   selector: 'app-transaction',
@@ -7,7 +8,9 @@ import { Fund } from '../fund/fund.model';
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
+  @Input() userData: any = '';
   @Input() fund:Fund = {
+    id: undefined,
     name: "",
     ticker: "",
     assetClass: "",
@@ -26,7 +29,8 @@ export class TransactionComponent implements OnInit {
   quantityToBuy:number = 0;
   price:number = 0;
   priceString:string = "";
-  constructor() { }
+
+  constructor(private transactionService: TransactionService) { }
   
   ngOnInit(): void {
     setTimeout(()=>{
@@ -36,8 +40,19 @@ export class TransactionComponent implements OnInit {
     },500);
 
   }
+
+  purchase() {
+    this.transactionService.purchaseFund({
+      fund_id: this.fund.id,
+      quantity: this.quantityToBuy,
+      customerId: this.userData.customer_id
+    }).subscribe(d => {
+      console.log(d);
+    })
+  }
   
   toggleModal(e: any){
+    console.log(this.userData);
     this.modalOn = !this.modalOn;
     if (this.modalOn) {
       
@@ -55,14 +70,11 @@ export class TransactionComponent implements OnInit {
   }
 
   addCommas(){
-    console.log(this.fund)
     if(this.fund.price){
       this.price = +this.fund.price.slice(1) 
       this.total = +(this.quantityToBuy * this.price).toFixed(2);
     }
-    console.log(this.price, this.quantityToBuy)
     this.priceString = this.total.toLocaleString("en-US");
-    console.log(this.total, this.priceString);
   }
 
   checkInput() {

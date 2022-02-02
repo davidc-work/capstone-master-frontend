@@ -17,6 +17,11 @@ export class StockComponent implements OnInit {
   id: number = 0;
   stock!: Stock;
   returnTo: string = '/stocks';
+
+  formatter = new Intl.NumberFormat('en-us', {
+    style: 'currency',
+    currency: 'USD'
+  });
   
   constructor(private titleService: Title, private route:ActivatedRoute, private stockService: StockService, private router: Router, private appComponent: AppComponent) {
     this.router = router;
