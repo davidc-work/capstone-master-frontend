@@ -157,6 +157,20 @@ export class UserPortfolioComponent implements OnInit {
         }
         this.filterQuantity = !this.filterQuantity
         break;
+      
+      case "total":
+        if (this.filterPrice) {
+            this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return portfolio1.quantity*portfolio1.fundData.price.substring(1) - portfolio2.quantity*portfolio2.fundData.price.substring(1)
+          })
+        } else {
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            console.log(portfolio2.quantity*portfolio2.fundData.price.substring(1))
+            return portfolio2.quantity*portfolio2.fundData.price.substring(1) - portfolio1.quantity*portfolio1.fundData.price.substring(1)
+          })
+        }
+        this.filterPrice = !this.filterPrice
+        break;
     }
   }
 

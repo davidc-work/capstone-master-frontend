@@ -51,7 +51,7 @@
             <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
-      <button (click)="chosenFilter('quantity')">
+      <button (click)="chosenFilter('total')">
         <th scope="">Total
             <img class="filter-button" src="../../assets/img/down-arrow.png" alt="" />
         </th>
@@ -65,7 +65,7 @@
         <td class="table-content">{{portfolio.fundData.ticker}}</td>
         <td class="table-content">{{portfolio.fundData.price}}</td>
         <td class="table-content">{{portfolio.quantity}}</td>
-        <td class="table-content">{{portfolio.totalPrice}}</td>
+        <td class="table-content">${{(portfolio.quantity*portfolio.fundData.price.substring(1)).toFixed(2)}}</td>
       </tr>
     </table>
   </div>
