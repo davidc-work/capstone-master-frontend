@@ -64,6 +64,10 @@ export class StocksComponent implements OnInit {
     }
   }
 
+  commas(n: any) {
+    return (+n).toLocaleString();
+  }
+
   updateSearch(e: any) {
     requestAnimationFrame(() => { //wait for next frame to get value
       const search = e.target.value.toLowerCase();

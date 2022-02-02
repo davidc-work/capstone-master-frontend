@@ -36,7 +36,7 @@
                             <p><b>Sector: </b>{{s.sector}}</p>
                             <p><b>IPO Year: </b>{{s.ipoYear}}</p>
                             <p><b>Market Cap: </b>{{s.marketCap}}</p>
-                            <p><b>Volume: </b>{{s.volume}}</p>
+                            <p><b>Volume: </b>{{commas(s.volume)}}</p>
                         </div>
                     </div>
                     <button class="button-boxy-1 blue" (click)="viewstock(s.id); $event.stopPropagation();">Details</button>

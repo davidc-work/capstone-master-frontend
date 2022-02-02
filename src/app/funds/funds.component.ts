@@ -32,6 +32,10 @@ export class FundsComponent implements OnInit {
     this.getFunds();
   }
 
+  commas(n: any) {
+    return (+n).toLocaleString();
+  }
+
   getFunds() {
     this.fundService.getFunds().subscribe(data => {
       this.funds = data.sort((a: any, b: any) => a.id - b.id).map((f: any) => {
