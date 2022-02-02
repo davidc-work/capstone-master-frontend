@@ -41,10 +41,10 @@
                         </div>
                     </div>
                     <button class="button-boxy-1 blue" (click)="viewFund(fund.id); $event.stopPropagation();">Details</button>
-                    <button class="button-boxy-1 red" style="margin-left: 0" (click)="toggleModal($event); setFund(fund)">Purchase</button>
+                    <button *ngIf="userData" class="button-boxy-1 red" style="margin-left: 0" (click)="toggleModal($event); setFund(fund)">Purchase</button>
                 </div>
             </ng-container>
         </div>
     </div>
 </div>
-<app-transaction [fund]="fund"></app-transaction>
+<app-transaction [fund]="fund" [userData]="userData"></app-transaction>

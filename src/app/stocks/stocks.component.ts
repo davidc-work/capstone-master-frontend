@@ -68,7 +68,7 @@ export class StocksComponent implements OnInit {
     requestAnimationFrame(() => { //wait for next frame to get value
       const search = e.target.value.toLowerCase();
       this.stocks = this.stocks.map((f: any) => {
-        f.inSearch = f.name.toLowerCase().includes(search);
+        f.inSearch = f.name.toLowerCase().includes(search) || f.symbol.toLowerCase().includes(search);
         return f;
       });
     });

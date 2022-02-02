@@ -1,0 +1,30 @@
+<div class="scroll">
+    <p class="page-title">Receipts for <br> {{ fundName }}</p>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price Per</th>
+                    <th>Total</th>
+                    <th>Available To Sell</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let transaction of transactions">
+                <tr>
+                    <td>{{ dateFix(transaction.createdAt) }}</td>
+                    <td>{{ transaction.type }}</td>
+                    <td>{{ transaction.itemDescription }}</td>
+                    <td>{{ transaction.quantity }}</td>
+                    <td>${{ transaction.pricePerUnit }}</td>
+                    <td>${{ transaction.amount }}</td>
+                    <td>{{ transaction.quantityAvailable }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 *ngIf="transactions.length === 0" style="text-align: center;"> No Receipts Available.</h3>
+    </div>
+</div>

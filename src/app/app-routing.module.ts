@@ -9,6 +9,7 @@ import { UserPortfolioComponent } from './user-portfolio/user-portfolio.componen
 import { TransactionComponent } from './transaction/transaction.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { TransactionSingleComponent } from './transaction-single/transaction-single.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: "funds/:id", component: FundComponent},
   {path: "user-profile", component: UserPortfolioComponent},
   {path: "transaction", component: TransactionComponent},
+  {path: "receipts/:userId/:fundId", component: TransactionSingleComponent},
   {path: "login", component: LoginPageComponent},
   {path: "signup", component: SignupPageComponent}
 ];

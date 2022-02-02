@@ -26,6 +26,7 @@
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .titlebar-overlay {
@@ -92,7 +93,7 @@ header > a {
   }
 }
 
-header a:last-child {
+#profile-button {
   background-color: transparent;
 }
 

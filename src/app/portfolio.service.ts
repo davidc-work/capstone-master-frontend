@@ -17,6 +17,10 @@ export class PortfolioService {
     return this.http.get(`http://user-profile-transaction.herokuapp.com/portfolio/${customer_id}`);
   }
 
+  getAllTransactionByFund(fundId: number, userId: number):Observable<any> {
+    return this.http.get(`https://protected-dusk-89362.herokuapp.com/users/${userId}/fund/${fundId}`)
+  }
+
   addUserPortfolio(obj: any): Observable<any> {
     return this.http.post('http://user-profile-transaction.herokuapp.com/portfolio/',obj);
   }

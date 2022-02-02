@@ -9,13 +9,13 @@
             <p>Price:</p><p>{{stock?.lastSale}}</p>
         </div>
         <div class="line">
-            <p>Change:</p><p>{{stock?.netChange}}</p>
+            <p>Change:</p><p [ngClass]="+stock?.netChange! > 0 ? 'green' : 'red'">{{stock?.netChange}}</p>
         </div>
         <div class="line">
-            <p>Change %:</p><p>{{stock?.changePercent}}</p>
+            <p>Change %:</p><p [ngClass]="+stock?.netChange! > 0 ? 'green' : 'red'">{{stock?.changePercent}}</p>
         </div>
         <div class="line">
-            <p>Market Cap:</p><p>{{'$' + (stock?.marketCap ? stock?.marketCap!.slice(0, -3) : '')}}</p>
+            <p>Market Cap:</p><p>{{(stock?.marketCap ? formatter.format(+stock?.marketCap!).slice(0, -3) : '')}}</p>
         </div>
         <div class="line">
             <p>Country:</p><p>{{stock?.country}}</p>
@@ -24,7 +24,7 @@
             <p>IPO Year:</p><p>{{stock?.ipoYear}}</p>
         </div>
         <div class="line">
-            <p>Volume:</p><p>{{stock?.volume}}</p>
+            <p>Volume:</p><p>{{(+stock?.volume!).toLocaleString()}}</p>
         </div>
         <div class="line">
             <p>Sector:</p><p>{{stock?.sector}}</p>
