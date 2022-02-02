@@ -18,7 +18,7 @@ export class UserPortfolioComponent implements OnInit {
   userData: any;
   filter: any = ["Price High to Low","Price Low to High", "Quantity High to Low", "Quantity Low to High","Sort Name Ascending","Sort Name Descending"]
   response: any;
-  userPortfolio: any = [
+  /*userPortfolio: any = [
     {
       name: "Capital Opportunity Admiral Shares",
       ticker: "VHCAX",
@@ -49,7 +49,8 @@ export class UserPortfolioComponent implements OnInit {
       price: "$36.55",
       quantity: 4
     }
-  ]
+  ]*/
+  userPortfolio: any = '';
   userProfile: any = {}
   name: string = "";
   email: string = "";
@@ -269,6 +270,11 @@ export class UserPortfolioComponent implements OnInit {
 
       this.titleService.setTitle('RVProtect - ' + this.name);
     });*/
+    /*setTimeout(() => {
+      this.userPortfolio = this.userData?.ClientPortfolios;
+      console.log(this.userPortfolio);
+      console.log(this.userData);
+    }, 500);*/
   }
 
 }

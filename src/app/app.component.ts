@@ -73,10 +73,11 @@ export class AppComponent implements OnInit {
     const loggedOutOnlyRoutes = ['/login', '/signup'];
     const username = localStorage.getItem('username');
     const sessionID = localStorage.getItem('sessionID');
-    if (!(username && sessionID) && !publicRoutes.includes(this.router.url)) return this.router.navigateByUrl('/login');
+    const isPublicRoute = publicRoutes.includes(this.router.url);
+    if (!(username && sessionID) && !isPublicRoute) return this.router.navigateByUrl('/login');
     this.authenticationService.authenticate({
       username,
-      sessionID        
+      sessionID
     }).subscribe(d => {
       if (d.customerID) {
         //logged in
@@ -92,9 +93,14 @@ export class AppComponent implements OnInit {
           d0.ClientProfile.birthdate = formatDate(d0.ClientProfile.birthdate, 'yyyy-MM-dd', 'en-us');
           this.userData = d0;
           e.userData = d0;
-          console.log(this.userData);
+          if (e.hasOwnProperty('userPortfolio')) e.userPortfolio = d0.ClientPortfolios;
         });
-      } else this.userData = undefined;
+      } else {
+        this.userData = undefined;
+        if (!isPublicRoute) return this.router.navigateByUrl('/login');
+      }
+
+      return ;
     });
 
     return ;
