@@ -160,6 +160,7 @@ table tr {
     color: white;
     font-weight: bolder;
     font-size: 12pt;
+    cursor: pointer;
   }
 }
 
@@ -170,13 +171,13 @@ table tr:nth-child(2) {
 table tr button:nth-child(1) {
   display: flex;
   justify-content: center;
-  width: 40%;
+  width: 30%;
 }
 
 table tr td:nth-child(1) {
   text-align: left;
   padding-left: 10px;
-  width: 40%;
+  width: 29.4%;
 
   a {
     color: black;
@@ -223,18 +224,14 @@ table tr td:nth-child(5) {
   width: 10%;
 }
 
-// table tr th:nth-child(1) {
-//   width: 15%;
-// }
+table tr button:nth-child(6) {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
 
-// table tr th:nth-child(2) {
-//   width: 8%;
-// }
-
-// table tr th:nth-child(3) {
-//   width: 15%;
-// }
-
-// table tr th:nth-child(4) {
-//   width: 8%;
-// }
+table tr td:nth-child(6) {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}

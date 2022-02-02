@@ -20,40 +20,8 @@ export class UserPortfolioComponent implements OnInit {
   arrow: any = [true,true,true,true,true];
   response: any;
   totalPrice: any;
-  /*userPortfolio: any = [
-    {
-      name: "Capital Opportunity Admiral Shares",
-      ticker: "VHCAX",
-      price: "$185.04",
-      quantity: 2
-    },
-    {
-      name: "Tax-Managed Balanced Admiral Shares",
-      ticker: "VTMFX",
-      price: "$41.68",
-      quantity: 7
-    },
-    {
-      name: "Tax-Managed Small-Cap Admiral Shares",
-      ticker: "VTMSX",
-      price: "$88.46",
-      quantity: 2
-    },
-    {
-      name: "Intermediate-Term Investment-Grade",
-      ticker: "VFICX",
-      price: "$10.06",
-      quantity: 9
-    },
-    {
-      name: "Total World Stock Index Admiral Shares",
-      ticker: "VTWAX",
-      price: "$36.55",
-      quantity: 4
-    }
-  ]*/
-
-
+  sell: boolean = false;
+  portfolioSell: any;
   userPortfolio: any = '';
   userProfile: any = {}
   name: string = "";
@@ -96,6 +64,12 @@ export class UserPortfolioComponent implements OnInit {
         filter.toShow = !filter.toShow
       }
     }
+  }
+
+  toSell(data: any) {
+    console.log(data)
+    this.sell = !this.sell
+    this.portfolioSell = data;
   }
 
 
@@ -276,11 +250,11 @@ export class UserPortfolioComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    if (this.userData) {
-      for (let portfolio of this.userData.ClientPortfolios) {
-        portfolio.totalPrice = parseInt(portfolio.price.substring(1)) * parseInt(portfolio.quantity);
-      }
-    }
+    // if (this.userData) {
+    //   for (let portfolio of this.userData.ClientPortfolios) {
+    //     portfolio.totalPrice = parseInt(portfolio.price.substring(1)) * parseInt(portfolio.quantity);
+    //   }
+    // }
     /*this._user.getAllCustomer().subscribe((data) => {
       this.userData = data[2]
       this.userProfile = this.userData.ClientProfile;

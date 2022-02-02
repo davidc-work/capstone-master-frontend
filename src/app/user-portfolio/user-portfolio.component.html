@@ -23,13 +23,26 @@
     </div>
   </div>
 
-  
+
+
+
 
   <div class="profile-container">
 
 
-    
-    <table>
+    <div *ngIf="sell">
+      <h4>Sell</h4>
+      <div>
+        <div>
+          <p>Name: {{portfolioSell.fundData.name}}</p>
+          <p>Ticker: {{portfolioSell.fundData.ticker}}</p>
+          <p>Quantity: {{portfolioSell.quantity}}</p>
+        </div>
+        <input type="number" value="2" min="0" max="10">
+      </div>
+    </div>
+
+    <table *ngIf="!sell">
       <tr>
         <button (click)="chosenFilter('name')"><th scope="">Name
             <img 
@@ -60,6 +73,9 @@
             [ngClass]="arrow[4] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
+      <button>
+        <th scope="">Sell</th>
+      </button>
       </tr>
       <tr *ngFor="let portfolio of userPortfolio">
         <td class="table-content">
@@ -70,6 +86,9 @@
         <td class="table-content">{{portfolio.fundData.price}}</td>
         <td class="table-content">{{portfolio.quantity}}</td>
         <td class="table-content">${{(portfolio.quantity*portfolio.fundData.price.substring(1)).toFixed(2)}}</td>
+        <td class="table-content">
+          <button (click)="toSell(portfolio)">Sell</button>
+        </td>
       </tr>
     </table>
   </div>
