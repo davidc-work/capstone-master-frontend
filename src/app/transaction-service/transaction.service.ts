@@ -25,15 +25,15 @@ export class TransactionService {
   }
 
   //POST
-  createCustomer(username: string, name: string):Observable<any>{
-    return this.httpClient.post(`${this.transactionUrl}/customers/create`, {username: username, name: name})
-  }
-
-  createWallet(customerId: number):Observable<any>{
-    return this.httpClient.post(`${this.transactionUrl}/wallets/create`, {currencyType: "USD", currencyAmount: 0, CustomerId: customerId})
+  createDeposit(request: object):Observable<any> {
+    return this.httpClient.post('https://protected-dusk-89362.herokuapp.com/transactions/deposit', request)
   }
 
   createTransaction(request: object):Observable<any>{
     return this.httpClient.post(`https://protected-dusk-89362.herokuapp.com/transactions/create`, request)
+  }
+
+  createSell(request: object):Observable<any> {
+    return this.httpClient.post('https://protected-dusk-89362.herokuapp.com/transactions/sell', request)
   }
 }

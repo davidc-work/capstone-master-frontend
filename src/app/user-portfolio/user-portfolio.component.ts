@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { CustomerService } from '../customer.service';
 import { ProfileService } from '../profile.service';
 import { PortfolioService } from '../portfolio.service';
-
+import { BillingComponent } from '../billing/billing.component';
 import { UserPortfolio } from './userprofile.model';
 
 @Component({
@@ -19,6 +19,7 @@ export class UserPortfolioComponent implements OnInit {
   filter: any = ["Price High to Low","Price Low to High", "Quantity High to Low", "Quantity Low to High","Sort Name Ascending","Sort Name Descending"]
   response: any;
   totalPrice: any;
+  view:string = "Account";
   /*userPortfolio: any = [
     {
       name: "Capital Opportunity Admiral Shares",
@@ -290,4 +291,7 @@ export class UserPortfolioComponent implements OnInit {
     }, 500);*/
   }
 
+  toggleView(){
+    this.view === "Account" ? this.view = "Billing" : this.view = "Account";
+  }
 }

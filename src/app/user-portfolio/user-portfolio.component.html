@@ -1,26 +1,36 @@
 <div>
 
   <app-account-settings *ngIf="edit" [id]="customer_id" [data]="userData.ClientProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
-
-
-  <div *ngIf="!edit" class="profile-container">
-    <h1>My Account</h1>
-    <div class="profile-alignment">
-      <div class="profile-avatar">
-        <img src="../../assets/img/userprofile/profile.png" alt="" />
-        <p>{{userData?.ClientProfile.firstName}}</p>
-        <p>{{userData?.ClientProfile.email}}</p>
-      </div>
-      <div class="profile-info-editable">
-        <div><p>First name: </p><input disabled=true value={{userData?.ClientProfile.firstName}}/></div>
-        <div><p>Last name: </p><input disabled=true value={{userData?.ClientProfile.lastName}}/></div>
-        <div><p>Email: </p><input disabled=true value={{userData?.ClientProfile.email}}/></div>
-        <div><p>Birthdate: </p><input disabled=true value={{userData?.ClientProfile.birthdate}} type="date"/></div>
-        <div class="button-container">
-          <button (click)="editProfile()" class="button-boxy-1 grey">Edit</button>
+  <div style="text-align: center;">
+    <h1 *ngIf="view === 'Account'">My Account</h1>
+    <h1 *ngIf="view === 'Billing'">My Billing</h1>
+    <label class="switch"> 
+      <input type="checkbox" (click)="toggleView()"> 
+      <div class="slider round"></div> 
+    </label> 
+  </div>
+  <div [ngSwitch]="view">
+    <div *ngSwitchCase="'Account'">
+      <div *ngIf="!edit" class="profile-container">
+        <div class="profile-alignment">
+          <div class="profile-avatar">
+            <img src="../../assets/img/userprofile/profile.png" alt="" />
+            <p>{{userData?.ClientProfile.firstName}}</p>
+            <p>{{userData?.ClientProfile.email}}</p>
+          </div>
+          <div class="profile-info-editable">
+            <div><p>First name: </p><input disabled=true value={{userData?.ClientProfile.firstName}}/></div>
+            <div><p>Last name: </p><input disabled=true value={{userData?.ClientProfile.lastName}}/></div>
+            <div><p>Email: </p><input disabled=true value={{userData?.ClientProfile.email}}/></div>
+            <div><p>Birthdate: </p><input disabled=true value={{userData?.ClientProfile.birthdate}} type="date"/></div>
+            <div class="button-container">
+              <button (click)="editProfile()" class="button-boxy-1 grey">Edit</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <app-billing [userData]="userData" *ngSwitchCase="'Billing'"></app-billing>
   </div>
 
   
