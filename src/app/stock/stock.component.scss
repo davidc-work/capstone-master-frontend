@@ -133,8 +133,9 @@
 }
 
 .fund-row.header {
-    font-weight: bold;
-    background-color: rgb(235, 235, 235) !important;
+    font-weight: normal;
+    background-color: #f10000 !important;
+    color: white;
     cursor: unset;
 }
 
@@ -161,7 +162,7 @@
 }
 
 .fund-row > p:nth-child(2) {
-    width: 80px;
+    width: 100px;
 }
 
 .fund-row > p:nth-child(3) {
