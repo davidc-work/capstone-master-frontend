@@ -18,22 +18,18 @@ export class AccountSettingsComponent implements OnInit {
   customer_id: any;
   constructor(private _profile: ProfileService) { }
 
-
-
-
   save() {
-    console.log("Save method ",this.customer_id)
-    this._profile.editProfile(this.customer_id, this.userProfile).subscribe((data) => {
+    console.log("Save method ",this.id)
+    this._profile.editProfile(this.id, this.userProfile).subscribe((data) => {
       console.log(data);
     })
     this.update.emit(this.userProfile)
   }
 
   cancel() {
+    console.log(this.id);
     this.update.emit(this.userProfile)
   }
-
-
 
   ngOnInit(): void {
     this.userProfile = this.data;

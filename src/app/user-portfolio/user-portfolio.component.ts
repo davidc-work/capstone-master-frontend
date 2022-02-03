@@ -15,7 +15,7 @@ export class UserPortfolioComponent implements OnInit {
   constructor(private titleService: Title, private _user: CustomerService, private _profile: ProfileService, private _portfolio: PortfolioService ) {
     titleService.setTitle('RVProtect - Profile');
   }
-  
+
   userData: any;
   filter: any = ["Price High to Low", "Price Low to High", "Quantity High to Low", "Quantity Low to High", "Sort Name Ascending", "Sort Name Descending"]
   arrow: any = [true,true,true,true,true];
@@ -23,40 +23,6 @@ export class UserPortfolioComponent implements OnInit {
   totalPrice: any;
   view:string = "Account";
   notificationComponent: any;
-  
-  /*userPortfolio: any = [
-    {
-      name: "Capital Opportunity Admiral Shares",
-      ticker: "VHCAX",
-      price: "$185.04",
-      quantity: 2
-    },
-    {
-      name: "Tax-Managed Balanced Admiral Shares",
-      ticker: "VTMFX",
-      price: "$41.68",
-      quantity: 7
-    },
-    {
-      name: "Tax-Managed Small-Cap Admiral Shares",
-      ticker: "VTMSX",
-      price: "$88.46",
-      quantity: 2
-    },
-    {
-      name: "Intermediate-Term Investment-Grade",
-      ticker: "VFICX",
-      price: "$10.06",
-      quantity: 9
-    },
-    {
-      name: "Total World Stock Index Admiral Shares",
-      ticker: "VTWAX",
-      price: "$36.55",
-      quantity: 4
-    }
-  ]*/
-
 
   userPortfolio: any = '';
   userProfile: any = {}
