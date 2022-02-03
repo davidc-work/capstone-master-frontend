@@ -21,6 +21,8 @@ export class UserPortfolioComponent implements OnInit {
   response: any;
   totalPrice: any;
   view:string = "Account";
+  notificationComponent: any;
+  
   /*userPortfolio: any = [
     {
       name: "Capital Opportunity Admiral Shares",
@@ -282,6 +284,7 @@ export class UserPortfolioComponent implements OnInit {
         portfolio.totalPrice = parseInt(portfolio.price.substring(1)) * parseInt(portfolio.quantity);
       }
     }
+
     /*this._user.getAllCustomer().subscribe((data) => {
       this.userData = data[2]
       this.userProfile = this.userData.ClientProfile;

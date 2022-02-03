@@ -1,0 +1,48 @@
+.notification-container {
+    height: fit-content;
+    max-height: 200px;
+    max-width: 350px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: auto;
+    position: fixed;
+    left: -350px;
+    top: 103px;
+    z-index: 1001;
+    /*border-radius: 47px;*/
+    box-shadow: 0 0 7px #818181a1;
+    font-size: 18px;
+    opacity: 0;
+    transition: 0.5s;
+    color: white;
+}
+
+.notification-container.fading {
+    opacity: 0 !important;
+}
+
+.notification-container p {
+    margin: 0;
+}
+
+.notification-container.active {
+    opacity: 1;
+    left: 0;
+}
+
+.notification-container.default {
+    background: linear-gradient(0deg, rgb(0, 0, 0), #222222);
+}
+
+.notification-container.error {
+    background: linear-gradient(0deg, rgb(202, 0, 0), #ff0000);
+}
+
+.notification-container.success {
+    background: linear-gradient(0deg, rgb(0, 189, 25), rgb(0, 209, 28));
+}
+
+.notification-container p {
+    text-align: center;
+}

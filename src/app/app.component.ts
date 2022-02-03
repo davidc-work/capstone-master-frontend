@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
@@ -6,6 +6,7 @@ import { filter, pairwise } from 'rxjs/operators';
 import { RoutesRecognized } from '@angular/router';
 import { FundComponent } from './fund/fund.component';
 import { AuthenticationService } from './authentication.service';
+import { NotificationComponent } from './notification/notification.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,8 @@ export class AppComponent implements OnInit {
   keysPressed: string[] = [];
   dropdown: boolean = false;
   userData: any;
+
+  @ViewChild(NotificationComponent) notificationComponent: NotificationComponent;
 
   switch() {
     this.dropdown = !this.dropdown
@@ -93,6 +96,7 @@ export class AppComponent implements OnInit {
           d0.ClientProfile.birthdate = formatDate(d0.ClientProfile.birthdate, 'yyyy-MM-dd', 'en-us');
           this.userData = d0;
           e.userData = d0;
+          e.notificationComponent = this.notificationComponent;
           if (e.hasOwnProperty('userPortfolio')) e.userPortfolio = d0.ClientPortfolios;
         });
       } else {

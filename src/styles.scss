@@ -99,7 +99,12 @@ body, html {
 
 @keyframes in-from-top {
     from {transform: translateY(-100px); opacity: 0;}
-    to {transform: translateX(0); opacity: 1;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes in-from-top-centered {
+    from {transform: translate(-50%, -100px); opacity: 0;}
+    to {transform: translate(-50%, 0); opacity: 1;}
 }
 
 @keyframes in-from-right {
