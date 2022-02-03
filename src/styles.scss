@@ -97,6 +97,11 @@ body, html {
     }
 }
 
+@keyframes in-from-top {
+    from {transform: translateY(-100px); opacity: 0;}
+    to {transform: translateX(0); opacity: 1;}
+}
+
 @keyframes in-from-right {
     from {transform: translateX(100px); opacity: 0;}
     to {transform: translateX(0); opacity: 1;}

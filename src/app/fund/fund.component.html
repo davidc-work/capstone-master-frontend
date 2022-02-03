@@ -1,4 +1,41 @@
-<div class="scroll">
+<div class="fund-main">
+    <p class="page-title">{{fund.name}} ({{fund.ticker}})</p>
+    <p id="price" class="header-large">{{fund.price}}</p>
+    <p id="price-change" [ngClass]="'header-small ' + (fund.positiveChange ? 'green' : 'red')">{{fund.priceChange}} ({{fund.priceChangePercent}})</p>
+    <!--<p style="margin-top: -4px; color: rgb(175, 175, 175);">Asset Class: {{fund.assetClass}}</p>-->
+    <div class="buttons" style="margin-bottom: 50px; margin-top: 20px;">
+        <button class="button-boxy-1 grey" (click)="back()">Back</button>
+        <button class="button-boxy-1 red" (click)="toggleModal($event)">Purchase</button>
+    </div>
+    <div class="data-container">
+        <div class="data-container-nested">
+            <p class="header-large centered" style="font-weight: lighter">Performance</p>
+            <div class="chart-container">
+                <canvas id="performance-chart"></canvas>
+            </div>    
+        </div>
+        <div class="data-container-nested">
+            <p class="header-large centered" style="font-weight: lighter">Stocks</p>
+            <div class="stock-container">
+                <div class="stock-row header">
+                    <p>Name</p>
+                    <p>Price</p>
+                    <p>Change</p>
+                    <p>Volume</p>
+                </div>
+                <div *ngFor="let stock of fund.stocks" class="stock-row" (click)="viewStock(stock.id)">
+                    <p>{{stock.name}} ({{stock.symbol}})</p>
+                    <p>{{stock.lastSale}}</p>
+                    <p [ngClass]="stock.netChange > 0 ? 'green' : 'red'">{{stock.netChange}} ({{stock.changePercent}})</p>
+                    <p>{{commas(stock.volume)}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>Expense Ratio: {{fund.expenseRatio}}</p>
+</div>
+
+<!--<div class="scroll">
     <p class="page-title">{{fund.name}}</p>
     <div class="container">
         <p>ID: {{fund.id}}</p>
@@ -41,5 +78,5 @@
             <button class="button-boxy-1 grey" (click)="back()">Back</button>
         </div>
     </div>
-</div>
+</div>-->
 <app-transaction [fund]="fund"></app-transaction>
