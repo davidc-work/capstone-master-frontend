@@ -28,6 +28,11 @@
     word-spacing: -2px;
 }
 
+.header-largest {
+    font-size: 72px;
+    margin: 0;
+}
+
 .header-large {
     font-size: 56px;
     margin: 0;
@@ -103,6 +108,7 @@
     margin-top: 20px;
     margin-right: 50px;
     border: 1px solid #e7e7e7;
+    box-sizing: border-box;
 }
 
 .details-container > * {

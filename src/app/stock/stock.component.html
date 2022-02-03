@@ -7,28 +7,30 @@
         <button class="button-boxy-1 grey" (click)="back()">Back</button>
     </div>
     <div class="data-container">
+        <div class="data-container-nested" style="margin-right: 100px;">
+            <p class="header-med centered">Market Cap</p>
+            <p class="header-largest centered" style="margin-bottom: 100px; color: rgb(0, 194, 0);">{{'$' + commas(stock?.marketCap)}}</p>        
+        </div>
+        <div class="data-container-nested" style="margin-right: 100px;">
+            <p class="header-med centered">Volume</p>
+            <p class="header-largest centered" style="margin-bottom: 100px">{{commas(stock?.volume)}}</p>        
+        </div>
         <div class="data-container-nested">
             <p class="header-large centered" style="font-weight: lighter">Details</p>
             <div class="details-container">
                 <div class="line">
-                    <p><b>Market Cap:</b> {{stock?.marketCap}}</p>
-                </div>
-                <div class="line">
                     <p><b>Country:</b> {{stock?.country}}</p>
                 </div>
                 <div class="line">
-                    <p><b>IPO Year:</b> {{stock?.ipoYear}}</p>
-                </div>
-                <div class="line">
-                    <p><b>Volume:</b> {{stock?.volume}}</p>
+                    <p><b>IPO Year:</b> {{stock?.ipoYear  || 'N/A'}}</p>
                 </div>
                 <div class="line">
                     <p><b>Sector:</b> {{stock?.sector}}</p>
                 </div>
                 <div class="line">
                     <p><b>Industry:</b> {{stock?.industry}}</p>
-                </div>                
-            </div>    
+                </div>
+            </div>
         </div>
         <div class="data-container-nested">
             <p class="header-large centered" style="font-weight: lighter">Associated Funds</p>

@@ -62,6 +62,10 @@ export class StockComponent implements OnInit {
     });
   }
 
+  commas(n: any) {
+    return (+n).toLocaleString();
+  }
+
   viewFund(id: number) {
     this.router.navigateByUrl('/funds/' + id + '?return=stocks/' + this.stock.id);
   }
