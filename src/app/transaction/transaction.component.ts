@@ -8,7 +8,7 @@ import { TransactionService } from '../transaction-service/transaction.service';
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-  @Input() userData: any = '';
+  @Input() userData: any;
   @Input() fund:Fund = {
     id: undefined,
     name: "",
@@ -29,6 +29,8 @@ export class TransactionComponent implements OnInit {
   quantityToBuy:number = 0;
   price:number = 0;
   priceString:string = "";
+  
+  @Input() notificationComponent: any;
 
   constructor(private transactionService: TransactionService) { }
   
@@ -38,25 +40,24 @@ export class TransactionComponent implements OnInit {
         this.price = +this.fund.price.slice(1)
       }
     },500);
-
   }
 
   purchase() {
+    if (this.quantityToBuy < 1) return this.notificationComponent.notify('Invalid quantity!', 'error');
     this.transactionService.purchaseFund({
       fund_id: this.fund.id,
       quantity: this.quantityToBuy,
       customerId: this.userData.customer_id
     }).subscribe(d => {
       console.log(d);
+      if (d.error) return this.notificationComponent.notify(d.error, 'error');
+      this.notificationComponent.notify(this.quantityToBuy + ' shares of ' + this.fund.name + ' purchased!', 'success');
+      this.toggleModal();
     })
   }
   
-  toggleModal(e: any){
-    console.log(this.userData);
+  toggleModal(e: any = undefined){
     this.modalOn = !this.modalOn;
-    if (this.modalOn) {
-      
-    }
   }
 
   checkInt(){

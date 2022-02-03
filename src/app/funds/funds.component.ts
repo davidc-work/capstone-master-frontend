@@ -18,6 +18,7 @@ export class FundsComponent implements OnInit {
   fund:Fund = {};
   loaded:boolean = false;
   userData: any;
+  notificationComponent: any;
 
   constructor(private fundService: FundService, private stockService: StockService, private router: Router, titleService: Title) {
     titleService.setTitle('RVProtect - Mutual Funds');

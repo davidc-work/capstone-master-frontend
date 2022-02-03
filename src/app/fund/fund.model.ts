@@ -12,5 +12,7 @@ export interface Fund {
         tenyr?: string,
         sinceInception?: string,
         stocks?: any,
-        inSearch?: boolean
+        inSearch?: boolean,
+        priceChangePercent?: string,
+        positiveChange?: boolean
 }

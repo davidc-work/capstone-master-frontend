@@ -128,6 +128,15 @@
     box-sizing: border-box;
 }
 
+.details-scroll::-webkit-scrollbar-track {
+    background: #e2e2e2; 
+  }
+   
+.details-scroll::-webkit-scrollbar-thumb {
+    background: rgb(255, 0, 0); 
+    border: none;
+}
+
 .stock-row {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -135,8 +144,9 @@
 }
 
 .stock-row.header {
-    font-weight: bold;
-    background-color: rgb(235, 235, 235) !important;
+    font-weight: normal;
+    background-color: #f10000 !important;
+    color: white;
     cursor: unset;
 }
 

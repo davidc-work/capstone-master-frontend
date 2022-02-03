@@ -15,6 +15,7 @@ export class UserPortfolioComponent implements OnInit {
   constructor(private titleService: Title, private _user: CustomerService, private _profile: ProfileService, private _portfolio: PortfolioService ) {
     titleService.setTitle('RVProtect - Profile');
   }
+  
   userData: any;
   filter: any = ["Price High to Low", "Price Low to High", "Quantity High to Low", "Quantity Low to High", "Sort Name Ascending", "Sort Name Descending"]
   arrow: any = [true,true,true,true,true];
@@ -23,6 +24,10 @@ export class UserPortfolioComponent implements OnInit {
   sell: boolean = false;
   portfolioSell: any;
   view:string = "Account";
+  notificationComponent: any;
+
+
+
   userPortfolio: any = '';
   userProfile: any = {}
   name: string = "";
@@ -184,65 +189,6 @@ export class UserPortfolioComponent implements OnInit {
     this.item = this.userProfile;
   }
 
-  // sortPortfolio(val: any) {
-  //   switch (val) {
-  //     case "Price High to Low":
-  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-  //         return parseInt(portfolio2.price.substring(1)) - parseInt(portfolio1.price.substring(1))
-  //       })
-  //       this.filterButton()
-  //       break;
-  //     case "Price Low to High":
-  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-  //         return parseInt(portfolio1.price.substring(1)) - parseInt(portfolio2.price.substring(1))
-  //       })
-  //       this.filterButton()
-  //       break;
-  //     case "Quantity High to Low":
-  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-  //         return portfolio2.quantity - portfolio1.quantity
-  //       })
-  //       this.filterButton()
-  //       break;
-  //     case "Quantity Low to High":
-  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-  //         return portfolio1.quantity - portfolio2.quantity
-  //       })
-  //       this.filterButton()
-  //       break;
-
-      
-  //     case "Sort Name Ascending":
-  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-  //         return (portfolio1.name > portfolio2.name) ? 1 : ((portfolio2.name > portfolio1.name) ? -1 : 0)
-  //       })
-  //       this.filterButton()
-  //       break;
-      
-  //     case "Sort Name Descending":
-  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-  //         return (portfolio1.name > portfolio2.name ? -1 : 1)
-  //       })
-  //       this.filterButton()
-  //       break;
-      
-  //     case "Sort Ticker Ascending":
-  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-  //         return (portfolio1.ticker > portfolio2.ticker) ? 1 : ((portfolio2.ticker > portfolio1.ticker) ? -1 : 0)
-  //       })
-  //       this.filterButton()
-  //       break;
-    
-  //     case "Sort Ticker Descending":
-  //       this.userPortfolio.sort((portfolio1: any, portfolio2: any) => {
-  //         return (portfolio1.ticker > portfolio2.ticker ? -1 : 1)
-  //       })
-  //       this.filterButton()
-  //       break;
-  //   }
-  //   this.closeAll()
-  // }
-
   
   
 
@@ -253,32 +199,11 @@ export class UserPortfolioComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    // if (this.userData) {
-    //   for (let portfolio of this.userData.ClientPortfolios) {
-    //     portfolio.totalPrice = parseInt(portfolio.price.substring(1)) * parseInt(portfolio.quantity);
-    //   }
-    // }
-    /*this._user.getAllCustomer().subscribe((data) => {
-      this.userData = data[2]
-      this.userProfile = this.userData.ClientProfile;
-      this.userProfile.birthdate = new Date(this.userProfile.birthdate).toISOString().split('T')[0];
-      this.name = this.userProfile.firstName + " " + this.userProfile.lastName;
-      this.email = this.userProfile.email;
-      this.customer_id = this.userData.customer_id
-
-      console.log("checking")
-      for (let i = 0; i < this.userPortfolio.length; i++) {
-        this.userPortfolio["totalPrice"] = this.userPortfolio.quantity * parseInt(this.userPortfolio.price.substring(1))
-        console.log("I AM HERE!!!",this.userPortfolio);
+    if (this.userData) {
+      for (let portfolio of this.userData.ClientPortfolios) {
+        portfolio.totalPrice = parseInt(portfolio.price.substring(1)) * parseInt(portfolio.quantity);
       }
-
-      this.titleService.setTitle('RVProtect - ' + this.name);
-    });*/
-    /*setTimeout(() => {
-      this.userPortfolio = this.userData?.ClientPortfolios;
-      console.log(this.userPortfolio);
-      console.log(this.userData);
-    }, 500);*/
+    }
   }
 
   toggleView(){

@@ -1,74 +1,76 @@
-.scroll {
-    opacity: 0;
-    animation: 0.25s in-from-right;
-    animation-delay: 0.25s;
+.stock-main {
+    padding: 50px;
+    animation: 0.5s in-from-top;
+}
+
+.stock-main.hide {
+    animation: 0.5s out-to-right;
     animation-fill-mode: forwards;
 }
 
-.container {
-    width: 500px;
-    background-color: #f7f7f7;
-    padding: 43px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 20px;
-    box-shadow: 0 0 12px #c5c5c5;
-}
-
-.container > p {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -6px;
-    font-size: 14px;
-    padding: 2px;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 14px;
-    background-color: #e5e5e5;
-}
-
-.line {
-    height: 20px;
-    margin-bottom: 6px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid lightgrey;
-}
-
-.line:last-child { margin-bottom: 0 }
-
-.line > * {
-    height: 20px;
-    display: inline-block;
-    margin: 0;    
-}
-
-.line > p:first-child {
-    float: left;
-}
-
-.line > p:last-child {
-    float: right;
-    text-align: right;
-}
-
 .page-title {
-    text-align: center;
+    margin: 0;
+    margin-bottom: -5px;
     font-size: 42px;
-    font-family: "roadrunners";
-    color: #bf0000;
-    max-width: 800px;
+    font-weight: lighter;
+    color: #a7a7a7;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+}
+
+#price, #price-change {
+    display: inline-block;
+}
+
+#price-change {
+    margin-left: 10px;
+    word-spacing: -2px;
+}
+
+.header-largest {
+    font-size: 72px;
+    margin: 0;
+}
+
+.header-large {
+    font-size: 56px;
+    margin: 0;
+}
+
+.header-med {
+    font-size: 36px;
+    margin: 0;
+}
+
+.header-small {
+    font-size: 28px;
+    margin: 0;
+}
+
+.header-smallest {
+    font-size: 18px;
+    margin: 0;
 }
 
 .buttons {
     width: fit-content;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 18px);
+}
+
+.buttons > * {
+    margin: 0;
+}
+
+.buttons > *:first-child {
+    margin-right: 8px;
+}
+
+#price-change.red {
+    color: red;
+}
+
+#price-change.green {
+    color: rgb(0, 177, 0);
 }
 
 .red {
@@ -77,4 +79,104 @@
 
 .green {
     color: rgb(0, 202, 0);
+}
+
+.centered {
+    margin: auto;
+    text-align: center;
+}
+
+.data-container {
+    text-align: center;
+}
+
+.data-container > * {
+    display: inline-block;
+}
+
+.data-container-nested {
+    overflow: auto;
+    margin-bottom: 50px;
+}
+
+.details-container {
+    padding: 20px;
+    text-align: left;
+    font-size: 26px;
+    width: 800px;
+    height: 400px;
+    margin-top: 20px;
+    margin-right: 50px;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+}
+
+.details-container > * {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.funds-container {
+    width: 800px;
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.fund-row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.fund-row.header {
+    font-weight: normal;
+    background-color: #f10000 !important;
+    color: white;
+    cursor: unset;
+}
+
+.fund-row > * {
+    display: inline-block;
+    margin: 0;
+    margin-left: 20px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.fund-row:nth-child(odd) {
+    background-color: rgb(247, 247, 247);
+}
+
+.fund-row:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+.fund-row > p:first-child {
+    width: 300px;
+    white-space: break-spaces;
+    text-align: left;
+}
+
+.fund-row > p:nth-child(2) {
+    width: 100px;
+}
+
+.fund-row > p:nth-child(3) {
+    width: 150px;
+}
+
+.fund-row > p:nth-child(4) {
+    width: 150px;
+}
+
+.fund-row .red {
+    color: red;
+}
+
+.fund-row .green {
+    color: rgb(0, 187, 0);
 }

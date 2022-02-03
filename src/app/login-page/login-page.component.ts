@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
+
 export class LoginPageComponent implements OnInit {
   username:string = "";
   password:string = "";
+  notificationComponent: any;
+
   constructor(private router: Router, private authenticationService: AuthenticationService, private titleService: Title) {
     titleService.setTitle('RVProtect - Login');
   }
@@ -24,7 +27,7 @@ export class LoginPageComponent implements OnInit {
       username: u,
       password: this.password
     }).subscribe(d => {
-      if (d.err) return console.log(d.err);
+      if (d.err) return this.notificationComponent.notify(d.err, 'error');
       localStorage.setItem('username', u);
       localStorage.setItem('sessionID', d.sessionID);
       this.router.navigateByUrl('/user-profile');

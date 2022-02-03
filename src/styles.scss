@@ -7,23 +7,25 @@
     width: 10px;
   }
   
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
 
 body, html {
     margin: 0px;
     padding: 0px;
     height: 100%;
     font-family: system-ui;
+    font-weight: lighter;
+    font-size: 18px;
     animation-fill-mode: forwards;
 }
 
@@ -95,6 +97,16 @@ body, html {
     &:hover {
         background-color: rgb(107, 208, 255);
     }
+}
+
+@keyframes in-from-top {
+    from {transform: translateY(-100px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes in-from-top-centered {
+    from {transform: translate(-50%, -100px); opacity: 0;}
+    to {transform: translate(-50%, 0); opacity: 1;}
 }
 
 @keyframes in-from-right {

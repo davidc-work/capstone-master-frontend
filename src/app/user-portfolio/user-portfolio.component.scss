@@ -3,8 +3,6 @@
   animation: 0.25s in-from-right;
   animation-delay: 0.25s;
   animation-fill-mode: forwards;
-  width: 100vw;
-  height: 100vh;
 }
 
 .profile-container {
@@ -55,7 +53,7 @@ h1 {
 }
 
 .profile-info-editable > div > p {
-  width: 80px;
+  width: 90px;
   margin: 10px;
   margin-right: 20px;
 }
