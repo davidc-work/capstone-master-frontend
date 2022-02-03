@@ -8,54 +8,6 @@
     animation-fill-mode: forwards;
 }
 
-.container {
-    width: 500px;
-    background-color: #f7f7f7;
-    padding: 43px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 20px;
-    box-shadow: 0 0 12px #c5c5c5;
-}
-
-.container > p {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -6px;
-    font-size: 14px;
-    padding: 2px;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 14px;
-    background-color: #e5e5e5;
-}
-
-.line {
-    height: 20px;
-    margin-bottom: 6px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid lightgrey;
-}
-
-.line:last-child { margin-bottom: 0 }
-
-.line > * {
-    height: 20px;
-    display: inline-block;
-    margin: 0;    
-}
-
-.line > p:first-child {
-    float: left;
-}
-
-.line > p:last-child {
-    float: right;
-    text-align: right;
-}
-
 .page-title {
     margin: 0;
     margin-bottom: -5px;

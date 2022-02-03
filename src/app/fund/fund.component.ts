@@ -23,6 +23,8 @@ export class FundComponent implements OnInit {
   chart: any;
   @Input() userData: any;
   @Input() notificationComponent: any;
+
+  returnTo: any = '/funds';
   
   @ViewChild(TransactionComponent) transactionComponent!: TransactionComponent;
   
@@ -39,6 +41,13 @@ export class FundComponent implements OnInit {
         e.style.opacity = '1';
       }
     }
+
+    this.route.queryParams.subscribe(params => {
+      if (params['return']) {
+        this.returnTo = '/' + params['return'];
+      }
+    });
+
     this.route.params.subscribe(params=>{
       this.id = +params['id'];
       this.fundService.getFund(this.id).subscribe(payload=> {
@@ -96,7 +105,7 @@ export class FundComponent implements OnInit {
   back() {
     var e: HTMLElement = <HTMLElement>document.getElementsByClassName('fund-main')[0];
     e.className += ' hide';
-    setTimeout(() => this.router.navigateByUrl('/funds'), 500);
+    setTimeout(() => this.router.navigateByUrl(this.returnTo), 500);
   }
 
   viewStocks() {
