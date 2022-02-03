@@ -17,7 +17,7 @@
         <a (click)="signout()">Signout</a>
       </div>
     </div>
-    <a *ngIf="userData" id="profile-button"><img (click)="switch()" src="../../assets/img/profile-button.jpg"></a>
+    <a *ngIf="userData" id="profile-button" [ngClass]="dropdown ? 'active' : ''"><img (click)="switch()" src="../../assets/img/profile-button.png"></a>
 </header>
 </div>
 <div class="container">  

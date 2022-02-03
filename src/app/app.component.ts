@@ -72,6 +72,8 @@ export class AppComponent implements OnInit {
   }
 
   onActivate(e: any) {
+    e.notificationComponent = this.notificationComponent;
+    
     const publicRoutes = ['/', '/login', '/signup', '/funds', '/stocks'];
     const loggedOutOnlyRoutes = ['/login', '/signup'];
     const username = localStorage.getItem('username');
@@ -96,7 +98,6 @@ export class AppComponent implements OnInit {
           d0.ClientProfile.birthdate = formatDate(d0.ClientProfile.birthdate, 'yyyy-MM-dd', 'en-us');
           this.userData = d0;
           e.userData = d0;
-          e.notificationComponent = this.notificationComponent;
           if (e.hasOwnProperty('userPortfolio')) e.userPortfolio = d0.ClientPortfolios;
         });
       } else {

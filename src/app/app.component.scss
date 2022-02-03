@@ -95,6 +95,12 @@ header > a {
 
 #profile-button {
   background-color: transparent;
+  filter: grayscale(100%);
+  transition: 0.25s;
+}
+
+#profile-button:hover, #profile-button.active {
+  filter: grayscale(0);
 }
 
 .titlebar-overlay > * {
