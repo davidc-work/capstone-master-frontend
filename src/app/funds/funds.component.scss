@@ -192,3 +192,11 @@
 .search-bar:focus {
     border: 2px solid rgb(0, 153, 255);
 }
+
+.stock-row .red {
+    color: red;
+}
+
+.stock-row .green {
+    color: rgb(0, 187, 0);
+}

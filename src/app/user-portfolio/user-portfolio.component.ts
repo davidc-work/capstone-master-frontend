@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { CustomerService } from '../customer.service';
 import { ProfileService } from '../profile.service';
 import { PortfolioService } from '../portfolio.service';
-
+import { BillingComponent } from '../billing/billing.component';
 import { UserPortfolio } from './userprofile.model';
 
 @Component({
@@ -22,6 +22,7 @@ export class UserPortfolioComponent implements OnInit {
   totalPrice: any;
   sell: boolean = false;
   portfolioSell: any;
+  view:string = "Account";
   userPortfolio: any = '';
   userProfile: any = {}
   name: string = "";
@@ -66,10 +67,11 @@ export class UserPortfolioComponent implements OnInit {
     }
   }
 
-  toSell(data: any) {
-    console.log(data)
+  toSell(data?: any) {
     this.sell = !this.sell
-    this.portfolioSell = data;
+    if(data){
+      this.portfolioSell = data;
+    }
   }
 
 
@@ -91,6 +93,7 @@ export class UserPortfolioComponent implements OnInit {
   }
 
   chosenFilter(val: string) {
+    console.log(this.userData)
     switch (val) {
       case "name":
         this.arrowSwitcher(0)
@@ -278,4 +281,7 @@ export class UserPortfolioComponent implements OnInit {
     }, 500);*/
   }
 
+  toggleView(){
+    this.view === "Account" ? this.view = "Billing" : this.view = "Account";
+  }
 }

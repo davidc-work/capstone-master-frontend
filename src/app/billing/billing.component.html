@@ -1,1 +1,18 @@
-<p>billing works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col sideDivider">
+            <h3>Wallet</h3>
+            <p><strong class="strong">Current Balance: </strong><span class="green">$ {{ addCommas(userData?.transactions.Wallet.currencyAmount) }}</span></p>
+            <p><strong class="strong">Currency Type: </strong><span class="green">{{ userData?.transactions.Wallet.currencyType }}</span></p>
+            <p><strong class="strong">Last Transaction Date: </strong><br><br> {{ dateFix(userData?.transactions.Wallet.updatedAt) }}</p>
+        </div>
+        <div class="col m-auto" style="text-align: center;">
+            <h3>Deposit</h3>
+            <p><strong>Payment Option: </strong><span><i class="fab fa-cc-visa blue icon"></i> On File Ending With {{ simulateCC() }}</span></p>
+            $<input [(ngModel)]="depositInput" name="depositInput" type="number" placeholder="0.00" (click)="activateSmall()"/>
+            <button class="depositBtn" (click)="deposit()">Add Funds</button>
+            <br>
+            <small *ngIf="small">{{ info }}</small>
+        </div>
+    </div>
+</div>
