@@ -8,7 +8,7 @@ import { TransactionService } from '../transaction-service/transaction.service';
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent implements OnInit {
-  @Input() userData: any = '';
+  @Input() userData: any;
   @Input() fund:Fund = {
     id: undefined,
     name: "",

@@ -21,6 +21,8 @@ export class FundComponent implements OnInit {
   keys:any;
   id:number = 0;
   chart: any;
+  @Input() userData: any;
+  @Input() notificationComponent: any;
   
   @ViewChild(TransactionComponent) transactionComponent!: TransactionComponent;
   
