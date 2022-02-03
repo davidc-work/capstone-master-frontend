@@ -73,7 +73,7 @@ export class AppComponent implements OnInit {
 
   onActivate(e: any) {
     e.notificationComponent = this.notificationComponent;
-    
+
     const publicRoutes = ['/', '/login', '/signup', '/funds', '/stocks'];
     const loggedOutOnlyRoutes = ['/login', '/signup'];
     const username = localStorage.getItem('username');
@@ -95,6 +95,10 @@ export class AppComponent implements OnInit {
           username,
           sessionID
         }).subscribe(d0 => {
+          if (d0.error) {
+            localStorage.setItem('username', '');
+            return this.notificationComponent.notify(d0.error, 'error');
+          }
           d0.ClientProfile.birthdate = formatDate(d0.ClientProfile.birthdate, 'yyyy-MM-dd', 'en-us');
           this.userData = d0;
           e.userData = d0;
