@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transactions',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsComponent implements OnInit {
   userData:any
-  load:boolean = true;
-  constructor() { }
+  load:boolean = false;
+  returnTo:any = "/user-profile";
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.load = false;
+      this.load = true;
       console.log(this.userData)
     }, 500)
   }
@@ -33,5 +35,11 @@ export class TransactionsComponent implements OnInit {
 
   dateFix(date: string) {
     return new Date(date)
+  }
+
+  back() {
+    var e: HTMLElement = <HTMLElement>document.getElementsByClassName('transaction-main')[0];
+    e.className += ' hide';
+    setTimeout(() => this.router.navigateByUrl(this.returnTo), 500);
   }
 }
