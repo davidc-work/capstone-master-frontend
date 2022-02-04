@@ -11,6 +11,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { TransactionSingleComponent } from './transaction-single/transaction-single.component';
 import { BillingComponent } from './billing/billing.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -23,7 +24,7 @@ const routes: Routes = [
   {path: "receipts/:userId/:fundId", component: TransactionSingleComponent},
   {path: "login", component: LoginPageComponent},
   {path: "signup", component: SignupPageComponent},
-  {path: "billing", component: BillingComponent}
+  {path: "transactions", component: TransactionsComponent}
 ];
 
 @NgModule({

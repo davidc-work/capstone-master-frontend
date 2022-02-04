@@ -20,6 +20,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { TransactionSingleComponent } from './transaction-single/transaction-single.component';
 import { BillingComponent } from './billing/billing.component';
 import { NotificationComponent } from './notification/notification.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NotificationComponent } from './notification/notification.component';
     SignupPageComponent,
     TransactionSingleComponent,
     BillingComponent,
-    NotificationComponent
+    NotificationComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
