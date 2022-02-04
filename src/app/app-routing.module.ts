@@ -14,6 +14,7 @@ import { BillingComponent } from './billing/billing.component';
 import { TopPicksComponent } from './top-picks/top-picks.component';
 import { PortfolioAssessmentComponent } from './portfolio-assessment/portfolio-assessment.component';
 import { KnowledgeTestComponent } from './knowledge-test/knowledge-test.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: "billing", component: BillingComponent},
   {path: "top-picks", component: TopPicksComponent},
   {path: "portfolio-assessment", component: PortfolioAssessmentComponent},
-  {path: "knowledge-test", component: KnowledgeTestComponent}
+  {path: "knowledge-test", component: KnowledgeTestComponent},
+  {path: "transactions", component: TransactionsComponent}
 ];
 
 @NgModule({

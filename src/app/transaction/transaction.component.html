@@ -10,7 +10,7 @@
         <div class="line">
             <p>Quantity: </p><input id="share-input" name="quantity" type="number" min="0" max="9999" step="1" [(ngModel)]="quantityToBuy" (change)="checkInput();" />
         </div>
-        <div class="line"><p>Total: </p><p>{{ priceString || '0.00' }}</p></div>
+        <div class="line"><p>Total: </p><p>$ {{ priceString || '0.00' }}</p></div>
         <button class="button-boxy-1 grey" (click)="toggleModal($event)">Cancel</button>
         <button class="button-boxy-1 blue" (click)="purchase()">Purchase</button>
     </div>
