@@ -11,6 +11,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { TransactionSingleComponent } from './transaction-single/transaction-single.component';
 import { BillingComponent } from './billing/billing.component';
+import { TopPicksComponent } from './top-picks/top-picks.component';
+import { PortfolioAssessmentComponent } from './portfolio-assessment/portfolio-assessment.component';
+import { KnowledgeTestComponent } from './knowledge-test/knowledge-test.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -23,7 +26,10 @@ const routes: Routes = [
   {path: "receipts/:userId/:fundId", component: TransactionSingleComponent},
   {path: "login", component: LoginPageComponent},
   {path: "signup", component: SignupPageComponent},
-  {path: "billing", component: BillingComponent}
+  {path: "billing", component: BillingComponent},
+  {path: "top-picks", component: TopPicksComponent},
+  {path: "portfolio-assessment", component: PortfolioAssessmentComponent},
+  {path: "knowledge-test", component: KnowledgeTestComponent}
 ];
 
 @NgModule({

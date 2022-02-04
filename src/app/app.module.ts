@@ -20,6 +20,9 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { TransactionSingleComponent } from './transaction-single/transaction-single.component';
 import { BillingComponent } from './billing/billing.component';
 import { NotificationComponent } from './notification/notification.component';
+import { TopPicksComponent } from './top-picks/top-picks.component';
+import { PortfolioAssessmentComponent } from './portfolio-assessment/portfolio-assessment.component';
+import { KnowledgeTestComponent } from './knowledge-test/knowledge-test.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { NotificationComponent } from './notification/notification.component';
     SignupPageComponent,
     TransactionSingleComponent,
     BillingComponent,
-    NotificationComponent
+    NotificationComponent,
+    TopPicksComponent,
+    PortfolioAssessmentComponent,
+    KnowledgeTestComponent
   ],
   imports: [
     BrowserModule,

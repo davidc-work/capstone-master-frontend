@@ -74,7 +74,7 @@ header {
   transform: translateX(-20px);
 }
 
-header > a {
+header > a, header > .dropdown-menu {
   background-color: white;
   text-decoration: none;
   height: 100%;
@@ -85,7 +85,7 @@ header > a {
   line-height: 75px;
 
   &:hover {
-    background-color: rgb(240, 240, 240);
+    background-color: #f7f7f7;
   }
 
   &:visited {
@@ -191,4 +191,46 @@ header > a {
   transform: translateX(-10px);
   background-color: lightgrey;
   box-sizing: border-box;
+}
+
+.dropdown-menu {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu.active {
+  background-color: #dadada !important;
+}
+
+.dropdown-2 {
+  display: none;
+  position: absolute;
+  top: 75px;
+  left: 1px;
+  box-shadow: 0 0 5px lightgrey;
+}
+
+.dropdown-menu.active .dropdown-2, .dropdown-menu:hover .dropdown-2 {
+  display: block;
+}
+
+.dropdown-2 > a {
+  background-color: white;
+  line-height: 20px;
+  width: 140px;
+  padding-right: 25px;
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
+  display: block;
+  text-align: left;
+  color: black;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #0083eb;
+    color: white;
+  }
 }
