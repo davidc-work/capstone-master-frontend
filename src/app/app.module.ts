@@ -19,6 +19,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { TransactionSingleComponent } from './transaction-single/transaction-single.component';
 import { BillingComponent } from './billing/billing.component';
+import { SellingfundComponent } from './sellingfund/sellingfund.component';
 import { NotificationComponent } from './notification/notification.component';
 import { TopPicksComponent } from './top-picks/top-picks.component';
 import { PortfolioAssessmentComponent } from './portfolio-assessment/portfolio-assessment.component';
@@ -42,6 +43,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     SignupPageComponent,
     TransactionSingleComponent,
     BillingComponent,
+    SellingfundComponent,
+    NotificationComponent,
     NotificationComponent,
     TopPicksComponent,
     PortfolioAssessmentComponent,

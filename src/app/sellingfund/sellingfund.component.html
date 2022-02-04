@@ -1,0 +1,110 @@
+<div class="main-container">
+  <h2 style="text-align: center;">Sell Fund</h2>
+  <div class="main-info">
+    <div style="width: 40%;">
+      <div class="desc">Ticker: </div>
+      <div class="data">{{portfolioSell.fundData.ticker}}</div>
+      <div class="desc">Name:</div>
+      <div class="data">{{portfolioSell.fundData.name}}</div>
+      <div class="desc">Remaining: </div><span class="data">{{portfolioSell.quantity-quantitySell}}</span>
+    </div>
+    <div style="display:flex; flex-direction: column;width: 40%;">
+      <div class="desc">Total Amount to Sell</div>
+      <div class="data">${{(portfolioSell.fundData.price.substring(1)*quantitySell).toFixed(2)}}</div>
+      <input class="input-field" [(ngModel)]="quantitySell" type="number" id="quantity" name="quantity" min="0" max="{{portfolioSell.quantity}}">
+      <div class="button-container">
+        <button class="sell-button" (click)="readySell()">SELL</button>
+        <button (click)="back($event)" class="cancel-button">Cancel</button>
+    </div>
+    </div>
+  </div>
+  <div class="table" style="display: flex; flex-direction: column;">
+    <h4>Fund Details</h4>
+    <div class="table-header">
+      <div *ngFor="let header of headers"> 
+        {{header}}
+      </div>
+    </div>
+    <div class="table-content">
+      <div> 
+        {{portfolioSell.fundData.name}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.ticker}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.assetClass}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.expenseRatio}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.ytd}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.priceChange}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.sinceInception}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.oneyr}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.fiveyr}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.tenyr}}
+      </div>
+      <div> 
+        {{portfolioSell.fundData.price}}
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="table">
+    <div style="display: flex; flex-direction: column; width: 20%;">
+      <div>Name</div>
+      <div>{{portfolioSell.fundData.name}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>Ticker</div>
+      <div>{{portfolioSell.fundData.ticker}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 20%;">
+      <div>Asset Class</div>
+      <div>{{portfolioSell.fundData.assetClass}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>Expense Ratio</div>
+      <div>{{portfolioSell.fundData.expenseRatio}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>ytd</div>
+      <div>{{portfolioSell.fundData.ytd}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>Price Change</div>
+      <div>{{portfolioSell.fundData.priceChange}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>Since Inception</div>
+      <div>{{portfolioSell.fundData.sinceInception}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>1 year</div>
+      <div>{{portfolioSell.fundData.oneyr}}</div></div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>5 year</div>
+      <div>{{portfolioSell.fundData.fiveyr}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>10 year</div>
+      <div>{{portfolioSell.fundData.tenyr}}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 10%;">
+      <div>Price</div>
+      <div>{{portfolioSell.fundData.price}}</div>
+    </div>
+  </div> -->
+</div>

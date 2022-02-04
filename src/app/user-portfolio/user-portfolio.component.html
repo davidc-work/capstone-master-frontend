@@ -11,6 +11,7 @@
   <div [ngSwitch]="view">
     <div *ngSwitchCase="'Account'">
       <app-account-settings *ngIf="edit" [id]="userData.customer_id" [data]="userData.ClientProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
+
       <div *ngIf="!edit" class="profile-container">
         <div class="profile-alignment">
           <div class="profile-avatar">
@@ -33,13 +34,34 @@
     <app-billing [userData]="userData" *ngSwitchCase="'Billing'"></app-billing>
   </div>
 
-  
+
+
+
 
   <div class="profile-container">
 
 
+    <app-sellingfund (cancel)="toSell($event)" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
+
     
-    <table>
+    <div *ngIf="!sell">
+      <div style="display: flex; flex-direction: row;">
+        <div *ngFor="let header of headers">
+          {{header}}
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <div *ngFor="let portfolio of userPortfolio">
+            <span>{{portfolio.fundData.name}}</span>
+            <span>{{portfolio.fundData.ticker}}</span>
+            <span>{{portfolio.fundData.price}}</span>
+            <span>{{portfolio.quantity}}</span>
+        </div>
+      </div>
+  </div>
+
+
+    <table *ngIf="!sell">
       <tr>
         <button (click)="chosenFilter('name')"><th scope="">Name
             <img 
@@ -70,6 +92,9 @@
             [ngClass]="arrow[4] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
+      <button>
+        <th scope="">Sell</th>
+      </button>
       </tr>
       <tr *ngFor="let portfolio of userPortfolio">
         <td class="table-content">
@@ -80,7 +105,10 @@
         <td class="table-content">{{portfolio.fundData.price}}</td>
         <td class="table-content">{{portfolio.quantity}}</td>
         <td class="table-content">${{(portfolio.quantity*portfolio.fundData.price.substring(1)).toFixed(2)}}</td>
+        <td class="table-content">
+          <button (click)="toSell(portfolio)">Sell</button>
+        </td>
       </tr>
     </table>
+  </div> 
   </div>
-</div>

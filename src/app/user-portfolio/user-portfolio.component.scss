@@ -7,13 +7,14 @@
 
 .profile-container {
   display: flex;
+  margin-top: 5vh;
   flex-direction: column;
   opacity: 0;
   animation: 0.25s in-from-right;
   animation-delay: 0.25s;
   animation-fill-mode: forwards;
   align-items: center;
-  border-bottom: 1px solid rgb(194, 194, 194);
+  // border-bottom: 1px solid rgb(194, 194, 194);
   padding: 70px;
   padding-top: 0px;
 }
@@ -119,6 +120,12 @@ h1 {
 table {
   width: 75vw;
   border: 1px solid rgb(194, 194, 194);
+  margin: 0 auto;
+  margin-top: 2vh;
+  opacity: 0;
+  animation: 0.25s in-from-right;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
 
   th button {
     position: absolute;
@@ -159,6 +166,7 @@ table tr {
     color: white;
     font-weight: bolder;
     font-size: 12pt;
+    cursor: pointer;
   }
 }
 
@@ -169,13 +177,13 @@ table tr:nth-child(2) {
 table tr button:nth-child(1) {
   display: flex;
   justify-content: center;
-  width: 40%;
+  width: 30%;
 }
 
 table tr td:nth-child(1) {
   text-align: left;
   padding-left: 10px;
-  width: 40%;
+  width: 29.4%;
 
   a {
     color: black;
@@ -222,76 +230,75 @@ table tr td:nth-child(5) {
   width: 10%;
 }
 
-// table tr th:nth-child(1) {
-//   width: 15%;
-// }
+table tr button:nth-child(6) {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
 
-// table tr th:nth-child(2) {
-//   width: 8%;
-// }
-
-// table tr th:nth-child(3) {
-//   width: 15%;
-// }
-
+table tr td:nth-child(6) {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
 // table tr th:nth-child(4) {
 //   width: 8%;
 // }
 
-/* The switch - the box around the slider */ 
-  
-.switch { 
-  position: relative; 
-  display: inline-block; 
-  width: 60px; 
-  height: 34px; 
+/* The switch - the box around the slider */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
   margin-bottom: 10px;
-} 
-/* Hide default HTML checkbox */ 
+}
+/* Hide default HTML checkbox */
 
-.switch input { 
-  display: none; 
-} 
-/* The slider */ 
+.switch input {
+  display: none;
+}
+/* The slider */
 
-.slider { 
-  position: absolute; 
-  cursor: pointer; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  background-color: #ccc; 
-  -webkit-transition: .4s; 
-  transition: .4s; 
-} 
-.slider:before { 
-  position: absolute; 
-  content: ""; 
-  height: 26px; 
-  width: 26px; 
-  left: 4px; 
-  bottom: 4px; 
-  background-color: white; 
-  -webkit-transition: .4s; 
-  transition: .4s; 
-} 
-input:checked + .slider { 
-  background-color: rgb(175, 0, 0); 
-} 
-input:focus + .slider { 
-  box-shadow: 0 0 1px rgb(175, 0, 0); 
-} 
-input:checked + .slider:before { 
-  -webkit-transform: translateX(26px); 
-  -ms-transform: translateX(26px); 
-  transform: translateX(26px); 
-} 
-/* Rounded sliders */ 
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: rgb(175, 0, 0);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(175, 0, 0);
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* Rounded sliders */
 
-.slider.round { 
-  border-radius: 34px; 
-} 
-.slider.round:before { 
-  border-radius: 50%; 
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
 }
