@@ -70,7 +70,7 @@
 }
 
 .table div :nth-child(1) {
-  width: 18%;
+  width: 15%;
 }
 
 .table div :nth-child(2) {
@@ -98,7 +98,7 @@
 }
 
 .table div :nth-child(8) {
-  width: 5%;
+  width: 8%;
 }
 
 .table div :nth-child(9) {
@@ -111,6 +111,11 @@
 
 .table div :nth-child(11) {
   width: 7%;
+}
+
+button {
+  cursor: pointer;
+  font-weight: bolder;
 }
 
 .table-header {
