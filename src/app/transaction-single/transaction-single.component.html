@@ -1,6 +1,8 @@
-<div class="scroll">
+<app-loading *ngIf="load === false"></app-loading>
+<div class="scroll" *ngIf="load">
     <p class="page-title">Receipts for <br> {{ fundName }}</p>
     <div class="container">
+        <button class="button-boxy-1 grey" (click)="back()" style="margin-bottom: 20px">Back</button>
         <table>
             <thead>
                 <tr>
