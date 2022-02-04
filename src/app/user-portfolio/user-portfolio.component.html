@@ -43,22 +43,7 @@
 
     <app-sellingfund (cancel)="toSell($event)" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
 
-    
-    <div *ngIf="!sell">
-      <div style="display: flex; flex-direction: row;">
-        <div *ngFor="let header of headers">
-          {{header}}
-        </div>
-      </div>
-      <div style="display: flex; flex-direction: column;">
-        <div *ngFor="let portfolio of userPortfolio">
-            <span>{{portfolio.fundData.name}}</span>
-            <span>{{portfolio.fundData.ticker}}</span>
-            <span>{{portfolio.fundData.price}}</span>
-            <span>{{portfolio.quantity}}</span>
-        </div>
-      </div>
-  </div>
+
 
 
     <table *ngIf="!sell">
