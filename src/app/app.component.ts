@@ -21,6 +21,8 @@ export class AppComponent implements OnInit {
   dropdown: boolean = false;
   userData: any;
 
+  toolsActive: boolean = false;
+
   @ViewChild(NotificationComponent) notificationComponent: NotificationComponent;
 
   switch() {
@@ -69,6 +71,10 @@ export class AppComponent implements OnInit {
         if (!(dropdownElement.contains(t) || dropdownElement == t)) this.dropdown = false;
       }
     });
+  }
+
+  toggleTools() {
+    this.toolsActive = !this.toolsActive;
   }
 
   onActivate(e: any) {

@@ -58,6 +58,8 @@ export class TransactionComponent implements OnInit {
   
   toggleModal(e: any = undefined){
     this.modalOn = !this.modalOn;
+    this.quantityToBuy = 0;
+    this.total = 0;
   }
 
   checkInt(){

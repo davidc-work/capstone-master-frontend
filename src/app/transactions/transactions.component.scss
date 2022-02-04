@@ -1,0 +1,31 @@
+.container {
+    height: 100%;
+    width: 69vw;
+    background-color: #f7f7f7;
+    padding: 43px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    box-shadow: 0 0 12px #c5c5c5;
+    margin-bottom: 5vh;
+    margin-top: 10vh;
+}
+
+.row{
+    display: flex;
+}
+
+.col{
+    height: 100%;
+    padding: 20px;
+    flex: 1;
+}
+
+.header {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 25px;
+    font-family: "roadrunners";
+    color: #bf0000;
+}
