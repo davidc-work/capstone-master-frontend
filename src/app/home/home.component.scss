@@ -99,7 +99,7 @@
 }
 
 .routes button{
-    background-color: rgb(171, 26, 26);
+    background-color: rgb(255, 255, 255);
     opacity: 100%;
     font-family: ff-mark-med;
     font-size: larger;
@@ -111,11 +111,12 @@
     filter: drop-shadow(0 0 5px #a5a5a5);
     border: none;
     margin-right: 15px;
+    border-radius: 20px;
 }
 
 .routes button > a {
     text-decoration: none;
-    color: #535353;
+    color: #7a7a7a;
     display: block;
     width: 83px;
     height: 45px;
@@ -128,6 +129,10 @@
 .routes button:hover {
     background-color: #e10000;
     filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.692));
+}
+
+.routes button:hover a {
+    color: white;
 }
 
 .floating-box {

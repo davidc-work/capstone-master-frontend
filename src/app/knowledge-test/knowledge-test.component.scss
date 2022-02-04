@@ -1,0 +1,30 @@
+#img-banner {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+#img-banner > img {
+    transform: translateY(-336px);
+}
+
+.banner-content {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    color: white;
+    width: 800px;
+    z-index: 3;
+}
+
+.banner-content > .banner-header {
+    font-size: 56px;
+    font-family: ff-mark;
+    text-shadow: 0 0 10px rgb(75, 75, 75);
+    font-weight: normal !important;
+    margin: 0;
+}
+
+.banner-content > button {
+    
+}
