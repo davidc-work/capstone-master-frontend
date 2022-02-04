@@ -18,6 +18,8 @@ export class SignupPageComponent implements OnInit {
   password:string = "";
   confirmPassword:string = "";
 
+  notificationComponent: any;
+
   constructor(private cookieService: CookieService, private titleService: Title, private authenticationService: AuthenticationService, private router: Router) {
     titleService.setTitle('RVProtect - Sign Up');
   }
@@ -26,6 +28,10 @@ export class SignupPageComponent implements OnInit {
   }
 
   signup() {
+    if (this.password != this.confirmPassword) return this.notificationComponent.notify('Passwords do not match!', 'error');
+    if ([this.firstName, this.lastName, this.birthdate, this.email,
+      this.username, this.password, this.confirmPassword].includes('')) return this.notificationComponent.notify('Missing fields!', 'error');
+
     this.authenticationService.signup({
       firstName: this.firstName,
       lastName: this.lastName,

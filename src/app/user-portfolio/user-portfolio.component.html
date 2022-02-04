@@ -1,6 +1,5 @@
 <div class="scroll">
 
-  <app-account-settings *ngIf="edit" [id]="customer_id" [data]="userData.ClientProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
   <div style="text-align: center;">
     <h1 *ngIf="view === 'Account'">My Account</h1>
     <h1 *ngIf="view === 'Billing'">My Billing</h1>
@@ -11,6 +10,8 @@
   </div>
   <div [ngSwitch]="view">
     <div *ngSwitchCase="'Account'">
+      <app-account-settings *ngIf="edit" [id]="userData.customer_id" [data]="userData.ClientProfile" (update)="refreshPage($event)" (editProfile)="editProfile()"></app-account-settings>
+
       <div *ngIf="!edit" class="profile-container">
         <div class="profile-alignment">
           <div class="profile-avatar">
@@ -40,16 +41,9 @@
   <div class="profile-container">
 
 
-    <app-sellingfund [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
+    <app-sellingfund (cancel)="toSell($event)" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
 
-    </div> -->
-
-
-
-
-
-
-
+    
 
 
     <table *ngIf="!sell">
@@ -101,4 +95,5 @@
         </td>
       </tr>
     </table>
+  </div> 
   </div>

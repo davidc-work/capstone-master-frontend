@@ -20,7 +20,7 @@ export class ProfileService {
     return this.http.post(`http://user-profile-transaction.herokuapp.com/profile/${customer_id}`,obj);
   }*/
 
-  editProfile(customer_id: number, obj: any): Observable<any> {
+  editProfile(customer_id: string, obj: any): Observable<any> {
     console.log(customer_id)
     console.log(obj)
     return this.http.put(`https://protected-dusk-89362.herokuapp.com/user/${customer_id}`, Object.assign({

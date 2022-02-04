@@ -15,7 +15,7 @@ export class UserPortfolioComponent implements OnInit {
   constructor(private titleService: Title, private _user: CustomerService, private _profile: ProfileService, private _portfolio: PortfolioService ) {
     titleService.setTitle('RVProtect - Profile');
   }
-  
+
   userData: any;
   filter: any = ["Price High to Low", "Price Low to High", "Quantity High to Low", "Quantity Low to High", "Sort Name Ascending", "Sort Name Descending"]
   arrow: any = [true,true,true,true,true];
@@ -25,8 +25,6 @@ export class UserPortfolioComponent implements OnInit {
   portfolioSell: any;
   view:string = "Account";
   notificationComponent: any;
-
-
 
   userPortfolio: any = '';
   userProfile: any = {}

@@ -7,13 +7,14 @@
 
 .profile-container {
   display: flex;
+  margin-top: 5vh;
   flex-direction: column;
   opacity: 0;
   animation: 0.25s in-from-right;
   animation-delay: 0.25s;
   animation-fill-mode: forwards;
   align-items: center;
-  border-bottom: 1px solid rgb(194, 194, 194);
+  // border-bottom: 1px solid rgb(194, 194, 194);
   padding: 70px;
   padding-top: 0px;
 }
@@ -119,6 +120,12 @@ h1 {
 table {
   width: 75vw;
   border: 1px solid rgb(194, 194, 194);
+  margin: 0 auto;
+  margin-top: 2vh;
+  opacity: 0;
+  animation: 0.25s in-from-right;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
 
   th button {
     position: absolute;

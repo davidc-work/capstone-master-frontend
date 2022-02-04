@@ -33,7 +33,6 @@ export class BillingComponent implements OnInit {
     let str = this.userData.customer_id;
     let bank = ["1","2","3","4","5","6","7","8","9","0"];
     str = str.split("").map((char:any) => bank.includes(char) ? char : null).join("");
-    console.log(str)
     return str.slice(0,4)
   }
 
