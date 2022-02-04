@@ -67,13 +67,26 @@ button > img {
     font-weight: bold;
     line-height: 45px;
 }
+
+.header-3 {
+    font-family: ff-mark;
+    font-size: 25px;
+    line-height: 30px;
+}
+
 .description-text-1 {
     font-family: ff-mark-med;
     font-size: 24px;
 }
+
 .description-text-2 {
     font-family: ff-mark-med;
     font-size: 20px;
+}
+
+.description-text-3 {
+    font-family: ff-mark-med;
+    font-size: 16px;
 }
 
 .routes {
@@ -87,13 +100,22 @@ button > img {
 }
 
 .routes button{
-    background-color: rgb(145, 38, 38);
+    background-color: rgb(171, 26, 26);
     opacity: 100%;
     font-family: ff-mark-med;
     font-size: larger;
     color: white;
     height: 45px;   
     filter: drop-shadow(0 0  0px); 
+}
+
+.floating-box {
+    top: 70%;
+    left: 70%;
+    width: 18%;
+    position: fixed;
+    float: right;
+    background-color: rgba(255, 255, 255, 0.529);
 }
 
 
