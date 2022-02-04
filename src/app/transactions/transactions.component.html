@@ -1,0 +1,38 @@
+<app-loading *ngIf="load === false"></app-loading>
+<div class="transaction-main" *ngIf="load">
+    <div class="container">
+        <button class="button-boxy-1 grey" (click)="back()">Back</button>
+        <h2 class="header" style="text-align: center;">My Transactions</h2>
+        <div>
+            <div class="row" *ngFor="let transaction of userData.transactions.Transactions">
+                <div class="col" *ngIf="transaction.type === 'purchase'">
+                    <h5>Transaction Date: <br><br> {{ dateFix(transaction.createdAt) }}</h5>
+                    <p><strong>Type: </strong>{{ transaction.type }}</p>
+                    <p><strong>Fund: </strong>{{ transaction.itemDescription }}</p>
+                    <p><strong>Quantity: </strong>{{ transaction.quantity }}</p>
+                    <p><strong>Price Per: </strong>$ {{ addCommas(transaction.pricePerUnit) }}</p>
+                    <p><strong>Total: </strong>$ {{ addCommas(transaction.amount) }}</p>
+                    <br>
+                    <hr>
+                </div>
+                <div class="col" *ngIf="transaction.type === 'sell'">
+                    <h5>Transaction Date: <br><br> {{ dateFix(transaction.createdAt) }}</h5>
+                    <p><strong>Type: </strong>{{ transaction.type }}</p>
+                    <p><strong>Fund: </strong>{{ transaction.itemDescription }}</p>
+                    <p><strong>Quantity: </strong>{{ transaction.quantity }}</p>
+                    <p><strong>Price Per: </strong>$ {{ addCommas(transaction.pricePerUnit) }}</p>
+                    <p><strong>Amount Deposited: </strong>$ {{ addCommas(transaction.amount) }}</p>
+                    <br>
+                    <hr>
+                </div>
+                <div class="col" *ngIf="transaction.type === 'deposit'">
+                    <h5>Transaction Date: <br><br> {{ dateFix(transaction.createdAt) }}</h5>
+                    <p><strong>Type: </strong>{{ transaction.type }}</p>
+                    <p><strong>Amount: </strong>$ {{ addCommas(transaction?.amount) }}</p>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

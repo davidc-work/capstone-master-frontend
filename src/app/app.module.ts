@@ -21,6 +21,10 @@ import { TransactionSingleComponent } from './transaction-single/transaction-sin
 import { BillingComponent } from './billing/billing.component';
 import { SellingfundComponent } from './sellingfund/sellingfund.component';
 import { NotificationComponent } from './notification/notification.component';
+import { TopPicksComponent } from './top-picks/top-picks.component';
+import { PortfolioAssessmentComponent } from './portfolio-assessment/portfolio-assessment.component';
+import { KnowledgeTestComponent } from './knowledge-test/knowledge-test.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,12 @@ import { NotificationComponent } from './notification/notification.component';
     TransactionSingleComponent,
     BillingComponent,
     SellingfundComponent,
-    NotificationComponent
+    NotificationComponent,
+    NotificationComponent,
+    TopPicksComponent,
+    PortfolioAssessmentComponent,
+    KnowledgeTestComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,

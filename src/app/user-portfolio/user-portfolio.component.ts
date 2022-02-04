@@ -18,7 +18,8 @@ export class UserPortfolioComponent implements OnInit {
 
   userData: any;
   filter: any = ["Price High to Low", "Price Low to High", "Quantity High to Low", "Quantity Low to High", "Sort Name Ascending", "Sort Name Descending"]
-  arrow: any = [true,true,true,true,true];
+  arrow: any = [true, true, true, true, true];
+  headers: any = ["Name","Ticker", "Price", "Quantity","Total","Sell"]
   response: any;
   totalPrice: any;
   sell: boolean = false;

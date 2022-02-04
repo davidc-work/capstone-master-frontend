@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from '../portfolio.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Transaction } from '../transaction/transaction.model';
 
 @Component({
@@ -12,7 +12,9 @@ export class TransactionSingleComponent implements OnInit {
   transactions:Transaction[] = [];
   fundName:String = "";
   userData:any;
-  constructor(private portfolioService: PortfolioService, private route: ActivatedRoute) { }
+  returnTo:any = "/user-profile";
+  load:boolean = false;
+  constructor(private portfolioService: PortfolioService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -27,6 +29,7 @@ export class TransactionSingleComponent implements OnInit {
             console.log(response);
             this.transactions= response;
             this.fundName = response[0].itemDescription;
+            this.load = true;
           })
         }, 1000)
       }
@@ -35,5 +38,11 @@ export class TransactionSingleComponent implements OnInit {
 
   dateFix(date: string) {
     return new Date(date)
+  }
+
+  back() {
+    var e: HTMLElement = <HTMLElement>document.getElementsByClassName('scroll')[0];
+    e.className += ' hide';
+    setTimeout(() => this.router.navigateByUrl(this.returnTo), 500);
   }
 }
