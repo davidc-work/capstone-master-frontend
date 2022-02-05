@@ -1,0 +1,31 @@
+<div class="test-container">
+    <div class="question-list" >
+        <p *ngFor="let testItem of testData; let i = index;" 
+        [ngClass]="((currentQuestion == i) ? 'current' : showAnswers ? (testItem.correctAnswer == answers[i] ? 'correct' : 'incorrect') : (answers[i] != undefined) ? 'done' : '')"
+        (click)="setQuestion(i)">Question {{1 + i}}</p>
+    </div>
+    <div class="question-area">
+        <div class="question-container">
+            <p class="question-header"><b>Question {{currentQuestion + 1}}: </b>{{testData[currentQuestion].question}}</p>
+            <div class="answer-area">
+                <div *ngFor="let answer of testData[currentQuestion].answers; let i = index;" 
+                [ngClass]="'answer-row' + (showAnswers ? (' ' + (i == correctAnswer ? 'correct' : (i == selectedAnswer ? 'incorrect' : ''))) : '')" (click)="setAnswer(i)">
+                    <div [ngClass]="'answer-button' + (selectedAnswer == i ? ' selected' : '')"></div><p>{{answer}}</p>
+                </div>
+            </div>
+            <div id="buttons-container-1">
+                <button [ngClass]="'button-boxy-1 blue' + (currentQuestion == 0 ? ' greyed-out' : '')"
+                (click)="setQuestion(currentQuestion - 1)">Back</button>
+                <button [ngClass]="'button-boxy-1 blue' + (currentQuestion == (testData.length - 1) ? ' greyed-out' : '')"
+                (click)="setQuestion(currentQuestion + 1)">Next</button>            
+            </div>
+            <div id="buttons-container-2">
+                <button id="submit-button" class="button-boxy-1 green"
+                (click)="submit()">Submit</button>
+                <button *ngIf="showAnswers" class="button-boxy-1 blue"
+                (click)="home()">Finish</button>
+            </div>
+            
+        </div>
+    </div>
+</div>

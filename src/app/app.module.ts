@@ -25,6 +25,7 @@ import { TopPicksComponent } from './top-picks/top-picks.component';
 import { PortfolioAssessmentComponent } from './portfolio-assessment/portfolio-assessment.component';
 import { KnowledgeTestComponent } from './knowledge-test/knowledge-test.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     TopPicksComponent,
     PortfolioAssessmentComponent,
     KnowledgeTestComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

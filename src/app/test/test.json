@@ -1,0 +1,142 @@
+[
+    {
+        "question": "If you buy a company's stock...",
+        "answers": [
+            "You have lent money to the company.",
+            "You are responsible for the company's debts.",
+            "You own a part of the company.",
+            "Your original investment will be returned to you with interest."
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "question": "If you buy a company's bond...",
+        "answers": [
+            "You can vote on shareholder resolutions.",
+            "You own a part of the company.",
+            "You are responsible for the company's debts.",
+            "You have lent money to the company."
+        ],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Which type of bond is the safest?",
+        "answers": [
+            "U.S. Treasury bond",
+            "Corporate bond",
+            "Municipal bond"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "question": "In general, if interest rates go down, then bond prices...",
+        "answers": [
+            "Go up",
+            "Go down",
+            "Are not affected"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Which of the following is the best definition for a \"junk bond\"?",
+        "answers": [
+            "A bond that has defaulted.",
+            "A bond that is rated as \"below investment-grade\" by rating agencies.",
+            "A bond that is not regulated.",
+            "A bond that has decreased dramatically in value."
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "question": "A \"no-load\" mutual fund is one that...",
+        "answers": [
+            "Carries no fee.",
+            "Does not contain high-risk securities.",
+            "Has no limits on the period of time in which is can be bought or sold.",
+            "Carries no sales charge."
+        ],
+        "correctAnswer": 3
+    },
+    {
+        "question": "In general, investments that are riskier tend to provide higher returns over time than investments with less risk.",
+        "answers": [
+            "True",
+            "False"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Which of the following organizations insures you against your losses in the stock market?",
+        "answers": [
+            "SEC (Securities and Exchange Commission)",
+            "FINRA (Financial Industry Regulatory Authority)",
+            "FDIC (Federal Deposit Insurance Corporation)",
+            "SIPC (Securities Investor Protection Corporation)",
+            "None of the above."
+        ],
+        "correctAnswer": 4
+    },
+    {
+        "question": "If a company files for bankruptcy, which of the following securities is most at risk of becoming virtually worthless?",
+        "answers": [
+            "The company's preferred stock.",
+            "The company's common stock.",
+            "The company's bonds."
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Which of the following best explains why many municipal bonds pay lower yields than other government bonds?",
+        "answers": [
+            "Municipal bonds can be tax-free.",
+            "Municipal bonds are lower risk.",
+            "There is a greater demand for municipal bonds."
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "question": "You invest $500 to buy $1,000 worth of stock on margin. The value of the stock drops by 50 percent. You sell it. Approximately how much of your original $500 investment are you left with in the end?",
+        "answers": [
+            "$0",
+            "$250",
+            "$500"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Which is the best definition of \"selling short\"?",
+        "answers": [
+            "Selling shares of a stock before it has reached its peak.",
+            "Selling shares of a stock shortly after buying it.",
+            "Selling shares of a stock at a loss.",
+            "Selling borrowed shares of a stock."
+        ],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Hedge funds are always subject to the ame rules and regulations as mutual funds.",
+        "answers": [
+            "True",
+            "False"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "question": "The principal difference between mutual fund share classes (Class A, Class B, Class C, etc.) is:",
+        "answers": [
+            "The different investments each class makes.",
+            "The different fees and expenses each class charges.",
+            "The different investment advisers in charge of managing each class."
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "question": "A Section 529 Plan is a tax-advantaged way to save for:",
+        "answers": [
+            "College",
+            "Retirement",
+            "Long-term health care"
+        ],
+        "correctAnswer": 0
+    }
+]

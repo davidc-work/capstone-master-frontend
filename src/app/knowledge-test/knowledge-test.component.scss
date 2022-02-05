@@ -2,10 +2,12 @@
     height: 600px;
     overflow: hidden;
     position: relative;
+    animation: 2s fade-in;
 }
 
 #img-banner > img {
     transform: translateY(-336px);
+    filter: brightness(0.8);
 }
 
 .banner-content {
@@ -23,8 +25,40 @@
     text-shadow: 0 0 10px rgb(75, 75, 75);
     font-weight: normal !important;
     margin: 0;
+    margin-bottom: 50px;
 }
 
-.banner-content > button {
-    
+.test-button {
+    padding: 10px;
+    width: 200px;
+    height: 60px;
+    cursor: pointer;
+    border: none;
+    font-family: ff-mark;
+    font-size: 24px;
+    border-radius: 5px;
+    transition: 0.25s;
+    color: rgb(0, 0, 0);
+    margin-left: 7px;
+    margin-right: 7px;
+    line-height: 45px;
+    background-color: white;
+    box-shadow: 0 0 5px rgb(110, 110, 110);
+
+    &:hover {
+        background-color: rgb(255, 0, 0);
+        color: white;
+    }
+}
+
+.about-container {
+    animation: 1s in-from-bottom;
+    padding-left: 50px;
+    width: 600px;
+}
+
+.header-1 {
+    font-size: 48px;
+    font-family: ff-mark;
+    margin-bottom: 10px;
 }
