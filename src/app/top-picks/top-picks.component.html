@@ -1,1 +1,12 @@
-<p>top-picks works!</p>
+<div class="top-picks-main">
+    <div id="top-picks-title">
+        <p>Top Performers</p><p>Since inception</p>
+    </div>
+    <div id="top-performers-container">
+        <div class="top-performers-row" *ngFor="let fund of topFunds; let i = index;">
+            <p>{{i + 1}}</p><p>{{fund.name}} ({{fund.ticker}})</p><p>{{fund.sinceInception}}</p>
+        </div>
+    </div>
+    <canvas id="performance-chart"></canvas>
+</div>
+

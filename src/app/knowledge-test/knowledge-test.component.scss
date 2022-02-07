@@ -42,12 +42,13 @@
     margin-left: 7px;
     margin-right: 7px;
     line-height: 45px;
-    background-color: white;
+    background-color: red;
     box-shadow: 0 0 5px rgb(110, 110, 110);
+    color: white;
 
     &:hover {
-        background-color: rgb(255, 0, 0);
-        color: white;
+        background-color: white;
+        color: black;
     }
 }
 

@@ -1,0 +1,61 @@
+#performance-chart {
+    width: 800px !important;
+    height: 400px !important;
+    margin: auto;
+}
+
+#top-performers-container {
+    margin: auto;
+    margin-bottom: 50px;
+    width: 800px;
+    height: 400px;
+    border: 1px solid lightgrey;
+    overflow-y: scroll;
+}
+
+#top-picks-title {
+    margin: auto;
+    text-align: center;
+}
+
+#top-picks-title > p {
+    display: inline-block;
+}
+
+#top-picks-title > p:first-child {
+    font-size: 64px;
+    margin-right: 15px;
+}
+
+#top-picks-title > p:last-child {
+    font-size: 24px;
+    color: red;
+}
+
+#top-performers-container p {
+    margin: 0;
+}
+
+.top-performers-row {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.top-performers-row > * {
+    display: inline-block;
+}
+
+.top-performers-row > p:nth-child(1) {
+    width: 50px;
+}
+
+.top-performers-row > p:nth-child(2) {
+    width: 655px;
+}
+
+.top-performers-row > p:nth-child(3) {
+    width: 55px;
+}
