@@ -2,11 +2,16 @@
 
   <div style="text-align: center; margin-top: 50px;">
     <h1 *ngIf="view === 'Account'">My Account</h1>
-    <h1 *ngIf="view === 'Billing'">My Billing</h1>
-    <label class="switch"> 
+    <h1 *ngIf="view === 'Billing'">My Wallet</h1>
+    <div class="nav-buttons">
+      <button (click)="view = 'Account'" [ngClass]="view == 'Account' ? 'selected' : ''">Account</button>
+      <div class="divider"></div>
+      <button (click)="view = 'Billing'" [ngClass]="view == 'Billing' ? 'selected' : ''">Wallet</button>
+    </div>
+    <!--<label class="switch"> 
       <input type="checkbox" (click)="toggleView()"> 
       <div class="slider round"></div> 
-    </label> 
+    </label>-->
   </div>
   <div [ngSwitch]="view">
     <div *ngSwitchCase="'Account'">
@@ -34,16 +39,9 @@
     <app-billing [userData]="userData" *ngSwitchCase="'Billing'"></app-billing>
   </div>
 
-
-
-
-
   <div class="profile-container">
 
     <app-sellingfund (cancel)="toSell($event)" [userData]="userData" [notificationComponent]="notificationComponent" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
-
-
-
 
     <table *ngIf="!sell">
       <tr>
@@ -77,10 +75,10 @@
         </th>
       </button>
       <button>
-        <th  class="sell-button" scope="">Sell</th>
+        <th  class="sell-button" scope=""></th>
       </button>
       </tr>
-      <tr *ngFor="let portfolio of userPortfolio">
+      <tr *ngFor="let portfolio of userPortfolio" class="portfolio-row">
         <td class="table-content">
           <!-- add route here for specific fund -->
           <a href="/receipts/{{userData?.customer_id}}/{{portfolio.fundKey}}">{{portfolio.fundData.name}}</a>

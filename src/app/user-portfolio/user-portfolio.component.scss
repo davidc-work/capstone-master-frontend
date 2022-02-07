@@ -109,16 +109,18 @@ h1 {
 
 .filter-button {
   width: 10px;
+  filter: brightness(2);
 }
 
 .filter-button-flip {
   width: 10px;
   transform: rotate(180deg);
+  filter: brightness(2);
 }
 
 table {
   width: 75vw;
-  border: 1px solid black;
+  border: 1px solid #bdbdbd;
   margin: 0 auto;
   margin-top: 2vh;
   opacity: 0;
@@ -126,7 +128,7 @@ table {
   animation-delay: 0.25s;
   animation-fill-mode: forwards;
   font-weight: bold;
-  box-shadow: 5px 10px;
+  box-shadow: 5px 10px 5px lightgrey;
 
   th button {
     position: absolute;
@@ -152,6 +154,7 @@ table {
   display: flex;
   justify-content: center;
   font-size: 10pt;
+  align-items: center;
 }
 
 // table tr:nth-child(1) {
@@ -160,10 +163,8 @@ table {
 
 table tr {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  text-align: center;
+  transform: translate(-2px, -2px);
+  width: 100.3% !important;
 
   button {
     background-color: #bf0000;
@@ -172,7 +173,12 @@ table tr {
     border: none;
     font-size: 12pt;
     cursor: pointer;
+    align-items: center;
   }
+}
+
+table tr:first-child {
+  height: 40px;
 }
 
 table tr:nth-child(2) {
@@ -235,18 +241,6 @@ table tr td:nth-child(5) {
   width: 10%;
 }
 
-table tr button:nth-child(6) {
-  display: flex;
-  justify-content: center;
-  width: 10%;
-}
-
-table tr td:nth-child(6) {
-  display: flex;
-  justify-content: center;
-  width: 12%;
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -303,25 +297,83 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-table tr td:nth-child(6) button {
-  display: none;
+table tr button:nth-child(6) {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
+
+table tr td:nth-child(6) {
+  display: flex;
+  justify-content: center;
+  width: 12%;
 }
 
 td.table-content:nth-child(6) {
   margin: 0 auto;
   padding: 0px 0px;
-  padding-top: 2vh;
 }
 
-table tr td:nth-child(6):hover button {
-  display: flex;
+.table-content:nth-child(6) > button {
+  width: 50px !important;
+  font-weight: 100;
+  font-size: 14px;
+  height: 25px;
+  line-height: 22px;
+  background-color: #d30000;
+  border: 1px solid #626262;  
+  box-sizing: border-box;
+  border-radius: 25px;
+  transition: 0.25s;
+}
+
+.table-content:nth-child(6) > button:hover {
+  background-color: white;
+  color: #d30000;
+  border: 1px solid #d30000;
+}
+
+.portfolio-row {
+  border-bottom: 1px solid lightgrey;
+}
+
+.portfolio-row:last-child {
+  border: none !important;
+}
+
+.nav-buttons {
+  margin-bottom: 30px;
+}
+
+.nav-buttons > button {
+  background: none;
+  outline: none;
   border: none;
-  height: 50%;
-  background-color: #bf0000;
-  font-size: 10pt;
-  text-align: justify;
-  align-items: center;
-  width: 80%;
-  border-radius: 20px;
-  border: 2px yellow solid;
+  font-size: 18px;
+  cursor: pointer;
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 100px;
+  border-radius: 10px;
+  padding: 5px;
+  height: fit-content;
+}
+
+.nav-buttons > button.selected {
+  background-color:rgb(175, 0, 0);
+  color: white;
+}
+
+.nav-buttons > * {
+  display: inline-block;
+  height: 24px;
+}
+
+.divider {
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 1px;
+  transform: translateY(5px);
+  background-color: lightgrey;
 }

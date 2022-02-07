@@ -135,21 +135,26 @@
     color: white;
 }
 
-.floating-box {
-    top: 70%;
-    left: 70%;
+.floating-box-container {
     width: 18%;
-    position: fixed;
-    float: right;
+    height: 0;
+    bottom: 425px;
+    left: 70%;
+    position: sticky;
+    transform: translateY(125px);
+}
+
+.floating-box {
+    width: 100%;
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.529);
 }
 
-.floating-box button > a {
+.floating-box a {
+    text-decoration-color: #444444;
     text-decoration: none;
-    color: #535353;
     display: block;
 }
-
 
 .gallery-text p.description-text-1 {
     max-width: 500px;

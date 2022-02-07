@@ -187,10 +187,7 @@ export class UserPortfolioComponent implements OnInit {
     this.edit = !this.edit;
     this.item = this.userProfile;
   }
-
   
-  
-
   refreshPage(val:any) {
     this.edit = !this.edit;
     this.email = val.email;
