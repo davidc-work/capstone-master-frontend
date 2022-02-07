@@ -10,6 +10,7 @@ import { ProfileService } from '../profile.service';
 export class AccountSettingsComponent implements OnInit {
   @Output("editProfile") editProfile: EventEmitter<any> = new EventEmitter();
   @Output() update = new EventEmitter<any>();
+  @Input() notificationComponent: any;
   @Input() data = '';
   @Input() id = '';
   name: string = "";
@@ -19,10 +20,10 @@ export class AccountSettingsComponent implements OnInit {
   constructor(private _profile: ProfileService) { }
 
   save() {
-    console.log("Save method ",this.id)
     this._profile.editProfile(this.id, this.userProfile).subscribe((data) => {
       console.log(data);
     })
+    this.notificationComponent.notify("Profile successfully updated!", "success");
     this.update.emit(this.userProfile)
   }
 
