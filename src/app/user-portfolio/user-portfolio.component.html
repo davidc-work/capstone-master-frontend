@@ -40,7 +40,7 @@
 
   <div class="profile-container">
 
-    <app-sellingfund (cancel)="toSell($event)" [userData]="userData" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
+    <app-sellingfund (cancel)="toSell($event)" [userData]="userData" [notificationComponent]="notificationComponent" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
 
 
 
@@ -77,7 +77,7 @@
         </th>
       </button>
       <button>
-        <th scope="">Sell</th>
+        <th  class="sell-button" scope="">Sell</th>
       </button>
       </tr>
       <tr *ngFor="let portfolio of userPortfolio">

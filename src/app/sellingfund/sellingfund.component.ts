@@ -2,17 +2,21 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Transaction } from '../transaction/transaction.model';
 import { TransactionService } from '../transaction-service/transaction.service';
 import { PortfolioService } from '../portfolio.service';
+import { NotificationComponent } from '../notification/notification.component';
 
 @Component({
   selector: 'app-sellingfund',
   templateUrl: './sellingfund.component.html',
   styleUrls: ['./sellingfund.component.scss']
 })
+  
+  
 export class SellingfundComponent implements OnInit {
   @Output() cancel = new EventEmitter<any>();
   constructor(private transactionService: TransactionService) { }
   @Input() portfolioSell: any;
   @Input() userData: any;
+  @Input() notificationComponent: any;
   @Input() id = '';
   quantityArr: any;
   headers: any = ["Name", "Ticker", "Asset Class", "Expense Ratio", "YTD", "Price Change","Inception", "1yr","5yr","10yr","Price"]
@@ -30,6 +34,9 @@ export class SellingfundComponent implements OnInit {
   }
 
   readySell() {
+    if (this.amountSell == 0 && this.quantitySell == 0) {
+      this.notificationComponent.notify('Please input the number of stocks you want to sell', 'error');
+    }else{
     this.amountSell = "$"+this.portfolioSell.fundData.price.substring(1)*this.quantitySell.toFixed(2)
     let request = {
       type: "sell",
@@ -43,6 +50,12 @@ export class SellingfundComponent implements OnInit {
     }
     this.transactionService.createSell(request).subscribe((data)=> console.log(data))
     console.log(`Hit sell route with request: `, request)
+
+
+    this.notificationComponent.notify(`${this.quantitySell} stocks of ${this.portfolioSell.fundData.name} worth ${this.amountSell} is fund successfully sold!`, 'success');
+    
+      this.back();
+    }
   }
 
   getTransactions() {
@@ -53,7 +66,7 @@ export class SellingfundComponent implements OnInit {
     this.quantityArr = transactions.map((transaction: any) => transaction.quantityAvailable)
   }
 
-  back(data: any) {
+  back(data?: any) {
     this.cancel.emit(this.portfolioSell)
   }
 
