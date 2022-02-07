@@ -53,8 +53,10 @@ export class SellingfundComponent implements OnInit {
     console.log(`Hit sell route with request: `, request)
 
 
-    this.notificationComponent.notify(`${this.quantitySell} stocks of ${this.portfolioSell.fundData.name} worth ${this.amountSell} is fund successfully sold!`, 'success');
-    
+      this.notificationComponent.notify(`${this.quantitySell} stocks of ${this.portfolioSell.fundData.name} worth ${this.amountSell} is fund successfully sold!`, 'success');
+
+      this.portfolioSell.quantity = this.portfolioSell.quantity - this.quantitySell;
+
       this.back();
     }
   }
