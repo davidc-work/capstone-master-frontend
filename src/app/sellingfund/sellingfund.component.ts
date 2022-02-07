@@ -30,6 +30,7 @@ export class SellingfundComponent implements OnInit {
     console.log("User data", this.userData)
     this.getTransactions();
     this.customer_id = this.userData.customer_id;
+    console.log("Checking customer_id: ",this.customer_id)
     this.fundKey = this.portfolioSell.fundKey
   }
 
@@ -41,9 +42,9 @@ export class SellingfundComponent implements OnInit {
     let request = {
       type: "sell",
       quantity: this.quantitySell,
-      CustomerId: this.customer_id,
+      customer_id: this.customer_id,
       id: this.transactionIds,
-      fundKey: this.fundKey,
+      mutualFundId: this.fundKey,
       sessionID: localStorage.getItem("sessionID"),
       username: localStorage.getItem("username"),
       quantityArr: this.quantityArr
@@ -52,8 +53,10 @@ export class SellingfundComponent implements OnInit {
     console.log(`Hit sell route with request: `, request)
 
 
-    this.notificationComponent.notify(`${this.quantitySell} stocks of ${this.portfolioSell.fundData.name} worth ${this.amountSell} is fund successfully sold!`, 'success');
-    
+      this.notificationComponent.notify(`${this.quantitySell} stocks of ${this.portfolioSell.fundData.name} worth ${this.amountSell} is fund successfully sold!`, 'success');
+
+      this.portfolioSell.quantity = this.portfolioSell.quantity - this.quantitySell;
+
       this.back();
     }
   }
