@@ -148,8 +148,9 @@ table {
 
 .table-content {
   // border: 1px solid rgb(194, 194, 194);
-  padding-top: 2vh;
-  text-align: center;
+  padding: 2vh;
+  display: flex;
+  justify-content: center;
   font-size: 10pt;
 }
 
@@ -170,7 +171,6 @@ table tr {
     font-weight: bolder;
     border: none;
     font-size: 12pt;
-    padding: 10px 0px;
     cursor: pointer;
   }
 }
@@ -244,7 +244,7 @@ table tr button:nth-child(6) {
 table tr td:nth-child(6) {
   display: flex;
   justify-content: center;
-  width: 10%;
+  width: 8%;
 }
 
 .switch {
@@ -301,4 +301,27 @@ input:checked + .slider:before {
 }
 .slider.round:before {
   border-radius: 50%;
+}
+
+table tr td:nth-child(6) button {
+  display: none;
+}
+
+td.table-content:nth-child(6) {
+  margin: 0 auto;
+  padding: 0px 0px;
+  padding-top: 2vh;
+}
+
+table tr td:nth-child(6):hover button {
+  display: flex;
+  border: none;
+  height: 50%;
+  background-color: #bf0000;
+  font-size: 10pt;
+  text-align: justify;
+  align-items: center;
+  width: 80%;
+  border-radius: 20px;
+  border: 2px yellow solid;
 }
