@@ -137,12 +137,11 @@
 
 .floating-box-container {
     width: 18%;
-    height: -moz-fit-content;
-    height: fit-content;
+    height: 0;
     bottom: 425px;
     left: 70%;
     position: sticky;
-    transform: translateY(350px);
+    transform: translateY(125px);
 }
 
 .floating-box {
