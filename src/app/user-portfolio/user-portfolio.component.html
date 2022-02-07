@@ -77,10 +77,10 @@
         </th>
       </button>
       <button>
-        <th  class="sell-button" scope="">Sell</th>
+        <th  class="sell-button" scope=""></th>
       </button>
       </tr>
-      <tr *ngFor="let portfolio of userPortfolio">
+      <tr *ngFor="let portfolio of userPortfolio" class="portfolio-row">
         <td class="table-content">
           <!-- add route here for specific fund -->
           <a href="/receipts/{{userData?.customer_id}}/{{portfolio.fundKey}}">{{portfolio.fundData.name}}</a>
