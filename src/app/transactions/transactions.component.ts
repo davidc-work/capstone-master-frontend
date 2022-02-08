@@ -88,7 +88,7 @@ export class TransactionsComponent implements OnInit {
         inner = [];
       }
     }
-    console.log(counter, this.userData.transactions.Transactions.length, "pagination");
+    console.log(this.paginationArr.length, this.currentPage, "pagination");
     return null;
   }
 }

@@ -9,8 +9,8 @@
                 <button *ngIf="currentPage+1 === (paginationArr.length-1)" class="button" (click)="selectPage(currentPage - 2)">{{ currentPage - 1}}</button>
                 <button *ngIf="currentPage !== 0" class="button" (click)="selectPage(currentPage - 1)">{{currentPage}}</button>
                 <button style="background-color: rgb(161, 2, 2)" class="button" (click)="selectPage(currentPage)">{{ currentPage + 1}}</button>
-                <button *ngIf="(paginationArr.length-1) >= currentPage + 2" class="button" (click)="selectPage(currentPage + 1)">{{ currentPage + 2}}</button>
-                <button *ngIf="(paginationArr.length-1) >= currentPage + 3" class="button" (click)="selectPage(currentPage + 2)">{{ currentPage + 3}}</button>
+                <button *ngIf="(paginationArr.length) >= currentPage + 2" class="button" (click)="selectPage(currentPage + 1)">{{ currentPage + 2}}</button>
+                <button *ngIf="(paginationArr.length) >= currentPage + 3" class="button" (click)="selectPage(currentPage + 2)">{{ currentPage + 3}}</button>
                 <button *ngIf="currentPage < paginationArr.length-2" class="button" (click)="selectPage(paginationArr.length - 2)"><i class="fas fa-forward"></i></button>
             </div>
         </div>
