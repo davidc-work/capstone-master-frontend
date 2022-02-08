@@ -44,8 +44,6 @@ export class FundsComponent implements OnInit {
         return f;
       });
 
-      console.log(Array.from(new Set(this.funds.map(f => f.assetClass))));
-
       this.loaded = true;
     });
   }
@@ -90,7 +88,6 @@ export class FundsComponent implements OnInit {
 
   setFund(incoming:Fund){
     this.fund = incoming;
-    console.log(this.fund);
   }
 
   viewStock(id: number) {

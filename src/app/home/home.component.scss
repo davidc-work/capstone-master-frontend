@@ -6,6 +6,8 @@
 
 .main-gallery-container {
     position: relative;
+    animation: 1s in-from-top;
+    animation-timing-function: ease-in-out;
 }
 
 .controls {

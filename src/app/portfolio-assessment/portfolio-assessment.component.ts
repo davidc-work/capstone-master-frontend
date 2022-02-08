@@ -13,6 +13,8 @@ export class PortfolioAssessmentComponent implements OnInit {
   DOMLoaded: boolean = false;
   loaded: boolean = false;
 
+  totalAssetValue: string = '---';
+
   constructor(private portfolioService: PortfolioService) {}
 
   allLoaded() {
@@ -44,11 +46,10 @@ export class PortfolioAssessmentComponent implements OnInit {
     const percents = quantities.map((n: any) => n / sum);
 
     //const colors = ['red', 'orange', 'yellow', 'cyan', 'blue', 'purple', 'pink', 'lightgreen'];
-    const baseRed = 200;
     const colors = new Array(25).fill(null).map((x, i) => {
-      const r = 150 + Math.random() * 105;
-      const g = 0 + Math.random() * 255;
-      const b = 0 + Math.random() * 255;
+      const r = 255;
+      const g = (i * 63) % 255;
+      const b = 0 + Math.random() * 0;
 
       return `rgb(${r}, ${g}, ${b})`;
     });
@@ -141,7 +142,9 @@ export class PortfolioAssessmentComponent implements OnInit {
   }
 
   onUserDataLoaded() {
-    
+    this.totalAssetValue = '$' + this.userData.ClientPortfolios.map((p: any) => 
+    p.quantity * (+p.fundData.price.slice(1))).reduce((a: any, b: any) => a + b, 0)
+    .toFixed(2);
   }
 
   ngOnInit(): void {
@@ -152,7 +155,6 @@ export class PortfolioAssessmentComponent implements OnInit {
     this.DOMLoaded = true;
     // bad practice, but couldn't figure out why it wasn't working
     let interval = setInterval(() => {
-      console.log('interval firing');
       if (document.getElementById('sectors-owned-chart') && this.userData) {
         this.allLoaded();
         clearInterval(interval);

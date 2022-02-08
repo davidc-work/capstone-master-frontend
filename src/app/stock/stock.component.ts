@@ -43,7 +43,6 @@ export class StockComponent implements OnInit {
       this.id = +params['id'];
       this.stockService.getStock(this.id).subscribe(payload=> {
         this.stock = payload;
-        console.log(this.stock);
         this.mutualFundIds = this.stock.mutualFundIds?.split(',').map(Number);
         this.titleService.setTitle('RVProtect - ' + this.stock.name);
         this.keys = Object.keys(this.stock);

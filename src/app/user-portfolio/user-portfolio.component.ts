@@ -35,6 +35,8 @@ export class UserPortfolioComponent implements OnInit {
   @Input() item = "";
   edit: boolean = false;
   showFilter: boolean = false;
+
+  totalAssetValue: string = '---';
   
   filterDetails: any = [
     {
@@ -79,9 +81,15 @@ export class UserPortfolioComponent implements OnInit {
     }
   }
 
-addComma(x:any) {
-    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-}
+  onUserDataLoaded() {
+    this.totalAssetValue = '$' + this.userData.ClientPortfolios.map((p: any) => 
+      p.quantity * (+p.fundData.price.slice(1))).reduce((a: any, b: any) => a + b, 0)
+      .toFixed(2);
+  }
+
+  addComma(x:any) {
+      return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  }
 
 
   closeAll() {

@@ -4,11 +4,11 @@
     background-color: #f7f7f7;
     padding: 43px;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: auto;
     border-radius: 20px;
     box-shadow: 0 0 12px #c5c5c5;
     margin-bottom: 5vh;
+    animation: 0.25s in-from-right;
 }
 .row{
     display: flex;
@@ -42,17 +42,30 @@
 
 .depositBtn {
     color: white;
-    background-color: grey;
+    background-color: rgb(18, 151, 0);
     cursor: pointer;
     margin-top: 20px;
+    margin-left: 10px;
+    transition: 1s;
+    border: none;
+    padding: 5px 8px 5px 8px;
 }
 
 .depositBtn:hover {
-    background-color: green;
+    background-color: rgb(0, 216, 0);
     content: '/Now';
-    transition: 1s;
 }
 
 .sideDivider {
     border-right: rgba(128, 128, 128, 0.116) 1px solid ;
+}
+
+input {
+    padding: 5px 8px 5px 8px;
+    border: 1px solid lightgrey;
+    outline: none;
+
+    &:focus {
+        border: 1px solid rgb(0, 106, 206);
+    }
 }

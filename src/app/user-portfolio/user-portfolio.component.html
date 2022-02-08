@@ -7,7 +7,6 @@
     <h1 *ngIf="view === 'Billing'">My Wallet</h1>
     <div class="nav-buttons">
       <button (click)="view = 'Account'" [ngClass]="view == 'Account' ? 'selected' : ''">Account</button>
-      <div class="divider"></div>
       <button (click)="view = 'Billing'" [ngClass]="view == 'Billing' ? 'selected' : ''">Wallet</button>
     </div>
   </div>
@@ -37,7 +36,12 @@
     <app-billing [userData]="userData" *ngSwitchCase="'Billing'"></app-billing>
   </div>
 
+  <div class="divider-2"></div>
 
+  <div class="total-container">
+    <p>Total Asset Value</p>
+    <p id="total-asset-value">{{totalAssetValue!}}</p>
+  </div>
   <div class="profile-container">
 
     <app-sellingfund (cancel)="toSell($event)" [userData]="userData" [notificationComponent]="notificationComponent" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
