@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "rvprotect": {
+      "hosting": {
+        "rvprotect": [
+          "rvprotect"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "rvprotect"
+  }
+}

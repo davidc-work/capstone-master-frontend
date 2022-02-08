@@ -91,19 +91,23 @@
         <th  class="sell-button" scope="">Sell</th>
       </button>
       </tr>
-      <tr *ngFor="let portfolio of userPortfolio" class="portfolio-row">
-        <td class="table-content">
-          <a href="/receipts/{{userData?.customer_id}}/{{portfolio.fundKey}}">{{portfolio.fundData.name}}</a>
-        </td>
-        <td class="table-content">{{portfolio.fundData.ticker}}</td>
-        <td class="table-content">{{portfolio.fundData.assetClass}}</td>
-        <td class="table-content">{{addComma(portfolio.fundData.price)}}</td>
-        <td class="table-content">{{addComma(portfolio.quantity)}}</td>
-        <td class="table-content">${{addComma((portfolio.quantity*portfolio.fundData.price.substring(1)).toFixed(2))}}</td>
-        <td class="table-content">
-          <button (click)="toSell(portfolio)">Sell</button>
-        </td>
-      </tr>
+      <ng-container *ngFor="let portfolio of userPortfolio" >
+        <ng-container *ngIf="portfolio.quantity > 0">
+          <tr class="portfolio-row">
+            <td class="table-content">
+              <a href="/receipts/{{userData?.customer_id}}/{{portfolio.fundKey}}">{{portfolio.fundData.name}}</a>
+            </td>
+            <td class="table-content">{{portfolio.fundData.ticker}}</td>
+            <td class="table-content">{{portfolio.fundData.assetClass}}</td>
+            <td class="table-content">{{addComma(portfolio.fundData.price)}}</td>
+            <td class="table-content">{{addComma(portfolio.quantity)}}</td>
+            <td class="table-content">${{addComma((portfolio.quantity*portfolio.fundData.price.substring(1)).toFixed(2))}}</td>
+            <td class="table-content">
+              <button (click)="toSell(portfolio)">Sell</button>
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
     </table>
   </div> 
   </div>
