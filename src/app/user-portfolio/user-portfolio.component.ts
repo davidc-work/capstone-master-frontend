@@ -18,8 +18,8 @@ export class UserPortfolioComponent implements OnInit {
 
   userData: any;
   filter: any = ["Price High to Low", "Price Low to High", "Quantity High to Low", "Quantity Low to High", "Sort Name Ascending", "Sort Name Descending"]
-  arrow: any = [true, true, true, true, true];
-  headers: any = ["Name","Ticker", "Price", "Quantity","Total","Sell"]
+  arrow: any = [true, true, true, true, true,true];
+  headers: any = ["Name","Ticker","Asset Class","Price", "Quantity","Total","Sell"]
   response: any;
   totalPrice: any;
   sell: boolean = false;
@@ -62,6 +62,7 @@ export class UserPortfolioComponent implements OnInit {
   filterTicker: boolean = false;
   filterPrice: boolean = false;
   filterQuantity: boolean = false;
+  filterAssetClass: boolean = false;
 
   test(type: string) {
     for (let filter of this.filterDetails){
@@ -129,8 +130,22 @@ addComma(x:any) {
         }
         this.filterTicker = !this.filterTicker
         break;
-      case "price":
+      
+      case "assetClass":
         this.arrowSwitcher(2)
+        if (this.filterAssetClass) {
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return (portfolio1.fundData.assetClass > portfolio2.fundData.assetClass ? -1 : 1)
+          })
+        } else {
+          this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
+            return (portfolio1.fundData.assetClass > portfolio2.fundData.assetClass) ? 1 : ((portfolio2.fundData.assetClass > portfolio1.fundData.assetClass) ? -1 : 0)
+          })
+        }
+        this.filterAssetClass = !this.filterAssetClass
+        break;
+      case "price":
+        this.arrowSwitcher(3)
         if (this.filterPrice) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return parseInt(portfolio1.fundData.price.substring(1)) - parseInt(portfolio2.fundData.price.substring(1))
@@ -143,7 +158,7 @@ addComma(x:any) {
         this.filterPrice = !this.filterPrice
         break;
       case "quantity":
-        this.arrowSwitcher(3)
+        this.arrowSwitcher(4)
         if (this.filterQuantity) {
           this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return portfolio1.quantity - portfolio2.quantity
@@ -157,7 +172,7 @@ addComma(x:any) {
         break;
       
       case "total":
-        this.arrowSwitcher(4)
+        this.arrowSwitcher(5)
         if (this.filterPrice) {
             this.userData.ClientPortfolios.sort((portfolio1: any, portfolio2: any) => {
             return portfolio1.quantity*portfolio1.fundData.price.substring(1) - portfolio2.quantity*portfolio2.fundData.price.substring(1)
@@ -199,11 +214,6 @@ addComma(x:any) {
   }
   
   ngOnInit(): void {
-    if (this.userData) {
-      for (let portfolio of this.userData.ClientPortfolios) {
-        portfolio.totalPrice = parseInt(portfolio.price.substring(1)) * parseInt(portfolio.quantity);
-      }
-    }
   }
 
   toggleView(){
