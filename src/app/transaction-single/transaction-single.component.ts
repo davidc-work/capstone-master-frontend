@@ -26,8 +26,9 @@ export class TransactionSingleComponent implements OnInit {
           console.log(this.userData, "User data")
           let sessionID = localStorage.getItem("sessionID");
           this.portfolioService.getAllTransactionByFund(+params["fundId"], params["userId"], {username: this.userData.username, sessionID: sessionID}).subscribe((response: any) => {
-            // console.log(response);
+            console.log(response);
             this.fundName = response[0].itemDescription;
+            this.transactions = response;
             this.load = true;
           })
         }, 1000)
