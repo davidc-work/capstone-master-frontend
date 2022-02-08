@@ -119,7 +119,7 @@ h1 {
 }
 
 table {
-  width: 75vw;
+  width: 90vw;
   border: 1px solid #bdbdbd;
   margin: 0 auto;
   margin-top: 2vh;
@@ -178,21 +178,23 @@ table tr {
 }
 
 table tr:first-child {
+  width: 90vw;
+  background-color: #bf0000;
   height: 40px;
 }
 
 table tr:nth-child(2) {
-  width: 100%;
+  width: 90vw;
 }
 
 table tr button:nth-child(1) {
   display: flex;
   justify-content: center;
-  width: 20%;
+  width: 27.2%;
 }
 
 table tr td:nth-child(1) {
-  width: 20%;
+  width: 29.7%;
   justify-content: flex-start;
   a {
     color: black;
@@ -202,11 +204,11 @@ table tr td:nth-child(1) {
 table tr button:nth-child(2) {
   display: flex;
   justify-content: center;
-  width: 20%;
+  width: 10%;
 }
 
 table tr td:nth-child(2) {
-  width: 20%;
+  width: 9%;
 }
 
 table tr button:nth-child(3) {
@@ -222,21 +224,21 @@ table tr td:nth-child(3) {
 table tr button:nth-child(4) {
   display: flex;
   justify-content: center;
-  width: 20%;
+  width: 10%;
 }
 
 table tr td:nth-child(4) {
-  width: 20%;
+  width: 10%;
 }
 
 table tr button:nth-child(5) {
   display: flex;
   justify-content: center;
-  width: 10%;
+  width: 12.5%;
 }
 
 table tr td:nth-child(5) {
-  width: 10%;
+  width: 12.5%;
 }
 
 .switch {
@@ -298,13 +300,13 @@ input:checked + .slider:before {
 table tr button:nth-child(6) {
   display: flex;
   justify-content: center;
-  width: 10%;
+  width: 14%;
 }
 
 table tr td:nth-child(6) {
   display: flex;
   justify-content: center;
-  width: 12%;
+  width: 14%;
 }
 
 td.table-content:nth-child(6) {
@@ -312,7 +314,18 @@ td.table-content:nth-child(6) {
   padding: 0px 0px;
 }
 
-.table-content:nth-child(6) > button {
+table tr td:nth-child(7) {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
+
+td.table-content:nth-child(7) {
+  margin: 0 auto;
+  padding: 0px 0px;
+}
+
+.table-content:nth-child(7) > button {
   width: 50px !important;
   font-weight: 100;
   font-size: 14px;
@@ -325,7 +338,7 @@ td.table-content:nth-child(6) {
   transition: 0.25s;
 }
 
-.table-content:nth-child(6) > button:hover {
+.table-content:nth-child(7) > button:hover {
   background-color: white;
   color: #d30000;
   border: 1px solid #d30000;

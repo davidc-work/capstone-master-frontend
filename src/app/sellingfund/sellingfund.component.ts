@@ -35,6 +35,9 @@ export class SellingfundComponent implements OnInit {
   }
 
   readySell() {
+    if (this.quantitySell > this.portfolioSell.quantity) {
+      return this.notificationComponent.notify("You do not have that quantity to sell! Please input the right amount of stocks you want to sell", "error")
+    }
     if (this.amountSell == 0 && this.quantitySell == 0) {
       this.notificationComponent.notify('Please input the number of stocks you want to sell', 'error');
     }else{
@@ -56,6 +59,13 @@ export class SellingfundComponent implements OnInit {
       this.notificationComponent.notify(`${this.quantitySell} stocks of ${this.portfolioSell.fundData.name} worth ${this.amountSell} is fund successfully sold!`, 'success');
 
       this.portfolioSell.quantity = this.portfolioSell.quantity - this.quantitySell;
+
+      console.log(this.portfolioSell.quantity)
+      console.log(this.portfolioSell)
+
+      if (this.portfolioSell.quantity <= 0) {
+        this.portfolioSell = [];
+      }
 
       this.back();
     }
