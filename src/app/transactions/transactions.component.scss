@@ -12,8 +12,14 @@
     margin-top: 10vh;
 }
 
+.transaction-main {
+    display: flex;
+    flex-direction: row;
+}
+
 .row{
     display: flex;
+    flex-direction: row;
 }
 
 .col{
@@ -22,10 +28,43 @@
     flex: 1;
 }
 
+.button {
+    flex: 1;
+    margin-right: 5px;
+}
+
+.paginationControl button {
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    background: #fd2020;
+}
+
+.paginationControl input {
+    line-height: 2;
+    background: none;
+    border: none;
+    width: 20px;
+}
+
+.paginationControl{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    box-sizing: border-box;
+}
+
 .header {
     text-align: center;
     margin: 0;
     margin-bottom: 25px;
     font-family: "roadrunners";
     color: #bf0000;
+}
+
+.cash {
+    color: green
 }
