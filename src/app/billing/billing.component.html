@@ -9,7 +9,7 @@
         <div class="col m-auto" style="text-align: center;">
             <h3>Deposit</h3>
             <p><strong>Payment Option: </strong><span><i class="fab fa-cc-visa blue icon"></i> On File Ending With {{ simulateCC() }}</span></p>
-            $<input [(ngModel)]="depositInput" name="depositInput" type="number" placeholder="0.00" (click)="activateSmall()"/>
+            <p style="display: inline-block; transform: translate(-2px, 2px);">$</p><input [(ngModel)]="depositInput" name="depositInput" type="number" placeholder="0.00" (click)="activateSmall()"/>
             <button class="depositBtn" (click)="deposit()">Add Funds</button>
             <br>
             <small *ngIf="small">{{ info }}</small>

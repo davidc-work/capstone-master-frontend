@@ -25,8 +25,6 @@ export class TopPicksComponent implements OnInit {
         return b - a;
       }).slice(0, 10);
 
-      console.log(this.topFunds);
-
       const chartElement: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('performance-chart');
       const ctx = chartElement.getContext('2d');
       this.chart = new Chart(chartElement, {

@@ -14,7 +14,7 @@ export class BillingComponent implements OnInit {
   info:string = "*Deposit Minimum of $ 10";
 
   ngOnInit(): void {
-    console.log(this.userData)
+    
   }
 
   addCommas(input: any){

@@ -49,7 +49,6 @@ export class TransactionComponent implements OnInit {
       quantity: this.quantityToBuy,
       customerId: this.userData.customer_id
     }).subscribe(d => {
-      console.log(d);
       if (d.error) return this.notificationComponent.notify(d.error, 'error');
       this.notificationComponent.notify(this.quantityToBuy + ' shares of ' + this.fund.name + ' purchased!', 'success');
       this.toggleModal();
