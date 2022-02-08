@@ -1,18 +1,24 @@
-<div class="portfolio-assessment-main">
-    <div id="img-banner">
-        <div class="banner-content">
-            <p class="banner-header">Portfolio Assesssment</p>
-            <p class="header-2" style="width: 600px;">Review your portfolio in full detail with our Portfolio Assessment resources.  Make more informed decisions faster.</p>
+<app-loading *ngIf="!loaded"></app-loading>
+<div [ngSwitch]="!!userData">
+    <div class="portfolio-assessment-main" *ngSwitchCase="true">
+        <div id="img-banner">
+            <div class="banner-content">
+                <p class="banner-header">Portfolio Assesssment</p>
+                <p class="header-2" style="width: 600px;">Review your portfolio in full detail with our Portfolio Assessment resources.  Make more informed decisions faster.</p>
+            </div>
+            <img src="../../assets/img/gallery/portfolio-assessment.jpg">
         </div>
-        <img src="../../assets/img/gallery/portfolio-assessment.jpg">
+        <canvas id="sectors-owned-chart" class="portfolio-assessment-chart"></canvas>
+        <canvas id="sectors-quantity-chart" class="portfolio-assessment-chart"></canvas>
+        <canvas id="sectors-dollars-chart" class="portfolio-assessment-chart"></canvas>
+        <div class="about-container" style="margin-top: 100px;">
+            <p class="header-1">All your funds.  All in one place.</p>
+            <p class="text-small">Our sophisticated analytics and statistics tools makes it easier for you to find what you're looking for at a glance.</p>
+            <p class="header-1">Learn something new</p>
+            <p class="text-small">Want to learn more about investing?  Try our free <a routerLink="/knowledge-test">Investors Test</a>.</p>
+        </div>
     </div>
-    <canvas id="sectors-owned-chart" class="portfolio-assessment-chart"></canvas>
-    <canvas id="sectors-quantity-chart" class="portfolio-assessment-chart"></canvas>
-    <canvas id="sectors-dollars-chart" class="portfolio-assessment-chart"></canvas>
-    <div class="about-container" style="margin-top: 100px;">
-        <p class="header-1">All your funds.  All in one place.</p>
-        <p class="text-small">Our sophisticated analytics and statistics tools makes it easier for you to find what you're looking for at a glance.</p>
-        <p class="header-1">Learn something new</p>
-        <p class="text-small">Want to learn more about investing?  Try our free <a routerLink="/knowledge-test">Investors Test</a>.</p>
+    <div *ngSwitchCase="false">
+        Loading...
     </div>
 </div>

@@ -10,10 +10,14 @@ import { PortfolioService } from '../portfolio.service';
 export class PortfolioAssessmentComponent implements OnInit {
 
   userData: any;
+  DOMLoaded: boolean = false;
+  loaded: boolean = false;
 
   constructor(private portfolioService: PortfolioService) {}
 
-  onUserDataLoaded() {
+  allLoaded() {
+    setTimeout(() => this.loaded = true, 1500);
+
     const funds = this.userData.ClientPortfolios.map((f: any) => f.fundData);
     
     let occurences: any = {};
@@ -40,15 +44,15 @@ export class PortfolioAssessmentComponent implements OnInit {
     const percents = quantities.map((n: any) => n / sum);
 
     //const colors = ['red', 'orange', 'yellow', 'cyan', 'blue', 'purple', 'pink', 'lightgreen'];
-    const colors = new Array(25).fill(null).map(x => {
+    const baseRed = 200;
+    const colors = new Array(25).fill(null).map((x, i) => {
       const r = 150 + Math.random() * 105;
-      const g = 50 + Math.random() * 180;
+      const g = 0 + Math.random() * 255;
       const b = 0 + Math.random() * 255;
 
       return `rgb(${r}, ${g}, ${b})`;
     });
 
-    //Sectors Owned Chart
     const sectorsOwnedChartElement: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('sectors-owned-chart');
     const sectorsOwnedChart = new Chart(sectorsOwnedChartElement, {
       type: 'pie',
@@ -136,8 +140,24 @@ export class PortfolioAssessmentComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  onUserDataLoaded() {
     
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  ngAfterViewInit() {
+    this.DOMLoaded = true;
+    // bad practice, but couldn't figure out why it wasn't working
+    let interval = setInterval(() => {
+      console.log('interval firing');
+      if (document.getElementById('sectors-owned-chart') && this.userData) {
+        this.allLoaded();
+        clearInterval(interval);
+      }
+    }, 100);
   }
 
 }

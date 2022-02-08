@@ -1,5 +1,7 @@
 .portfolio-assessment-main {
-    animation: 1s in-from-left;
+    animation: 0.5s in-from-left forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
 }
 
 .portfolio-assessment-chart {
