@@ -192,10 +192,8 @@ table tr button:nth-child(1) {
 }
 
 table tr td:nth-child(1) {
-  text-align: left;
-  padding-left: 10px;
   width: 20%;
-
+  justify-content: flex-start;
   a {
     color: black;
   }
@@ -321,7 +319,7 @@ td.table-content:nth-child(6) {
   height: 25px;
   line-height: 22px;
   background-color: #d30000;
-  border: 1px solid #626262;  
+  border: 1px solid #626262;
   box-sizing: border-box;
   border-radius: 25px;
   transition: 0.25s;
@@ -360,7 +358,7 @@ td.table-content:nth-child(6) {
 }
 
 .nav-buttons > button.selected {
-  background-color:rgb(175, 0, 0);
+  background-color: rgb(175, 0, 0);
   color: white;
 }
 
