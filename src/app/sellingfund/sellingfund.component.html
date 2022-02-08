@@ -6,8 +6,8 @@
       <div class="data">{{portfolioSell.fundData.ticker}}</div>
       <div class="desc">Name:</div>
       <div class="data">{{portfolioSell.fundData.name}}</div>
-      <div class="desc">Currently Remaining: </div><span class="data">{{portfolioSell.quantity}}</span>
-      <div class="desc">Remaining Post-sell: </div><span class="data">{{portfolioSell.quantity-quantitySell}}</span>
+      <div class="desc">Currently Remaining: </div><span class="data">{{addComma(portfolioSell.quantity)}}</span>
+      <div class="desc">Remaining Post-sell: </div><span class="data">{{addComma(portfolioSell.quantity-quantitySell)}}</span>
     </div>
     <div style="display:flex; flex-direction: column;width: 40%;">
       <div class="desc">Total Amount to Sell</div>

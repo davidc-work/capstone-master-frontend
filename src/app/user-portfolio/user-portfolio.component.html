@@ -1,5 +1,7 @@
 <div class="scroll">
 
+
+
   <div style="text-align: center; margin-top: 50px;">
     <h1 *ngIf="view === 'Account'">My Account</h1>
     <h1 *ngIf="view === 'Billing'">My Wallet</h1>
@@ -35,10 +37,12 @@
     <app-billing [userData]="userData" *ngSwitchCase="'Billing'"></app-billing>
   </div>
 
+
   <div class="profile-container">
 
     <app-sellingfund (cancel)="toSell($event)" [userData]="userData" [notificationComponent]="notificationComponent" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
 
+  
     <table *ngIf="!sell">
       <tr>
         <button (click)="chosenFilter('name')"><th scope="">Name
@@ -47,6 +51,7 @@
             src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
+      
       <button (click)="chosenFilter('ticker')">
         <th scope="">Ticker
             <img
@@ -54,24 +59,32 @@
               src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
+
+      <button (click)="chosenFilter('assetClass')">
+        <th scope="">Asset Class
+            <img
+             [ngClass]="arrow[2] ? 'filter-button' : 'filter-button-flip' "
+              src="../../assets/img/down-arrow.png" alt="" />
+        </th>
+      </button>
       <button (click)="chosenFilter('price')">
         <th scope="">Price
-            <img [ngClass]="arrow[2] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
+            <img [ngClass]="arrow[3] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
       <button (click)="chosenFilter('quantity')">
         <th scope="">Quantity
-            <img [ngClass]="arrow[3] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
+            <img [ngClass]="arrow[4] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
       <button (click)="chosenFilter('total')">
         <th scope="">Total
             <img 
-            [ngClass]="arrow[4] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
+            [ngClass]="arrow[5] ? 'filter-button' : 'filter-button-flip' " src="../../assets/img/down-arrow.png" alt="" />
         </th>
       </button>
       <button>
-        <th  class="sell-button" scope=""></th>
+        <th  class="sell-button" scope="">Sell</th>
       </button>
       </tr>
       <tr *ngFor="let portfolio of userPortfolio" class="portfolio-row">
@@ -79,8 +92,9 @@
           <a href="/receipts/{{userData?.customer_id}}/{{portfolio.fundKey}}">{{portfolio.fundData.name}}</a>
         </td>
         <td class="table-content">{{portfolio.fundData.ticker}}</td>
+        <td class="table-content">{{portfolio.fundData.assetClass}}</td>
         <td class="table-content">{{addComma(portfolio.fundData.price)}}</td>
-        <td class="table-content">{{addComma(portfolio.fundData.price)}}</td>
+        <td class="table-content">{{addComma(portfolio.quantity)}}</td>
         <td class="table-content">${{addComma((portfolio.quantity*portfolio.fundData.price.substring(1)).toFixed(2))}}</td>
         <td class="table-content">
           <button (click)="toSell(portfolio)">Sell</button>
