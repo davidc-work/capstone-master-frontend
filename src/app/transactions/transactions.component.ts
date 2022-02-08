@@ -20,23 +20,7 @@ export class TransactionsComponent implements OnInit {
       this.load = true;
       console.log(this.userData.transactions.Transactions)
       this.userData.transactions.Transactions.sort( (a:Transaction, b:Transaction) => a.id - b.id);
-      let stop = 20;
-      let inner = [];
-      for(let i = this.userData?.transactions?.Transactions.length - 1; i > 0; i--){
-        if(stop === 0){
-          stop = 20;
-          this.paginationArr.push(inner);
-          inner = [];
-        }
-        inner.push(this.userData.transactions.Transactions[i]);
-        stop--;
-        if(i === 1){
-          this.paginationArr.push(inner);
-          inner = [];
-        }
-      }
-      console.log(this.paginationArr, "pagination");
-      console.log(this.userData.transactions.Transactions)
+      this.paginate(this.userData?.transactions?.Transactions);
     }, 1000)
   }
 
@@ -68,5 +52,43 @@ export class TransactionsComponent implements OnInit {
     var e: HTMLElement = <HTMLElement>document.getElementsByClassName('transaction-main')[0];
     e.className += ' hide';
     setTimeout(() => this.router.navigateByUrl(this.returnTo), 500);
+  }
+
+  filter(str:string){
+    console.log((this.userData.transactions.Transactions.filter((a:any) => a.type.includes("sell"))));
+    switch(str){
+      case 'All': 
+        this.paginate(this.userData.transactions.Transactions);
+        break;
+      default: 
+        this.paginate(this.userData.transactions.Transactions.filter((a:any) => a.type.includes(str)))
+        break;
+    }
+  }
+
+  paginate(data: any) {
+    this.paginationArr = [];
+    this.currentPage = 0;
+    console.log(data)
+    let stop = 20;
+    let inner = [];
+    let counter = 0;
+    for(let i = data.length - 1; i > -1; i--){
+      console.log("HIT-----")
+      if(stop === 0){
+        stop = 20;
+        this.paginationArr.push(inner);
+        inner = [];
+      }
+      inner.push(data[i]);
+      stop--;
+      counter++;
+      if(i === 0){
+        this.paginationArr.push(inner);
+        inner = [];
+      }
+    }
+    console.log(counter, this.userData.transactions.Transactions.length, "pagination");
+    return null;
   }
 }

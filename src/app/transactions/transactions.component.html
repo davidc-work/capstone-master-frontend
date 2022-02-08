@@ -1,18 +1,24 @@
 <app-loading *ngIf="load === false"></app-loading>
-<div class="transaction-main" *ngIf="load">
+<div id="main" class="transaction-main" *ngIf="load">
     <div class="container">
         <button class="button-boxy-1 grey" (click)="back()">Back</button>
         <h2 class="header" style="text-align: center;">My Transactions</h2>
-        <div class="paginationControl">
+        <div *ngIf="paginationArr.length >= 1" class="paginationControl">
             <div class="row">
                 <button *ngIf="currentPage > 1" class="button" (click)="selectPage(0)"><i class="fas fa-backward"></i></button>
-                <button *ngIf="currentPage === (paginationArr.length-2)" class="button" (click)="selectPage(currentPage - 2)">{{ currentPage - 1}}</button>
-                <button *ngIf="currentPage !== 0" class="button" (click)="selectPage(currentPage - 1)">{{ currentPage}}</button>
-                <button class="button" (click)="selectPage(currentPage)">{{ currentPage + 1}}</button>
+                <button *ngIf="currentPage+1 === (paginationArr.length-1)" class="button" (click)="selectPage(currentPage - 2)">{{ currentPage - 1}}</button>
+                <button *ngIf="currentPage !== 0" class="button" (click)="selectPage(currentPage - 1)">{{currentPage}}</button>
+                <button style="background-color: rgb(161, 2, 2)" class="button" (click)="selectPage(currentPage)">{{ currentPage + 1}}</button>
                 <button *ngIf="(paginationArr.length-1) >= currentPage + 2" class="button" (click)="selectPage(currentPage + 1)">{{ currentPage + 2}}</button>
                 <button *ngIf="(paginationArr.length-1) >= currentPage + 3" class="button" (click)="selectPage(currentPage + 2)">{{ currentPage + 3}}</button>
                 <button *ngIf="currentPage < paginationArr.length-2" class="button" (click)="selectPage(paginationArr.length - 2)"><i class="fas fa-forward"></i></button>
             </div>
+        </div>
+        <div id="filterControl" class="row">
+            <button class="filterBtn" (click)="filter('All')">All</button>
+            <button class="filterBtn" (click)="filter('deposit')">Deposits</button>
+            <button class="filterBtn" (click)="filter('purchase')">Purchases</button>
+            <button class="filterBtn" (click)="filter('sell')">Sales</button>
         </div>
         <div>
             <div class="row" *ngFor="let transaction of paginationArr[currentPage]">
@@ -31,7 +37,7 @@
                 <div class="col" *ngIf="transaction.type === 'sell'">
                     <h6>{{ transaction.id }}</h6>
                     <h5>Transaction Date: <br><br> {{ dateFix(transaction.createdAt) }}</h5>
-                    <p><strong>Type: </strong>{{ transaction.type }}</p>
+                    <p><strong>Type: </strong>Sale</p>
                     <p><strong>Fund: </strong>{{ transaction.itemDescription }}</p>
                     <p><strong>Quantity: </strong>{{ transaction.quantity }}</p>
                     <p><strong>Price Per: </strong>$ {{ addCommas(transaction.pricePerUnit) }}</p>
@@ -47,6 +53,10 @@
                     <br>
                     <hr>
                 </div>
+            </div>
+            <div style="width: 100%; display: block;">
+                <a href="/transactions#main" *ngIf="(currentPage !== 0) && paginationArr.length > 1" class="bottomBtn" style="float: left;" (click)="selectPage(currentPage-1)"><i class="fas fa-backward"></i></a>
+                <a href="/transactions#main" *ngIf="((currentPage+1) <= (paginationArr.length-1)) && paginationArr.length > 1" class="bottomBtn" style="float: right;" (click)="selectPage(currentPage+1)"><i class="fas fa-forward"></i></a>
             </div>
         </div>
     </div>

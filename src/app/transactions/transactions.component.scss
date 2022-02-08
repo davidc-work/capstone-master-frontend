@@ -43,6 +43,16 @@
     background: #fd2020;
 }
 
+.bottomBtn {
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    background: #fd2020;
+}
+
 .paginationControl input {
     line-height: 2;
     background: none;
@@ -53,8 +63,25 @@
 .paginationControl{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     box-sizing: border-box;
+}
+
+#filterControl {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.filterBtn {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    margin-right: 3px;
+    border: none;
+}
+
+.filterBtn:hover {
+    background-color: #bf0000;
 }
 
 .header {
