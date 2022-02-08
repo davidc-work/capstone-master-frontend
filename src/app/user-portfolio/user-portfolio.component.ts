@@ -78,6 +78,10 @@ export class UserPortfolioComponent implements OnInit {
     }
   }
 
+addComma(x:any) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
 
   closeAll() {
     this.filterName = false;

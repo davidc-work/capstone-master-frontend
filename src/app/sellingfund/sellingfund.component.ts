@@ -61,6 +61,10 @@ export class SellingfundComponent implements OnInit {
     }
   }
 
+  addComma(x:any) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
   getTransactions() {
     let transactions = this.userData.transactions.Transactions.filter((transaction:any) => (transaction.itemDescription === this.portfolioSell.fundData.name) && (transaction.type === "purchase") && (transaction.quantityAvailable > 0));
     console.log(transactions);
