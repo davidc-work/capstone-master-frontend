@@ -44,6 +44,8 @@ export class FundsComponent implements OnInit {
         return f;
       });
 
+      console.log(Array.from(new Set(this.funds.map(f => f.assetClass))));
+
       this.loaded = true;
     });
   }
@@ -68,7 +70,7 @@ export class FundsComponent implements OnInit {
     } else {
       (rowElement.children[1] as HTMLElement).style.display = 'block';
       requestAnimationFrame(() => rowElement.className = 'mutual-funds-row active');
-    }  
+    }
   }
 
   toggleModal(e: any){

@@ -1,0 +1,66 @@
+.portfolio-assessment-main {
+    animation: 1s in-from-left;
+}
+
+.portfolio-assessment-chart {
+    width: 600px !important;
+    height: 600px !important;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 15px;
+    border: 1px solid rgb(233, 233, 233);
+    box-shadow: 0 0 5px lightgrey;
+    border-radius: 10px;
+}
+
+#img-banner {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    animation: 2s fade-in;
+}
+
+#img-banner > img {
+    width: 2650px;
+    transform: translate(-546px, -300px);
+    filter: brightness(0.8);
+}
+
+.banner-content {
+    position: absolute;
+    left: 50px;
+    top: 170px;
+    color: white;
+    width: 800px;
+    z-index: 3;
+}
+
+.banner-content > .banner-header {
+    font-size: 56px;
+    font-family: ff-mark;
+    font-weight: normal !important;
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+.banner-content > * {
+    text-shadow: 0 0 10px rgb(75, 75, 75);
+}
+
+.about-container {
+    padding-left: 50px;
+    width: 600px;
+}
+
+.header-1 {
+    font-size: 48px;
+    font-family: ff-mark;
+    margin-bottom: 10px;
+}
+
+.header-2 {
+    font-size: 26px;
+    font-family: ff-mark;
+    margin-bottom: 10px;
+}

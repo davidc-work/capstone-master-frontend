@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Output, ViewChild, EventEmitter } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   keysPressed: string[] = [];
   dropdown: boolean = false;
   userData: any;
+  @Output() userDataLoaded: EventEmitter<any> = new EventEmitter();
 
   toolsActive: boolean = false;
 
@@ -109,6 +110,8 @@ export class AppComponent implements OnInit {
           this.userData = d0;
           e.userData = d0;
           if (e.hasOwnProperty('userPortfolio')) e.userPortfolio = d0.ClientPortfolios;
+
+          if (e.onUserDataLoaded) e.onUserDataLoaded();
         });
       } else {
         this.userData = undefined;
