@@ -28,7 +28,7 @@ export class TransactionSingleComponent implements OnInit {
           this.portfolioService.getAllTransactionByFund(+params["fundId"], params["userId"], {username: this.userData.username, sessionID: sessionID}).subscribe((response: any) => {
             console.log(response);
             this.fundName = response[0].itemDescription;
-            this.transactions = response;
+            this.transactions = response.sort((a:any, b:any) => a.id - b.id).reverse();
             this.load = true;
           })
         }, 1000)
