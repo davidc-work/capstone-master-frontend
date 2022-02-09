@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody *ngFor="let transaction of transactions">
-                <tr>
+                <tr class="tableRow">
                     <td>{{ dateFix(transaction.createdAt) }}</td>
                     <td>{{ transaction.type }}</td>
                     <td>{{ transaction.itemDescription }}</td>
