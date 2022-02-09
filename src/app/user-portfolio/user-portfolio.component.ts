@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CustomerService } from '../customer.service';
 import { ProfileService } from '../profile.service';
@@ -81,16 +81,20 @@ export class UserPortfolioComponent implements OnInit {
     }
   }
 
+  updateTotal(data: any) {
+    console.log('LOGGING DATA');
+    console.log(data);
+  }
+
   onUserDataLoaded() {
     this.totalAssetValue = '$' + this.userData.ClientPortfolios.map((p: any) => 
-      p.quantity * (+p.fundData.price.slice(1))).reduce((a: any, b: any) => a + b, 0)
-      .toFixed(2);
+    p.quantity * (+p.fundData.price.slice(1))).reduce((a: any, b: any) => a + b, 0)
+    .toFixed(2);
   }
 
   addComma(x:any) {
       return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   }
-
 
   closeAll() {
     this.filterName = false;

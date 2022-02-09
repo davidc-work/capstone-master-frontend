@@ -1,5 +1,5 @@
 <div class="main-container">
-  <h2 style="text-align: center;">Sell Fund</h2>
+  <h2 class="selling-fund-title" style="text-align: center;">Sell Fund</h2>
   <div class="main-info">
     <div style="width: 40%;">
       <div class="desc">Ticker: </div>
@@ -14,51 +14,52 @@
       <div class="data">${{addComma((portfolioSell.fundData.price.substring(1)*quantitySell).toFixed(2))}}</div>
       <input class="input-field" [(ngModel)]="quantitySell" type="number" id="quantity" name="quantity" min="0" max="{{portfolioSell.quantity}}">
       <div class="button-container">
-        <button class="sell-button" (click)="readySell()">SELL</button>
+        <button class="sell-button" (click)="readySell()">Sell</button>
         <button (click)="back($event)" class="cancel-button">Cancel</button>
     </div>
     </div>
   </div>
+  <div class="divider"></div>
   <div class="table" style="display: flex; flex-direction: column;">
-    <h4>Fund Details</h4>
+    <h4 style="margin-top: 0">Fund Details</h4>
     <div class="table-header">
       <div *ngFor="let header of headers"> 
-        {{header}}
+        <span>{{header}}</span>
       </div>
     </div>
     <div class="table-content">
       <div> 
-        {{portfolioSell.fundData.name}}
+        <p>{{portfolioSell.fundData.name}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.ticker}}
+        <p>{{portfolioSell.fundData.ticker}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.assetClass}}
+        <p>{{portfolioSell.fundData.assetClass}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.expenseRatio}}
+        <p>{{portfolioSell.fundData.expenseRatio}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.ytd}}
+        <p>{{portfolioSell.fundData.ytd}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.priceChange}}
+        <p>{{portfolioSell.fundData.priceChange}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.sinceInception}}
+        <p>{{portfolioSell.fundData.sinceInception}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.oneyr}}
+        <p>{{portfolioSell.fundData.oneyr}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.fiveyr}}
+        <p>{{portfolioSell.fundData.fiveyr}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.tenyr}}
+        <p>{{portfolioSell.fundData.tenyr}}</p>
       </div>
       <div> 
-        {{portfolioSell.fundData.price}}
+        <p>{{portfolioSell.fundData.price}}</p>
       </div>
     </div>
   </div>

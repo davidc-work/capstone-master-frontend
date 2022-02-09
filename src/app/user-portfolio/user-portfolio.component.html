@@ -44,7 +44,7 @@
   </div>
   <div class="profile-container">
 
-    <app-sellingfund (cancel)="toSell($event)" [userData]="userData" [notificationComponent]="notificationComponent" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
+    <app-sellingfund (cancel)="toSell($event)" (updateTotal)="updateTotal($event)" [userData]="userData" [notificationComponent]="notificationComponent" [portfolioSell]="portfolioSell" *ngIf="sell"></app-sellingfund>
 
   
     <table *ngIf="!sell">

@@ -3,6 +3,7 @@ import { Transaction } from '../transaction/transaction.model';
 import { TransactionService } from '../transaction-service/transaction.service';
 import { PortfolioService } from '../portfolio.service';
 import { NotificationComponent } from '../notification/notification.component';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-sellingfund',
@@ -13,6 +14,8 @@ import { NotificationComponent } from '../notification/notification.component';
   
 export class SellingfundComponent implements OnInit {
   @Output() cancel = new EventEmitter<any>();
+  @Output() updateTotal = new EventEmitter<any>();
+
   constructor(private transactionService: TransactionService) { }
   @Input() portfolioSell: any;
   @Input() userData: any;
@@ -25,6 +28,7 @@ export class SellingfundComponent implements OnInit {
   transactionIds: number[] = [];
   fundKey: any;
   customer_id: any;
+
   ngOnInit(): void {
     console.log("Portfolio sell", this.portfolioSell)
     console.log("User data", this.userData)
@@ -52,9 +56,14 @@ export class SellingfundComponent implements OnInit {
       username: localStorage.getItem("username"),
       quantityArr: this.quantityArr
     }
-    this.transactionService.createSell(request).subscribe((data)=> console.log(data))
-    console.log(`Hit sell route with request: `, request)
+    this.transactionService.createSell(request).subscribe((data)=> {
+      console.log(data);
+      this.updateTotal.emit('data');
 
+      /*this.total = '$' + (+this.total.slice(1) - data[0].transaction.amount);
+      console.log(this.total);*/
+    });
+    console.log(`Hit sell route with request: `, request)
 
       this.notificationComponent.notify(`${this.quantitySell} stocks of ${this.portfolioSell.fundData.name} worth ${this.amountSell} is fund successfully sold!`, 'success');
 
